@@ -2,11 +2,11 @@ return {
     -- base0A = "e5c07b", -- #e5c07b
     base0A = "93bfce", -- #93bfce
     -- base04 = "565c64", -- #565c64
-    base04 = "2e3440", -- #2e3440
+    base04 = "565c64", -- #565c64
     -- base07 = "c8ccd4", -- #c8ccd4
     base07 = "c8ccd4", -- #c8ccd4
     -- base05 = "abb2bf", -- #abb2bf
-    base05 = "abb2bf", -- #abb2bf
+    base05 = "87a1be", -- #87a1be
     -- base0E = "a67aeb", -- #a67aeb 
     base0E = "87a1be", -- #87a1be 
     -- base0D = "61afef", -- #61afef
