@@ -8,9 +8,9 @@ return {
     -- base05 = "abb2bf", -- #abb2bf
     base05 = "88c0d0", -- #88c0d0
     -- base0E = "a67aeb", -- #a67aeb 
-    base0E = "87a1be", -- #87a1be 
+    base0E = "81a1c1", -- #81a1c1
     -- base0D = "61afef", -- #61afef
-    base0D = "81a1c1", -- #81a1c1
+    base0D = "87a1be", -- #87a1be 
     -- base0C = "56b6c2", -- #56b6c2
     base0C = "56b6c2", -- #56b6c2
     -- base0B = "a3be8c", -- #7ec7a2 #a3be8c
