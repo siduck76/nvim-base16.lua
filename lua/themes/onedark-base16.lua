@@ -29,7 +29,7 @@ return {
     -- base00 = "1e222a", -- #1e222a
     base00 = "1e222a", -- #1e222a
     -- base09 = "d19a66", -- #d19a66
-    base09 = "a67aeb", -- #a67aeb
+    base09 = "ae90d6", -- #ae90d6
     -- base06 = "b6bdca" -- #b6bdca
     base06 = "b6bdca" -- #b6bdca
 }
