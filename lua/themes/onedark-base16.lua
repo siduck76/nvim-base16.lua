@@ -25,9 +25,9 @@ return {
     base0C = "56b6c2", -- #56b6c2
     base0B = "98c379", -- #98c379
     base02 = "3e4451", -- #3e4451
-    base0F = "ffffff", -- #ffffff
+    base0F = "eceff4", -- #eceff4
     base03 = "545862", -- #545862
-    base08 = "eceff4", -- #eceff4
+    base08 = "88c0d0", -- #88c0d0
     base01 = "353b45", -- #353b45
     base00 = "1e222a", -- #1e222a
     base09 = "d19a66", -- #d19a66
