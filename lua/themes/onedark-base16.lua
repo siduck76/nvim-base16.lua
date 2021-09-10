@@ -7,12 +7,12 @@ return {
     base07 = "c8ccd4", -- #c8ccd4
     -- base05 = "abb2bf", -- #abb2bf
     base05 = "88c0d0", -- #88c0d0
-    -- base0E = "a67aeb", -- #a67aeb 
-    base0E = "81a1c1", -- #81a1c1
+    -- base0E = "a67aeb", -- #a67aeb
+    base0E = "b48ead", -- #56b6c2 #b48ead
     -- base0D = "61afef", -- #61afef
     base0D = "87a1be", -- #87a1be 
     -- base0C = "56b6c2", -- #56b6c2
-    base0C = "56b6c2", -- #56b6c2
+    base0C = "81a1c1", -- #81a1c1
     -- base0B = "a3be8c", -- #7ec7a2 #a3be8c
     base0B = "a3be8c", -- #7ec7a2 #a3be8c
     -- base02 = "3e4451", -- #3e4451
