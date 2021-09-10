@@ -16,7 +16,6 @@ return {
     -- base00 = "1e222a", -- #1e222a
     -- base09 = "ae90d6", -- #ae90d6
     -- base06 = "b6bdca" -- #b6bdca
-    --
     base0A = "e5c07b", -- #e5c07b
     base04 = "565c64", -- #565c64
     base07 = "c8ccd4", -- #c8ccd4
@@ -26,9 +25,9 @@ return {
     base0C = "56b6c2", -- #56b6c2
     base0B = "98c379", -- #98c379
     base02 = "3e4451", -- #3e4451
-    base0F = "be5046", -- #ffffff
+    base0F = "ffffff", -- #ffffff
     base03 = "545862", -- #545862
-    base08 = "e06c75", -- #eceff4
+    base08 = "eceff4", -- #eceff4
     base01 = "353b45", -- #353b45
     base00 = "1e222a", -- #1e222a
     base09 = "d19a66", -- #d19a66
