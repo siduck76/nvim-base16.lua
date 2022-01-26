@@ -5,7 +5,7 @@
 local colors = {
     white = "#C5C8C9",
     darker_black = "#101415",
-    black = "#131a1c", -- nvim bg
+    black = "#131718", -- nvim bg
     black2 = "#151a1c",
     one_bg = "#1d2426",
     one_bg2 = "#262d2f",
@@ -19,7 +19,7 @@ local colors = {
     pink = "#ca9ef4",
     line = "#22292b", -- for lines like vertsplit
     green = "#8dc776",
-    vibrant_green = "#a5d4af",
+    vibrant_green = "#b0ea99",
     nord_blue = "#bac8ef",
     blue = "#84a0c6",
     yellow = "#e7ac7e",
@@ -29,10 +29,10 @@ local colors = {
     teal = "#667b99",
     orange = "#eaa36c",
     cyan = "#89b8c2",
-    statusline_bg = "#171e20",
-    lightbg = "#242b2d",
-    lightbg2 = "#1e2527",
-    pmenu_bg = "#8dc776",
+    statusline_bg = "#131718",
+    lightbg = "#222930",
+    lightbg2 = "#1d242b",
+    pmenu_bg = "#ff7e7e",
     folder_bg = "#84a0c6",
 }
 
