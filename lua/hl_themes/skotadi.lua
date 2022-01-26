@@ -4,9 +4,9 @@
 
 local colors = {
     white = "#C5C8C9",
-    darker_black = "#151a1c",
-    black = "#101415", -- nvim bg
-    black2 = "#131718",
+    darker_black = "#0E1112",
+    black = "#131718", -- nvim bg
+    black2 = "#151b1c",
     one_bg = "#1d2426",
     one_bg2 = "#262d2f",
     one_bg3 = "#2e3537",
@@ -29,7 +29,7 @@ local colors = {
     teal = "#667b99",
     orange = "#eaa36c",
     cyan = "#89b8c2",
-    statusline_bg = "#131718",
+    statusline_bg = "#171e20",
     lightbg = "#222930",
     lightbg2 = "#1d242b",
     pmenu_bg = "#ff7e7e",
