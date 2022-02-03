@@ -211,13 +211,28 @@ end
 
 return setmetatable({
    themes = function(name)
-      name = "themes/" .. name .. "-base16"
-      local present, theme_array = pcall(require, name)
-      if present then
-         return theme_array
-      else
+      local path = "lua/themes/" .. name .. "-base16.lua"
+      local files = vim.api.nvim_get_runtime_file(path, true)
+      local theme_array
+      if #files == 0 then
          error("No such base16 theme: " .. name)
+      elseif #files == 1 then
+         theme_array = dofile(files[1])
+      else
+         local nvim_base_pattern = "nvim%-base16%.lua/lua/themes"
+         local valid_file = false
+         for _, file in ipairs(files) do
+            if not file:find(nvim_base_pattern) then
+               theme_array = dofile(file)
+               valid_file = true
+            end
+         end
+         if not valid_file then
+            -- multiple files but in startup repo shouldn't happen so just use first one
+            theme_array = dofile(files[1])
+         end
       end
+      return theme_array
    end,
    apply_theme = apply_base16_theme,
    theme_from_array = function(array)
