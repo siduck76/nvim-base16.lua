@@ -1,5 +1,5 @@
 local colors = {
-   white = "#c0caf5",
+   white = "#FFFFFF",
    darker_black = "#181818",
    black = "#1E1E1E", --  nvim bg
    black2 = "#242424",
@@ -23,7 +23,7 @@ local colors = {
    purple = "#646695",
    dark_purple = "#555786",
    teal = "#4EC9B0",
-   orange = "#CE9178",
+   orange = "#f28b25",
    cyan = "#9CDCFE",
    statusline_bg = "#222222",
    lightbg = "#2f2f2f",
