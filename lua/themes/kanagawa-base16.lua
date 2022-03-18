@@ -8,7 +8,7 @@ return {
   base05 = "DCD7BA",
   base06 = "938AA9",
   base07 = "363646",
-  base08 = "C34043",
+  base08 = "E46876",
   base09 = "FFA066",
   base0A = "DCA561",
   base0B = "98BB6C",
