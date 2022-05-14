@@ -55,10 +55,6 @@ return {
       fg = theme.base08,
    },
 
-   MatchParen = {
-      bg = theme.base03,
-   },
-
    ModeMsg = {
       fg = theme.base0B,
    },
