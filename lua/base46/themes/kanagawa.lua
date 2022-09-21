@@ -20,7 +20,7 @@ M.base_30 = {
   vibrant_green = "#a3c677",
   nord_blue = "#7E9CD8",
   blue = "#7FB4CA",
-  yellow = "#FF9E3B",
+  yellow = "#E6C384",
   sun = "#FFA066",
   purple = "#a48ec7",
   dark_purple = "#9c86bf",
@@ -54,9 +54,21 @@ M.base_16 = {
 
 M.polish_hl = {
   TSURI = { fg = M.base_30.blue },
-  TSTagDelimiter = { fg = M.base_30.red },
+  TSTagDelimiter = { fg = M.base_16.base0E },
   Number = {
     fg = M.base_30.baby_pink,
+  },
+  Variable = {
+    fg = M.base_16.base07,
+  },
+  TSVariable = {
+    fg = M.base_30.base07,
+  },
+  TSProperty = {
+    fg = M.base_30.yellow,
+  },
+  TSParameter = {
+    fg = M.base_30.yellow,
   },
 }
 
