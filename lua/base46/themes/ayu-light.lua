@@ -53,11 +53,11 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSTagDelimiter = { fg = M.base_30.cyan },
   luaTSField = { fg = M.base_16.base0E },
-  TSParameter = { fg = M.base_16.base0F },
-  TSConstructor = { fg = M.base_16.base09 },
-  TSTagAttribute = { fg = M.base_30.base0F },
+  ["@tag.delimiter"] = { fg = M.base_30.base0D },
+  ["@parameter"] = { fg = M.base_16.base09 },
+  ["@constructor"] = { fg = M.base_16.base0C },
+  ["@tag.attribute"] = { fg = M.base_30.base0F },
 }
 
 M = require("base46").override_theme(M, "ayu-light")
