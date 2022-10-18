@@ -53,8 +53,8 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSPunctBracket = { fg = M.base_30.white },
-  TSPunctDelimiter = { fg = M.base_30.white },
+  ["@punctuation.bracket"] = { fg = M.base_30.white },
+  ["@punctuation.delimiter"] = { fg = M.base_30.white },
 }
 vim.opt.bg = "dark"
 

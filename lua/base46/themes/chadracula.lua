@@ -53,8 +53,8 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSFuncBuiltin = { fg = M.base_30.cyan },
-  TSNumber = { fg = M.base_30.purple },
+  ["@function.builtin"] = { fg = M.base_30.cyan },
+  ["@number"] = { fg = M.base_30.purple },
 }
 
 vim.opt.bg = "dark"

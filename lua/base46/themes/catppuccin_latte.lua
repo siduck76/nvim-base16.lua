@@ -63,8 +63,8 @@ M.polish_hl = {
   WhichKeyDesc = { fg = M.base_30.white },
   Pmenu = { bg = M.base_30.black2 },
   St_pos_text = { fg = M.base_30.white },
-  TSVariableBuiltin = { fg = M.base_30.red },
-  TSProperty = { fg = M.base_30.teal },
+  ["@variable.builtin"] = { fg = M.base_30.red },
+  ["@property"] = { fg = M.base_30.teal },
 }
 
 M = require("base46").override_theme(M, "catppuccin_latte")

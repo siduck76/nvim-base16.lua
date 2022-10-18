@@ -53,9 +53,9 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSVariable = { fg = M.base_30.red },
-  TSFuncBuiltin = { fg = M.base_30.cyan },
-  TSParameter = { fg = M.base_30.white },
+  ["@variable"] = { fg = M.base_30.red },
+  ["@function.builtin"] = { fg = M.base_30.cyan },
+  ["@parameter"] = { fg = M.base_30.white },
 }
 
 vim.opt.bg = "dark"

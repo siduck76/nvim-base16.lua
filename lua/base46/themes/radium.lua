@@ -53,8 +53,8 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSPunctBracket = { fg = M.base_16.base07 },
-  TSParenthesis = { link = "TSPunctBracket" },
+  ["@punctuation.bracket"] = { fg = M.base_16.base07 },
+  ["@parenthesis"] = { link = "@punctuation.bracket" },
 }
 
 vim.opt.bg = "dark"

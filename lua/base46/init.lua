@@ -22,29 +22,11 @@ M.merge_tb = function(table1, table2)
   return vim.tbl_deep_extend("force", table1, table2)
 end
 
---  credits to https://github.com/max397574 for this function
-M.clear_highlights = function(hl_group)
-  local highlights_raw = vim.split(vim.api.nvim_exec("filter " .. hl_group .. " hi", true), "\n")
-  local highlight_groups = {}
-
-  for _, raw_hi in ipairs(highlights_raw) do
-    table.insert(highlight_groups, string.match(raw_hi, hl_group .. "%a+"))
-  end
-
-  for _, highlight in ipairs(highlight_groups) do
-    vim.cmd([[hi clear ]] .. highlight)
-  end
-end
-
 M.load_all_highlights = function()
   vim.opt.bg = require("base46").get_theme_tb "type" -- dark/light
 
   -- reload highlights for theme switcher
   local reload = require("plenary.reload").reload_module
-  local clear_hl = require("base46").clear_highlights
-
-  clear_hl "BufferLine"
-  clear_hl "TS"
 
   reload "base46.integrations"
   reload "base46.chadlights"

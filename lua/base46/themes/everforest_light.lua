@@ -54,10 +54,6 @@ M.base_16 = {
 
 M.polish_hl = {
   DiffAdd = { fg = M.base_30.green },
-  TSTag = { fg = M.base_30.orange },
-  TSField = { fg = M.base_16.base05 },
-  TSInclude = { fg = M.base_16.base08 },
-  TSConstructor = { fg = M.base_30.blue },
   WhichKeyDesc = { fg = M.base_30.white },
   WhichKey = { fg = M.base_30.white },
   NvimTreeFolderName = { fg = "#4e565c" },
@@ -65,6 +61,10 @@ M.polish_hl = {
   Pmenu = { bg = M.base_30.black2 },
   IndentBlanklineContextStart = { bg = M.base_30.black2 },
   St_pos_text = { fg = M.base_30.white },
+  ["@tag"] = { fg = M.base_30.orange },
+  ["@field"] = { fg = M.base_16.base05 },
+  ["@include"] = { fg = M.base_16.base08 },
+  ["@constructor"] = { fg = M.base_30.blue },
 }
 
 vim.opt.bg = "light"

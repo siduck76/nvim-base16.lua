@@ -62,8 +62,8 @@ M.polish_hl = {
   Type = { fg = M.base_30.white2 },
   Include = { fg = M.base_30.tan },
   Keyword = { fg = M.base_16.base0D },
-  TSKeyword = { fg = M.base_16.base0D },
   Operator = { fg = M.base_30.red },
+  ["@keyword"] = { fg = M.base_16.base0D },
 }
 
 vim.opt.bg = "dark"
