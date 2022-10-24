@@ -1,2 +1,3 @@
+;; extends
 (field
-  name: (identifier) @TSFieldKey)
+  name: (identifier) @field.key)

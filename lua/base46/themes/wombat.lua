@@ -53,10 +53,10 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSInclude = { fg = M.base_30.red },
-  TSConstructor = { fg = M.base_30.orange },
-  TSVariable = { link = "TSConstructor" },
-  TSConditional = { link = "TSInclude" },
+  ["@include"] = { fg = M.base_30.red },
+  ["@constructor"] = { fg = M.base_30.orange },
+  ["@variable"] = { link = "@constructor" },
+  ["@conditional"] = { link = "@include" },
 }
 
 vim.opt.bg = "dark"

@@ -53,7 +53,7 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  TSFieldKey = { fg = M.base_30.blue },
+  ["@field"] = { fg = M.base_30.blue },
 }
 
 vim.opt.bg = "dark"

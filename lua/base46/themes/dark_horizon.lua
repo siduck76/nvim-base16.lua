@@ -54,15 +54,15 @@ M.base_16 = {
 
 M.polish_hl = {
   Include = { fg = M.base_16.base0E, bold = true },
-  TSVariable = { fg = M.base_16.base08 },
-  TSProperty = { fg = M.base_16.base0E },
-  Repeat = { fg = M.base_16.base0E },
-  TSTagDelimiter = { fg = M.base_16.base05 },
-  TSFunction = { fg = M.base_30.orange },
   luaTSField = { fg = M.base_16.base0E },
-  TSParameter = { fg = M.base_16.base0F },
-  TSConstructor = { fg = M.base_16.base0A },
-  TSTagAttribute = { fg = M.base_16.orange },
+  Repeat = { fg = M.base_16.base0E },
+  ["@variable"] = { fg = M.base_16.base08 },
+  ["@property"] = { fg = M.base_16.base0E },
+  ["@tag.delimiter"] = { fg = M.base_16.base05 },
+  ["@function"] = { fg = M.base_30.orange },
+  ["@parameter"] = { fg = M.base_16.base0F },
+  ["@constructor"] = { fg = M.base_16.base0A },
+  ["@tag.attribute"] = { fg = M.base_16.orange },
 }
 
 vim.opt.bg = "dark"
