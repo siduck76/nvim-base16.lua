@@ -1,59 +1,87 @@
+-- credits to original theme for existing https://github.com/BeardedBear/bearded-theme ( arc version )
+-- This is just a modified version of it
+
 local M = {}
 
 M.base_30 = {
   white = "#ABB7C1",
-  darker_black = "#0e1518",
-  black = "#141b1e", -- nvim bg
-  black2 = "#1a2124",
-  one_bg = "#22292b",
-  one_bg2 = "#293032",
-  one_bg3 = "#32393b",
-  grey = "#576375",
-  grey_fg = "#5c687a",
-  grey_fg2 = "#616d7f",
-  light_grey = "#575e60",
-  red = "#e57373",
-  baby_pink = "#f17f7f",
+  darker_black = "#151d2c",
+  black = "#1c2433", -- nvim bg
+  black2 = "#232b3a",
+  one_bg = "#262e3d",
+  one_bg2 = "#303847",
+  one_bg3 = "#3a4251",
+  grey = "#444c5b",
+  grey_fg = "#4e5665",
+  grey_fg2 = "#58606f",
+  light_grey = "#626a79",
+  red = "#FF738A",
+  baby_pink = "#F38CEC",
   pink = "#ee9cdd",
-  line = "#22292b", -- for lines like vertsplit
+  line = "#303847", -- for lines like vertsplit
   green = "#3CEC85",
   vibrant_green = "#9bdead",
   nord_blue = "#6da4cd",
   blue = "#69C3FF",
   yellow = "#EACD61",
   sun = "#f6d96d",
-  purple = "#F38CEC",
+  purple = "#B788E5",
   dark_purple = "#B78AFF",
-  teal = "#8ad8ef",
+  teal = "#12c7c4",
   orange = "#FF955C",
   cyan = "#22ECDB",
-  statusline_bg = "#1c2325",
-  lightbg = "#2a3133",
-  lightbg2 = "#232a2c",
-  pmenu_bg = "#8ccf7e",
-  folder_bg = "#6da4cd",
+  statusline_bg = "#232b3a",
+  lightbg = "#303847",
+  pmenu_bg = "#3CEC85",
+  folder_bg = "#69C3FF",
 }
 
 M.base_16 = {
   base00 = "#1c2433",
-  base01 = "#232a2d",
-  base02 = "#363d3f",
-  base03 = "#576375",
-  base04 = "#8196b5",
-  base05 = "#576375",
+  base01 = "#262e3d",
+  base02 = "#303847",
+  base03 = "#444c5b",
+  base04 = "#a1adb7",
+  base05 = "#c3cfd9",
   base06 = "#ABB7C1",
-  base07 = "#c3cfd9",
+  base07 = "#08bdba",
   base08 = "#FF738A",
   base09 = "#FF955C",
   base0A = "#EACD61",
   base0B = "#3CEC85",
-  base0C = "#69C3FF",
-  base0D = "#77aed7",
-  base0E = "#B78AFF",
-  base0F = "#E35535",
+  base0C = "#77aed7",
+  base0D = "#69C3FF",
+  base0E = "#22ECDB",
+  base0F = "#FF738A",
 }
 
 vim.opt.bg = "dark"
+
+M.polish_hl = {
+  Conditional = {
+    fg = M.base_30.yellow,
+  },
+
+  ["@constructor"] = {
+    fg = M.base_16.blue,
+  },
+
+  ["@punctuation.bracket"] = {
+    fg = M.base_30.dark_purple,
+  },
+
+  ["@keyword.return"] = {
+    fg = M.base_30.yellow,
+  },
+
+  Include = {
+    fg = M.base_30.yellow,
+  },
+
+  ["@parameter"] = {
+    fg = M.base_30.pink,
+  },
+}
 
 M = require("base46").override_theme(M, "bearded-arc")
 
