@@ -1,97 +1,92 @@
+-- credits to original theme for existing https://github.com/nealmckee/penumbra
+-- This is a modified version of it
+
 local M = {}
 
 M.base_30 = {
-  white         = "#FFFDFB",
-  darker_black  = "#0D0F13",
-  black         = "#181B1F",
-  black2        = "#30333F",
-  one_bg        = "#24272B",
-  one_bg2       = "#3E4044",
-  one_bg3       = "#636363",
-  grey          = "#9E9E9E",
-  grey_fg       = "#CECECE",
-  grey_fg2      = "#F2E6D4",
-  light_grey    = "#FFF7ED",
-  red           = "#D07EBA",
-  baby_pink     = "#E18163",
-  pink          = "#DF7F78",
-  green         = "#4EB67F",
+  white = "#FFFDFB",
+  darker_black = "#2b2e33",
+  black = "#303338",
+  black2 = "#3a3d42",
+  one_bg = "#3d4045",
+  one_bg2 = "#484b50",
+  one_bg3 = "#515459",
+  grey = "#5c5f64",
+  grey_fg = "#676a6f",
+  grey_fg2 = "#72757a",
+  light_grey = "#7d8085",
+  red = "#CA7081",
+  baby_pink = "#E18163",
+  pink = "#D07EBA",
+  green = "#4EB67F",
   vibrant_green = "#50B584",
-  nord_blue     = "#61A3E6",
-  blue          = "#8C96EC",
-  yellow        = "#9CA748",
-  sun           = "#B49E33",
-  purple        = "#A48FE1",
-  dark_purple   = "#D080B6",
-  orange        = "#CE9042",
-  teal          = "#00B0D2",
-  cyan          = "#00B3C2",
-  line          = "#3E4044",
-  statusline_bg = "#30333F",
-  lightbg       = "#636363",
-  pmenu_bg      = "#4EB67F",
-  folder_bg     = "#00B3C2",
+  nord_blue = "#6e8dd5",
+  blue = "#8C96EC",
+  yellow = "#c1ad4b",
+  sun = "#9CA748",
+  purple = "#ac78bd",
+  dark_purple = "#8C96EC",
+  orange = "#CE9042",
+  teal = "#00a6c8",
+  cyan = "#00B3C2",
+  line = "#3E4044",
+  statusline_bg = "#34373c",
+  lightbg = "#484b50",
+  pmenu_bg = "#4EB67F",
+  folder_bg = "#8C96EC",
 }
 
 M.base_16 = {
-  base00 = "#181B1F",
-  base01 = "#24272B",
-  base02 = "#3E4044",
-  base03 = "#636363",
-  base04 = "#9E9E9E",
+  base00 = "#303338",
+  base01 = "#3d4045",
+  base02 = "#484b50",
+  base03 = "#515459",
+  base04 = "#5c5f64",
   base05 = "#CECECE",
   base06 = "#F2E6D4",
   base07 = "#FFF7ED",
-  base08 = "#FFFDFB",
+  base08 = "#999999",
   base09 = "#BE85D1",
-  base0A = "#00B1CE",
-  base0B = "#44B689",
+  base0A = "#CA7081",
+  base0B = "#4ec093",
   base0C = "#D68B47",
   base0D = "#7A9BEC",
-  base0E = "#DF7C8E",
+  base0E = "#BE85D1",
   base0F = "#A1A641",
 }
 
-local c = vim.tbl_extend("error", M.base_30, M.base_16)
-
 M.polish_hl = {
-  Normal                     = {fg=c.base05,     bg=c.base01},
-  Comment                    = {fg=c.base03},
-  ["@constant.builtin"]      = {fg=c.base0F},
-  ["@function"]              = {fg=c.base0D},
-  ["@function.builtin"]      = {fg=c.base0D},
-  ["@function.macro"]        = {fg=c.base0D},
-  ["@keyword"]               = {fg=c.base09},
-  ["@keyword.function"]      = {fg=c.base09},
-  ["@keyword.operator"]      = {fg=c.base09},
-  ["@keyword.return"]        = {fg=c.base09},
-  ["@parameter"]             = {fg=c.base0E},
-  ["@punctuation.bracket"]   = {fg=c.base04},
-  ["@punctuation.delimiter"] = {fg=c.base04},
-  ["@punctuation.special"]   = {fg=c.base0F},
-  ["@string.escape"]         = {fg=c.base0A},
-  ["@variable"]              = {fg=c.base0E},
+  ["@field.key"] = {
+    fg = M.base_30.red,
+  },
 
-  Conditional                = {fg=c.base09},
-  Number                     = {fg=c.base0F},
-  Operator                   = {fg=c.base0A},
-  Type                       = {fg=c.base0C},
+  Constant = {
+    fg = M.base_30.red,
+  },
 
-  NormalFloat                = {bg=c.base01},
-  NvimTreeNormal             = {bg=c.base00},
-  NvimTreeNormalNC           = {bg=c.base00},
-  NvimTreeWinSeparator       = {fg=c.base00,     bg=c.base00},
+  ["@punctuation.bracket"] = {
+    fg = M.base_16.base08,
+  },
 
-  CursorLineNr               = {link="Normal"},
-  LineNr                     = {link="Comment"},
+  ["@constructor"] = {
+    fg = M.base_30.orange,
+  },
 
-  TBTabTitle                 = {link="Normal"},
-  TbLineTabCloseBtn          = {link="Normal"},
-  TbLineTabOn                = {link="Normal"},
-  TbLineBufOn                = {link="Normal"},
-  TbLineBufOnClose           = {link="Normal"},
-  TbLineBufOnModified        = {link="Normal"},
-  TbLineCloseAllBufsBtn      = {link="Normal"},
+  ["@parameter"] = {
+    fg = M.base_30.orange,
+  },
+
+  Operator = {
+    fg = M.base_30.cyan,
+  },
+
+  ["@tag.delimiter"] = {
+    fg = M.base_16.base08,
+  },
+
+  ["@tag.attribute"] = {
+    link = "@annotation",
+  },
 }
 
 vim.opt.bg = "dark"
