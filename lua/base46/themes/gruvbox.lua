@@ -55,9 +55,6 @@ M.base_16 = {
   base0F = "#d65d0e",
 }
 
-<<<<<<< HEAD
-M.type = "dark"
-=======
 M.polish_hl = {
   ["@keyword.function"] = {
     fg = M.base_16.base0C,
@@ -75,7 +72,6 @@ M.polish_hl = {
 }
 
 vim.opt.bg = "dark"
->>>>>>> be301b2 (improve gruvbox theme (#110))
 
 M = require("base46").override_theme(M, "gruvbox")
 
