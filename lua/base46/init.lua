@@ -1,6 +1,7 @@
 local M = {}
 local g = vim.g
 local config = require("core.utils").load_config()
+local base46_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h")
 
 M.get_theme_tb = function(type)
   local default_path = "base46.themes." .. g.nvchad_theme
@@ -124,7 +125,7 @@ M.compile = function()
   end
 
   -- All integration modules, each file returns a table
-  local hl_files = vim.g.base46_custom_path or vim.fn.stdpath "data" .. "/lazy/base46/lua/base46/integrations"
+  local hl_files = base46_path .. "/integrations"
 
   for _, file in ipairs(vim.fn.readdir(hl_files)) do
     -- skip caching some files
