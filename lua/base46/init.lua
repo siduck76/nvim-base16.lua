@@ -173,17 +173,19 @@ M.toggle_theme = function()
     return
   end
 
-  M.load_all_highlights()
+  local chadrc_file = vim.fn.stdpath "config" .. "/lua/custom/" .. "chadrc.lua"
 
   if g.nvchad_theme == theme1 then
-    g.toggle_theme_icon = "   "
+    g.toggle_theme_icon = "   "
     vim.g.nvchad_theme = theme2
-    require("nvchad").replace_word(theme1, theme2)
+    require("nvchad").replace_word(chadrc_file, 'theme = "' .. theme1 .. '"', 'theme = "' .. theme2 .. '"')
   else
     vim.g.nvchad_theme = theme1
-    g.toggle_theme_icon = "   "
-    require("nvchad").replace_word(theme2, theme1)
+    g.toggle_theme_icon = "   "
+    require("nvchad").replace_word(chadrc_file, 'theme = "' .. theme2 .. '"', 'theme = "' .. theme1 .. '"')
   end
+
+  M.load_all_highlights()
 end
 
 M.toggle_transparency = function()
