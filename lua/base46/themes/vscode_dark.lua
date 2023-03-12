@@ -1,3 +1,6 @@
+-- Thanks to original theme for existing https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/dark_plus.json
+-- this is a modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -55,13 +58,12 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  luaTSField = { fg = M.base_30.teal },
   ["@parameter"] = { fg = M.base_30.blue },
   ["@keyword"] = { fg = M.base_30.blue },
   ["@variable"] = { fg = M.base_30.cyan },
-  ["@fieldkey"] = { fg = M.base_30.green1 },
-  ["@keywordreturn"] = { fg = M.base_16.base0E },
-  ["@keywordfunction"] = { fg = M.base_30.teal },
+  ["@field.key"] = { fg = M.base_30.green1 },
+  ["@keyword.return"] = { fg = M.base_16.base0E },
+  ["@keyword.function"] = { fg = M.base_30.teal },
 }
 
 M.type = "dark"

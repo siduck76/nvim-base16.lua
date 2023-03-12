@@ -38,22 +38,22 @@ M.base_30 = {
 
 -- Base16 colors taken from:
 M.base_16 = {
-  base00 = "#1B2B34", -- Confirmed
-  base01 = "#343D46", -- Confirmed
-  base02 = "#4F5B66", -- Confirmed
-  base03 = "#65737e", -- Confirmed
-  base04 = "#A7ADBa", -- Confirmed
-  base05 = "#C0C5Ce", -- Confirmed
-  base06 = "#CDD3De", -- Confirmed
-  base07 = "#D8DEE9", -- Confirmed
-  base08 = "#6cbdbc", -- Confirmed
-  base09 = "#FAC863", -- Confirmed
-  base0A = "#F99157", -- Confirmed
-  base0B = "#99C794", -- Confirmed
-  base0C = "#5aaeae", -- Confirmed
-  base0D = "#6699CC", -- Confirmed
-  base0E = "#C594C5", -- Confirmed
-  base0F = "#EC5F67", -- Confirmed
+  base00 = "#1B2B34",
+  base01 = "#343D46",
+  base02 = "#4F5B66",
+  base03 = "#65737e",
+  base04 = "#A7ADBa",
+  base05 = "#C0C5Ce",
+  base06 = "#CDD3De",
+  base07 = "#D8DEE9",
+  base08 = "#6cbdbc",
+  base09 = "#FAC863",
+  base0A = "#F99157",
+  base0B = "#99C794",
+  base0C = "#5aaeae",
+  base0D = "#6699CC",
+  base0E = "#C594C5",
+  base0F = "#EC5F67",
 }
 
 M.polish_hl = {

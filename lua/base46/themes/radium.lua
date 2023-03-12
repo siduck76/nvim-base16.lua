@@ -1,3 +1,6 @@
+-- credits to original radium theme from https://github.com/dharmx
+-- this is a modified version of it
+
 local M = {}
 
 M.base_30 = {

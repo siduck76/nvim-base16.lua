@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/tiagovla/tokyodark.nvim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -8,14 +11,14 @@ M.base_30 = {
   one_bg = "#1d1e29",
   one_bg2 = "#252631",
   one_bg3 = "#252631",
-  grey = "#40414c",
+  grey = "#474853",
   grey_fg = "#474853",
   grey_fg2 = "#4e4f5a",
   light_grey = "#545560",
   red = "#ee6d85",
   baby_pink = "#fd7c94",
   pink = "#fe6D85",
-  line = "#191a25",
+  line = "#252631",
   green = "#98c379",
   vibrant_green = "#95c561",
   nord_blue = "#648ce1",

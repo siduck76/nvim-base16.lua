@@ -64,7 +64,7 @@ local styles = {
   atom_colored = {
     CmpItemMenu = { fg = colors.light_grey, italic = true },
     CmpPmenu = {
-      bg = colors.darker_black,
+      bg = colors.black2,
     },
 
     CmpDoc = { bg = colors.darker_black },
@@ -107,8 +107,7 @@ end
 -- override item_kind highlights for atom_colored style
 if cmp_ui.style == "atom_colored" then
   for key, value in pairs(item_kinds) do
-    item_kinds[key] =
-      { fg = vim.o.bg == "dark" and "#ffffff" or colors.black, bg = generate_color(value.fg, -3), bold = true }
+    item_kinds[key] = { fg = colors.black, bg = generate_color(value.fg, -3), bold = true }
   end
 end
 

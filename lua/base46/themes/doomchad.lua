@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/NTBBloodbath/doom-one.nvim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -19,7 +22,7 @@ M.base_30 = {
   green = "#98be65",
   vibrant_green = "#a9cf76",
   nord_blue = "#47a5e5",
-  blue = "#61afef",
+  blue = "#51afef",
   yellow = "#ECBE7B",
   sun = "#f2c481",
   purple = "#dc8ef3",
@@ -47,13 +50,14 @@ M.base_16 = {
   base0A = "#ECBE7B",
   base0B = "#98be65",
   base0C = "#66c4ff",
-  base0D = "#48a6e6",
-  base0E = "#9c94d4",
+  base0D = "#dc8ef3",
+  base0E = "#48a6e6",
   base0F = "#c85a50",
 }
 
 M.polish_hl = {
   ["@field"] = { fg = M.base_30.blue },
+  ["@punctuation.bracket"] = { fg = M.base_30.yellow },
 }
 
 M.type = "dark"

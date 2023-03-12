@@ -1,3 +1,6 @@
+-- Credits to original theme for existing https://github.com/whizkydee/vscode-palenight-theme
+-- this is a modified version of it
+
 local M = {}
 
 M.base_30 = {

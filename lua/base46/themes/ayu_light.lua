@@ -1,13 +1,13 @@
--- credit to original theme for existing https://github.com/ayu-theme/ayu-vim
+-- credit to original theme for existing https://github.com/ayu-theme/ayu-vim (light)
 -- NOTE : This is a modified version of it
 
 local M = {}
 
 M.base_30 = {
   white = "#26292f",
-  darker_black = "#ededed",
+  darker_black = "#f3f3f3",
   black = "#fafafa", --  nvim bg
-  black2 = "#e3e3e3",
+  black2 = "#efefef",
   one_bg = "#ebebeb",
   one_bg2 = "#e1e1e1", -- Highlight of context
   one_bg3 = "#d7d7d7",
@@ -39,8 +39,8 @@ M.base_30 = {
 M.base_16 = {
   base00 = "#fafafa",
   base01 = "#f0f0f0",
-  base02 = "#e6e6e6",
-  base03 = "#dcdcdc",
+  base02 = "#eeeeee",
+  base03 = "#dfdfdf",
   base04 = "#d2d2d2",
   base05 = "#5C6166",
   base06 = "#52575c",

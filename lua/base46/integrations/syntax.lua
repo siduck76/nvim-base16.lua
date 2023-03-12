@@ -1,6 +1,6 @@
 local theme = require("base46").get_theme_tb "base_16"
 
-return {
+local syntax = {
   Boolean = {
     fg = theme.base09,
   },
@@ -114,3 +114,33 @@ return {
     fg = theme.base0A,
   },
 }
+
+local merge_tb = require("base46").merge_tb
+
+if vim.version().minor == 9 then
+  local semantic_hls = {
+    ["@lsp.type.class"] = { fg = theme.base0E },
+    ["@lsp.type.decorator"] = { fg = theme.base08 },
+    ["@lsp.type.enum"] = { fg = theme.base0A },
+    ["@lsp.type.enumMember"] = { fg = theme.base08 },
+    ["@lsp.type.function"] = { fg = theme.base0D },
+    ["@lsp.type.interface"] = { fg = theme.base08 },
+    ["@lsp.type.macro"] = { fg = theme.base08 },
+    ["@lsp.type.method"] = { fg = theme.base0D },
+    ["@lsp.type.namespace"] = { fg = theme.base08 },
+    ["@lsp.type.parameter"] = { fg = theme.base08 },
+    ["@lsp.type.property"] = { fg = theme.base08 },
+    ["@lsp.type.struct"] = { fg = theme.base0E },
+    ["@lsp.type.type"] = { fg = theme.base0A },
+    ["@lsp.type.typeParamater"] = { fg = theme.base0A },
+    ["@lsp.type.variable"] = { fg = theme.base05 },
+
+    -- ["@event"] = { fg = theme.base08 },
+    -- ["@modifier"] = { fg = theme.base08 },
+    -- ["@regexp"] = { fg = theme.base0F },
+  }
+
+  syntax = merge_tb(syntax, semantic_hls)
+end
+
+return merge_tb(syntax, require("base46").load_highlight "treesitter")

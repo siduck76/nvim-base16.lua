@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/haishanh/night-owl.vim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {

@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/rebelot/kanagawa.nvim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -56,6 +59,19 @@ M.polish_hl = {
   ["@include"] = { fg = M.base_30.purple },
   ["@uri"] = { fg = M.base_30.blue },
   ["@tag.delimiter"] = { fg = M.base_30.red },
+
+  ["@field.key"] = {
+    fg = M.base_30.white,
+  },
+
+  ["@punctuation.bracket"] = {
+    fg = M.base_30.pmenu_bg,
+  },
+
+  ["@punctuation.delimiter"] = {
+    fg = M.base_30.white,
+  },
+
   Number = {
     fg = M.base_30.baby_pink,
   },

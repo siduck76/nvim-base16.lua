@@ -1,3 +1,6 @@
+-- Credits to original theme https://github.com/arcticicestudio/nord-vim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -42,21 +45,18 @@ M.base_16 = {
   base05 = "#d6d2c9",
   base06 = "#ddd9d0",
   base07 = "#e4e0d7",
-  base08 = "#FF8F7E",
-  base09 = "#FFCC66",
+  base08 = "#FFCC66",
+  base09 = "#dc8cff",
   base0A = "#efdeab",
   base0B = "#AEE474",
   base0C = "#7EB6BC",
   base0D = "#88B8F6",
-  base0E = "#dc8cff",
+  base0E = "#FF8F7E",
   base0F = "#dc8c64",
 }
 
 M.polish_hl = {
-  ["@include"] = { fg = M.base_30.red },
-  ["@constructor"] = { fg = M.base_30.orange },
-  ["@variable"] = { link = "@constructor" },
-  ["@conditional"] = { link = "@include" },
+  ["@punctuation.bracket"] = { fg = M.base_30.sun },
 }
 
 M.type = "dark"

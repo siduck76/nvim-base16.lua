@@ -18,6 +18,10 @@ return {
     fg = theme.base0C,
   },
 
+  ["@constant"] = {
+    fg = theme.base08,
+  },
+
   ["@constant.builtin"] = {
     fg = theme.base09,
   },
@@ -66,11 +70,19 @@ return {
     fg = theme.base0D,
   },
 
+  ["@operator"] = {
+    fg = theme.base05,
+  },
+
   ["@keyword.operator"] = {
     fg = theme.base0E,
   },
 
   ["@method"] = {
+    fg = theme.base0D,
+  },
+
+  ["@method.call"] = {
     fg = theme.base0D,
   },
 
@@ -102,11 +114,19 @@ return {
     fg = theme.base08,
   },
 
+  ["@string"] = {
+    fg = theme.base0B,
+  },
+
   ["@string.regex"] = {
     fg = theme.base0C,
   },
 
   ["@string.escape"] = {
+    fg = theme.base0C,
+  },
+
+  ["@string.special"] = {
     fg = theme.base0C,
   },
 
@@ -139,7 +159,7 @@ return {
   },
 
   ["@text.strike"] = {
-    fg = theme.base00,
+    fg = theme.base0F,
     strikethrough = true,
   },
 

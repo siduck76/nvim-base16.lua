@@ -1,6 +1,7 @@
 local M = {}
 local g = vim.g
 local config = require("core.utils").load_config()
+local base46_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h")
 
 M.get_theme_tb = function(type)
   local default_path = "base46.themes." .. g.nvchad_theme
@@ -14,7 +15,7 @@ M.get_theme_tb = function(type)
   elseif present2 then
     return user_theme[type]
   else
-    error "No such theme bruh >_< "
+    error "No such theme!"
   end
 end
 
@@ -22,17 +23,15 @@ M.merge_tb = function(table1, table2)
   return vim.tbl_deep_extend("force", table1, table2)
 end
 
-M.turn_str_to_color = function(tb_in)
-  local tb = vim.deepcopy(tb_in)
+-- turns color var names in hl_override/hl_add to actual colors
+-- hl_add = { abc = { bg = "one_bg" }} -> bg = colors.one_bg
+M.turn_str_to_color = function(tb)
   local colors = M.get_theme_tb "base_30"
 
-  for _, groups in pairs(tb) do
-    for k, v in pairs(groups) do
-      if k == "fg" or k == "bg" then
-        if v:sub(1, 1) == "#" or v == "none" or v == "NONE" then
-        else
-          groups[k] = colors[v]
-        end
+  for _, hlgroups in pairs(tb) do
+    for opt, val in pairs(hlgroups) do
+      if (opt == "fg" or opt == "bg") and not (val:sub(1, 1) == "#" or val == "none" or val == "NONE") then
+        hlgroups[opt] = colors[val]
       end
     end
   end
@@ -104,8 +103,11 @@ M.saveStr_to_cache = function(filename, tb)
   -- Thanks to https://github.com/EdenEast/nightfox.nvim
   -- It helped me understand string.dump stuff
 
+  local bg_opt = "vim.opt.bg='" .. M.get_theme_tb "type" .. "'"
+  local defaults_cond = filename == "defaults" and bg_opt or ""
+
   local cache_path = vim.fn.stdpath "cache" .. "/nvchad/base46/"
-  local lines = 'require("base46").compiled = string.dump(function()' .. M.table_to_str(tb) .. "end)"
+  local lines = 'require("base46").compiled = string.dump(function()' .. defaults_cond .. M.table_to_str(tb) .. "end)"
   local file = io.open(cache_path .. filename, "wb")
 
   loadstring(lines, "=")()
@@ -117,26 +119,28 @@ M.saveStr_to_cache = function(filename, tb)
 end
 
 M.compile = function()
-  -- All integration modules, each file returns a table
-  local hl_files = vim.fn.stdpath "data" .. "/lazy/base46/lua/base46/integrations"
-
-  for _, file in ipairs(vim.fn.readdir(hl_files)) do
-    local filename = vim.fn.fnamemodify(file, ":r")
-    local integration = M.load_highlight(filename)
-
-    -- merge new hl groups added by users
-    if filename == "defaults" then
-      integration = M.merge_tb(integration, (M.turn_str_to_color(config.ui.hl_add)))
-    end
-
-    M.saveStr_to_cache(filename, integration)
+  if not vim.loop.fs_stat(vim.g.base46_cache) then
+    vim.fn.mkdir(vim.g.base46_cache, "p")
   end
 
-  local bg_file = io.open(vim.fn.stdpath "cache" .. "/nvchad/base46/bg", "wb")
+  -- All integration modules, each file returns a table
+  local hl_files = base46_path .. "/integrations"
 
-  if bg_file then
-    bg_file:write("vim.opt.bg='" .. M.get_theme_tb "type".."'")
-    bg_file:close()
+  for _, file in ipairs(vim.fn.readdir(hl_files)) do
+    -- skip caching some files
+    if file ~= "statusline" or file ~= "treesitter" then
+      local filename = vim.fn.fnamemodify(file, ":r")
+      M.saveStr_to_cache(filename, M.load_highlight(filename))
+    end
+  end
+
+  -- look for custom cached highlight files
+  local extended_integrations = config.ui.extended_integrations
+
+  if extended_integrations then
+    for _, integration in ipairs(extended_integrations) do
+      M.saveStr_to_cache(integration, require("base46.extended_integrations." .. integration))
+    end
   end
 end
 
@@ -145,7 +149,7 @@ M.load_all_highlights = function()
   M.compile()
 
   for _, file in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-    loadfile(vim.g.base46_cache .. file)()
+    dofile(vim.g.base46_cache .. file)
   end
 end
 
@@ -161,53 +165,36 @@ end
 
 M.toggle_theme = function()
   local themes = config.ui.theme_toggle
-
   local theme1 = themes[1]
   local theme2 = themes[2]
 
-  if g.nvchad_theme == theme1 or g.nvchad_theme == theme2 then
-    if g.toggle_theme_icon == "   " then
-      g.toggle_theme_icon = "   "
-    else
-      g.toggle_theme_icon = "   "
-    end
+  if g.nvchad_theme ~= theme1 and g.nvchad_theme ~= theme2 then
+    vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (chadrc)"
+    return
   end
 
+  M.load_all_highlights()
+
   if g.nvchad_theme == theme1 then
-    g.nvchad_theme = theme2
-
-    require("nvchad").reload_theme()
-    require("nvchad").change_theme(theme1, theme2)
-  elseif g.nvchad_theme == theme2 then
-    g.nvchad_theme = theme1
-
-    require("nvchad").reload_theme()
-    require("nvchad").change_theme(theme2, theme1)
+    g.toggle_theme_icon = "   "
+    vim.g.nvchad_theme = theme2
+    require("nvchad").replace_word(theme1, theme2)
   else
-    vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (chadrc)"
+    vim.g.nvchad_theme = theme1
+    g.toggle_theme_icon = "   "
+    require("nvchad").replace_word(theme2, theme1)
   end
 end
 
 M.toggle_transparency = function()
-  local transparency_status = config.ui.transparency
-  local write_data = require("nvchad").write_data
+  g.transparency = not g.transparency
+  M.load_all_highlights()
 
-  local function save_chadrc_data()
-    local old_data = "transparency = " .. tostring(transparency_status)
-    local new_data = "transparency = " .. tostring(g.transparency)
+  -- write transparency value to chadrc
+  local old_data = "transparency = " .. tostring(config.ui.transparency)
+  local new_data = "transparency = " .. tostring(g.transparency)
 
-    write_data(old_data, new_data)
-  end
-
-  if g.transparency then
-    g.transparency = false
-    M.load_all_highlights()
-    save_chadrc_data()
-  else
-    g.transparency = true
-    M.load_all_highlights()
-    save_chadrc_data()
-  end
+  require("nvchad").replace_word(old_data, new_data)
 end
 
 return M

@@ -1,3 +1,6 @@
+-- Credits to original https://chriskempson/tomorrow-theme
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -34,28 +37,29 @@ M.base_30 = {
 }
 
 M.base_16 = {
-  base0A = "#f0c674",
-  base04 = "#b4b7b4",
-  base07 = "#ffffff",
-  base05 = "#c5c8c6",
-  base0E = "#b294bb",
-  base0D = "#81a2be",
-  base0C = "#8abeb7",
-  base0B = "#b5bd68",
-  base02 = "#373b41",
-  base0F = "#a3685a",
-  base03 = "#969896",
-  base08 = "#cc6666",
-  base01 = "#282a2e",
   base00 = "#1d1f21",
-  base09 = "#de935f",
+  base01 = "#282a2e",
+  base02 = "#373b41",
+  base03 = "#969896",
+  base04 = "#b4b7b4",
+  base05 = "#c5c8c6",
   base06 = "#e0e0e0",
+  base07 = "#ffffff",
+  base08 = "#cc6666",
+  base09 = "#de935f",
+  base0A = "#f0c674",
+  base0B = "#b5bd68",
+  base0C = "#8abeb7",
+  base0D = "#81a2be",
+  base0E = "#b294bb",
+  base0F = "#a3685a",
 }
 
 M.type = "dark"
 
 M.polish_hl = {
-  PmenuSel = { fg = M.base_30.black, bg = M.base_30.red },
+  ["@function.builtin"] = { fg = M.base_30.yellow },
+  -- ["@punctuation.bracket"] = { fg = M.base_30.yellow },
 }
 
 M = require("base46").override_theme(M, "tomorrow_night")

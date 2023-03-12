@@ -1,17 +1,20 @@
+-- Credits to original https://github.com/sainnhe/everforest
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
   white = "#272f35",
   darker_black = "#f5efde",
   black = "#fff9e8", --  nvim bg
-  black2 = "#ebe5d4",
-  one_bg = "#c6c2aa",
-  one_bg2 = "#b6b29a",
-  one_bg3 = "#a6a28a",
-  grey = "#a6b0a0",
-  grey_fg = "#939f91",
-  grey_fg2 = "#829181",
-  light_grey = "#798878",
+  black2 = "#F0EAD9",
+  one_bg = "#E0DAC9",
+  one_bg2 = "#D1CBBA",
+  one_bg3 = "#C2BCAB",
+  grey = "#B3AD9C",
+  grey_fg = "#A39D8C",
+  grey_fg2 = "#948E7D",
+  light_grey = "#857F6E",
   red = "#c85552",
   baby_pink = "#ce8196",
   pink = "#ef6590",
@@ -26,7 +29,7 @@ M.base_30 = {
   dark_purple = "#966986",
   teal = "#69a59d",
   orange = "#F7954F",
-  cyan = "#7521e9",
+  cyan = "#89bfdc",
   statusline_bg = "#ede7d6",
   lightbg = "#d3cdbc",
   pmenu_bg = "#5f9b93",

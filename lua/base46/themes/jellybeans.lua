@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/NTBBloodbath/doom-one.nvim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -42,11 +45,11 @@ M.base_16 = {
   base05 = "#d9d9c4",
   base06 = "#dedec9",
   base07 = "#f1f1e5",
-  base08 = "#dd785a",
+  base08 = "#C6B5DA",
   base09 = "#c99f4a",
   base0A = "#e1b655",
   base0B = "#99ad6a",
-  base0C = "#7187af",
+  base0C = "#99ad6a",
   base0D = "#8fa5cd",
   base0E = "#e18be1",
   base0F = "#cf6a4c",

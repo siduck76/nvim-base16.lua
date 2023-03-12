@@ -1,3 +1,6 @@
+-- Credits to original theme https://github.com/dracula/vim
+-- This is a modified version 
+
 local M = {}
 
 M.base_30 = {

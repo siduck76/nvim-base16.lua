@@ -1,3 +1,6 @@
+-- credit to original theme for existing : https://github.com/mountain-theme/Mountain
+-- NOTE: This is a modified version of it
+
 local M = {}
 
 M.base_30 = {

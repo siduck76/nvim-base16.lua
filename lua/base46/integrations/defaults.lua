@@ -3,7 +3,7 @@ local theme = require("base46").get_theme_tb "base_16"
 
 local generate_color = require("base46.colors").change_hex_lightness
 
-return {
+local defaults = {
   MatchWord = {
     bg = colors.grey,
     fg = colors.white,
@@ -27,16 +27,6 @@ return {
 
   NvimInternalError = { fg = colors.red },
   WinSeparator = { fg = colors.line },
-
-  -- packer
-  PackerPackageName = { fg = colors.red },
-  PackerSuccess = { fg = colors.green },
-  PackerStatusSuccess = { fg = theme.base08 },
-  PackerStatusCommit = { fg = colors.blue },
-  PackeProgress = { fg = colors.blue },
-  PackerOutput = { fg = colors.red },
-  PackerStatus = { fg = colors.blue },
-  PackerHash = { fg = colors.blue },
 
   Normal = {
     fg = theme.base05,
@@ -250,3 +240,12 @@ return {
   LazyReasonImport = { fg = colors.white },
   LazyProgressDone = { fg = colors.green },
 }
+
+-- merge statusilne & hl_add tables!
+local merge_tb = require("base46").merge_tb
+defaults = merge_tb(defaults, require("base46").load_highlight "statusline")
+
+local hexify_ColorStrs = require("base46").turn_str_to_color
+local user_new_highlights = require("core.utils").load_config().ui.hl_add
+
+return merge_tb(defaults, hexify_ColorStrs(user_new_highlights))

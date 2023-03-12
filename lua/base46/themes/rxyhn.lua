@@ -1,3 +1,6 @@
+-- credits to rice made by https://github.com/rxyhn
+-- This theme is made for @rxyhn's rice :D
+
 local M = {}
 
 M.base_30 = {

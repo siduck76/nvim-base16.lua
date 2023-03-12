@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/morhetz/gruvbox
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -35,10 +38,10 @@ M.base_30 = {
 
 M.base_16 = {
   base00 = "#F2E5BC",
-  base01 = "#e5d8af",
-  base02 = "#d8cba2",
-  base03 = "#cabd94",
-  base04 = "#c0b38a",
+  base01 = "#e3d6ad",
+  base02 = "#e5d8af",
+  base03 = "#d8cba2",
+  base04 = "#cabd94",
   base05 = "#504945",
   base06 = "#3c3836",
   base07 = "#282828",

@@ -1,3 +1,6 @@
+-- credits to original theme https://github.com/FrenzyExists/aquarium-vim
+-- This is just a modified version of it
+
 local M = {}
 
 M.base_30 = {

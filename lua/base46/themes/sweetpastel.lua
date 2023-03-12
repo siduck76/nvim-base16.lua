@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/SweetPastel/pastel
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {

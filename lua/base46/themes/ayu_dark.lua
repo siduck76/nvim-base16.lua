@@ -1,3 +1,6 @@
+-- credits to original theme https://github.com/ayu-theme/ayu-vim (dark)
+-- This is just a modified version of it
+
 local M = {}
 
 M.base_30 = {

@@ -32,7 +32,7 @@ M.base_30 = {
   cyan = "#56d4dd",
   statusline_bg = "#2b3035",
   lightbg = "#383d42",
-  pmenu_bg = "#3d4147", -- Command bar suggestions
+  pmenu_bg = "#58a6ff", -- Command bar suggestions
   folder_bg = "#58a6ff",
 }
 
@@ -45,12 +45,12 @@ M.base_16 = {
   base05 = "#c9d1d9", -- Default fg (caret, delimiters, Operators)
   base06 = "#d3dbe3", -- Light fg (not often used)
   base07 = "#dde5ed", -- Light bg (not often used)
-  base08 = "#83caff", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  base08 = "#B392E9", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
   base09 = "#ffab70", -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
   base0A = "#ffdf5d", -- Classes, Markup Bold, Search Text Background
   base0B = "#a5d6ff", -- Strings, Inherited Class, Markup Code, Diff Inserted
   base0C = "#83caff", -- Support, regex, escape chars
-  base0D = "#b9a6ff", -- Function, methods, headings
+  base0D = "#6AB1F0", -- Function, methods, headings
   base0E = "#ff7f8d", -- Keywords
   base0F = "#85e89d", -- Deprecated, open/close embedded tags
 }
@@ -58,11 +58,11 @@ M.base_16 = {
 M.type = "dark"
 
 M.polish_hl = {
-  PmenuSel = {
-    fg = M.base_30.white,
+  ["@punctuation.bracket"] = {
+    fg = M.base_30.orange,
   },
 
-  ["@punctuation.bracket"] = {
+  ["@string"] = {
     fg = M.base_30.white,
   },
 

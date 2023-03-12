@@ -45,21 +45,21 @@ M.base_16 = {
   base05 = "#383d42", -- Default fg (caret, delimiters, Operators)
   base06 = "#2e3338", -- Light fg (not often used)
   base07 = "#24292e", -- Light bg (not often used)
-  base08 = "#044289", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  base08 = "#5a32a3", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
   base09 = "#b93a86", -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
   base0A = "#b08800", -- Classes, Markup Bold, Search Text Background
   base0B = "#4c2889", -- Strings, Inherited Class, Markup Code, Diff Inserted
   base0C = "#8263EB", -- Support, regex, escape chars
   base0D = "#005cc5", -- Function, methods, headings
   base0E = "#DE2C2E", -- Keywords
-  base0F = "#18654B", -- Deprecated, open/close embedded tags
+  base0F = "#044289", -- Deprecated, open/close embedded tags
 }
 
 M.type = "light"
 
 M.polish_hl = {
   ["@punctuation.bracket"] = {
-    fg = M.base_30.folder_bg,
+    fg = M.base_30.blue,
   },
 
   ["@field.key"] = {
@@ -77,6 +77,10 @@ M.polish_hl = {
   Tag = {
     fg = M.base_30.vibrant_green,
   },
+
+  ["@operator"] = {
+    fg = M.base_30.orange
+  }
 }
 
 M = require("base46").override_theme(M, "github_light")

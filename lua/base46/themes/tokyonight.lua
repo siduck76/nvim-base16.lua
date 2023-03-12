@@ -1,3 +1,6 @@
+-- Credits to original https://github.com/tiagovla/tokyonight.nvim
+-- This is modified version of it
+
 local M = {}
 
 M.base_30 = {
@@ -34,28 +37,31 @@ M.base_30 = {
 }
 
 M.base_16 = {
-  base00 = "#1A1B26",
-  base01 = "#3b4261",
-  base02 = "#3b4261",
-  base03 = "#545c7e",
-  base04 = "#565c64",
+  base00 = "#1a1b26",
+  base01 = "#16161e",
+  base02 = "#2f3549",
+  base03 = "#444b6a",
+  base04 = "#787c99",
   base05 = "#a9b1d6",
-  base06 = "#bbc5f0",
-  base07 = "#c0caf5",
-  base08 = "#f7768e",
+  base06 = "#cbccd1",
+  base07 = "#d5d6db",
+  base08 = "#73daca",
   base09 = "#ff9e64",
-  base0A = "#ffd089",
+  base0A = "#0db9d7",
   base0B = "#9ece6a",
-  base0C = "#2ac3de",
-  base0D = "#7aa2f7",
+  base0C = "#b4f9f8",
+  base0D = "#2ac3de",
   base0E = "#bb9af7",
-  base0F = "#c0caf5",
+  base0F = "#f7768e",
 }
 
 M.polish_hl = {
-  ["@variable"] = { fg = M.base_30.red },
-  ["@function.builtin"] = { fg = M.base_30.cyan },
-  ["@parameter"] = { fg = M.base_30.white },
+  ["@variable"] = { fg = M.base_16.base05 },
+  ["@punctuation.bracket"] = { fg = M.base_30.purple },
+  ["@method.call"] = { fg = M.base_30.red },
+  ["@function.call"] = { fg = M.base_30.blue },
+  ["@constant"] = { fg = M.base_30.orange },
+  ["@parameter"] = { fg = M.base_30.orange },
 }
 
 M.type = "dark"
