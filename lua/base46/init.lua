@@ -173,8 +173,6 @@ M.toggle_theme = function()
     return
   end
 
-  M.load_all_highlights()
-
   if g.nvchad_theme == theme1 then
     g.toggle_theme_icon = "   "
     vim.g.nvchad_theme = theme2
@@ -184,6 +182,8 @@ M.toggle_theme = function()
     g.toggle_theme_icon = "   "
     require("nvchad").replace_word('theme = "' .. theme2, 'theme = "' .. theme1)
   end
+  
+  M.load_all_highlights()
 end
 
 M.toggle_transparency = function()
