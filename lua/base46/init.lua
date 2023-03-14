@@ -100,7 +100,7 @@ M.table_to_str = function(tb)
 end
 
 M.saveStr_to_cache = function(filename, tb)
-  -- Thanks to https://github.com/catppuccin/nvim and https://github.com/EdenEast/nightfox.nvim
+  -- Thanks to https://github.com/nullchilly and https://github.com/EdenEast/nightfox.nvim
   -- It helped me understand string.dump stuff
 
   local bg_opt = "vim.opt.bg='" .. M.get_theme_tb "type" .. "'"
