@@ -100,20 +100,18 @@ M.table_to_str = function(tb)
 end
 
 M.saveStr_to_cache = function(filename, tb)
-  -- Thanks to https://github.com/EdenEast/nightfox.nvim
+  -- Thanks to https://github.com/nullchilly and https://github.com/EdenEast/nightfox.nvim
   -- It helped me understand string.dump stuff
 
   local bg_opt = "vim.opt.bg='" .. M.get_theme_tb "type" .. "'"
   local defaults_cond = filename == "defaults" and bg_opt or ""
 
   local cache_path = vim.fn.stdpath "cache" .. "/nvchad/base46/"
-  local lines = 'require("base46").compiled = string.dump(function()' .. defaults_cond .. M.table_to_str(tb) .. "end)"
+  local lines = "return string.dump(function()" .. defaults_cond .. M.table_to_str(tb) .. "end, true)"
   local file = io.open(cache_path .. filename, "wb")
 
-  loadstring(lines, "=")()
-
   if file then
-    file:write(require("base46").compiled)
+    file:write(loadstring(lines)())
     file:close()
   end
 end
@@ -173,17 +171,17 @@ M.toggle_theme = function()
     return
   end
 
-  M.load_all_highlights()
-
   if g.nvchad_theme == theme1 then
     g.toggle_theme_icon = "   "
     vim.g.nvchad_theme = theme2
-    require("nvchad").replace_word(theme1, theme2)
+    require("nvchad").replace_word('theme = "' .. theme1, 'theme = "' .. theme2)
   else
     vim.g.nvchad_theme = theme1
     g.toggle_theme_icon = "   "
-    require("nvchad").replace_word(theme2, theme1)
+    require("nvchad").replace_word('theme = "' .. theme2, 'theme = "' .. theme1)
   end
+
+  M.load_all_highlights()
 end
 
 M.toggle_transparency = function()
