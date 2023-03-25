@@ -27,8 +27,9 @@ end
 -- hl_add = { abc = { bg = "one_bg" }} -> bg = colors.one_bg
 M.turn_str_to_color = function(tb)
   local colors = M.get_theme_tb "base_30"
+  local copy = vim.deepcopy(tb)
 
-  for _, hlgroups in pairs(tb) do
+  for _, hlgroups in pairs(copy) do
     for opt, val in pairs(hlgroups) do
       if
         (opt == "fg" or opt == "bg" or opt == "sp") and not (val:sub(1, 1) == "#" or val == "none" or val == "NONE")
@@ -38,7 +39,7 @@ M.turn_str_to_color = function(tb)
     end
   end
 
-  return tb
+  return copy
 end
 
 M.extend_default_hl = function(highlights)
