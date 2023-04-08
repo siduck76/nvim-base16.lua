@@ -117,7 +117,7 @@ local syntax = {
 
 local merge_tb = require("base46").merge_tb
 
-if vim.version().minor == 9 then
+if vim.version().minor >= 9 then
   local semantic_hls = {
     ["@lsp.type.class"] = { fg = theme.base0E },
     ["@lsp.type.decorator"] = { fg = theme.base08 },
