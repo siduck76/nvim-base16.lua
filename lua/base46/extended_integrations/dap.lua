@@ -1,17 +1,17 @@
 local colors = require("base46").get_theme_tb "base30"
 
 return {
-  -- nvim-dap
+  -- Dap
   DapBreakpoint = { fg = colors.red },
   DapBreakpointCondition = { fg = colors.yellow },
   DapLogPoint = { fg = colors.cyan },
   DapStopped = { fg = colors.baby_pink },
 
-  -- nvim-dap-ui
-  DapUIScope = { fg = colors.cyan },
-  DapUIType = { fg = colors.dark_purple },
-  DapUIValue = { fg = colors.cyan },
-  DapUIVariable = { fg = colors.white },
+  -- DapUI
+  DAPUIScope = { fg = colors.cyan },
+  DAPUIType = { fg = colors.dark_purple },
+  DAPUIValue = { fg = colors.cyan },
+  DAPUIVariable = { fg = colors.white },
   DapUIModifiedValue = { fg = colors.orange },
   DapUIDecoration = { fg = colors.cyan },
   DapUIThread = { fg = colors.green },
