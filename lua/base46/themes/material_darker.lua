@@ -54,23 +54,45 @@ M.base_16 = {
 
 M.type = "dark"
 
+M = require("base46").override_theme(M, "material_darker")
+
 M.polish_hl = {
   ["@operator"] = { fg = M.base_30.cyan },
   ["@delimiter"] = { fg = M.base_30.cyan },
-  ["@punctuation.bracket"] = { fg = M.base_30.cyan},
-  ["@punctuation.delimiter"] = { fg = M.base_30.cyan},
+  ["@punctuation.bracket"] = { fg = M.base_30.cyan },
+  ["@punctuation.delimiter"] = { fg = M.base_30.cyan },
   ["@parenthesis"] = { link = "@punctuation.bracket" },
   ["@constructor"] = { fg = M.base_30.cyan },
 
   ["@constant"] = { fg = M.base_30.yellow },
-  ["@include.variable"] = { fg = M.base_30.yellow },
-  ["@variable.type"] = { fg = M.base_30.yellow },
 
   ["@attribute"] = { fg = M.base_30.purple },
 
-  ["@variable.parameter"] = { fg = M.base_30.orange },
-}
 
-M = require("base46").override_theme(M, "material_darker")
+  Identifier = { fg = M.base_30.white},
+  Structure = { fg = M.base_30.green },
+  Include = { fg = M.base_30.purple },
+  Type = { fg = M.base_30.purple },
+
+  ["@lsp.type.class"] = { link = "Identifier" },
+  ["@lsp.type.interface"] = { link = "Structure" },
+  ["@lsp.type.annotation"] = { fg = M.base_30.purple },
+  ["@lsp.type.namespace"] = { link = "@lsp.type.class" },
+  ["@lsp.type.enum"] = { link = "@lsp.type.class" },
+  ["@lsp.type.enumMember"] = { link = "@lsp.type.property" },
+  ["@lsp.type.property"] = { fg = M.base_30.white },
+  ["@lsp.type.parameter"] = { fg = M.base_30.orange },
+  ["@lsp.type.variable"] = { fg = M.base_30.orange },
+  -- ["@lsp.type.parameter.java"] = { fg = M.base_30.orange },
+  ["@lsp.typemod.record"] = { link = "@lsp.type.class" },
+  ["@lsp.typemod.class.constructor"] = { fg = M.base_30.blue },
+  -- ["@lsp.typemod.class.constructor.java"] = { fg = M.base_30.blue },
+
+  ["@variable"] = { fg = M.base_30.white },
+  ["@variable.builtin"] = { fg = M.base_30.purple },
+  ["@variable.type"] = { fg = M.base_30.yellow },
+  ["@repeat"] = { fg = M.base_30.purple },
+  ["@exception"] = { fg = M.base_30.purple },
+}
 
 return M
