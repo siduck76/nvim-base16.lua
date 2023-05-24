@@ -10,7 +10,7 @@ colors.main = {
   green      = "#c3e88d",
   yellow     = "#ffcb6b",
   blue       = "#82aaff",
-  paleblue   = "#b0c9ff",
+  pale_blue  = "#b0c9ff",
   cyan       = "#89ddff",
   purple     = "#c792ea",
   orange     = "#f78c6c",
@@ -114,27 +114,36 @@ M.base_16 = {
 M.type = "dark"
 
 M.polish_hl = {
+  -- syntax-related highlight groups
   ["@attribute"]             = { fg = colors.main.purple },
   ["@comment"]               = { fg = colors.syntax.comments },
+  ["@conditional.ternary"]   = { fg = colors.main.cyan },
   ["@constant"]              = { fg = colors.main.yellow },
   ["@constant.builtin"]      = { link = "@constant" },
   ["@constructor"]           = { fg = colors.main.cyan },
   ["@delimiter"]             = { fg = colors.main.cyan },
   ["@exception"]             = { fg = colors.main.purple },
+  ["@field"]                 = { fg = colors.main.white },
+  ["@function"]              = { fg = colors.main.blue },
+  ["@function.macro"]        = { fg = colors.main.pale_blue},
+  ["@keyword"]               = { fg = colors.main.purple },
   ["@namespace"]             = { fg = colors.main.yellow },
   ["@operator"]              = { fg = colors.main.cyan },
   ["@parenthesis"]           = { link = "@punctuation.bracket" },
   ["@punctuation.bracket"]   = { fg = colors.main.cyan },
   ["@punctuation.delimiter"] = { fg = colors.main.cyan },
   ["@repeat"]                = { fg = colors.main.purple },
+  ["@string"]                = { fg = colors.main.green },
   ["@type"]                  = { fg = colors.main.yellow },
+  ["@type.qualifier"]        = { fg = colors.main.purple },
   ["@variable"]              = { fg = colors.main.white },
   ["@variable.builtin"]      = { fg = colors.main.purple },
   ["@variable.type"]         = { fg = colors.main.yellow },
 
   Comment     = { fg = colors.syntax.comments },
-  Identifier  = { fg = colors.main.white},
+  Identifier  = { fg = colors.main.white },
   Include     = { fg = colors.main.purple },
+  Number      = { fg = colors.main.orange },
   Structure   = { fg = colors.main.green },
   Type        = { fg = colors.main.purple },
 
@@ -143,14 +152,18 @@ M.polish_hl = {
   ["@lsp.type.enum"]        = { link = "@lsp.type.class" },
   ["@lsp.type.enumMember"]  = { link = "@lsp.type.property" },
   ["@lsp.type.interface"]   = { fg = colors.main.green, italic = true },
+  ["@lsp.type.method"]      = { fg = colors.main.blue },
+  ["@lsp.type.modifier"]    = { fg = colors.main.purple },
   ["@lsp.type.namespace"]   = { link = "@lsp.type.class" },
   ["@lsp.type.parameter"]   = { fg = colors.main.orange },
   ["@lsp.type.property"]    = { fg = colors.main.white },
   ["@lsp.type.variable"]    = { fg = colors.main.white },
 
-  ["@lsp.typemod.class.constructor"]      = { fg = colors.main.blue },
+  ["@lsp.typemod.class.constructor"]      = { link = "@lsp.type.method" },
   ["@lsp.typemod.record"]                 = { link = "@lsp.type.class" },
 
+  -- other highlighting groups
+  TelescopeMatching = { fg = colors.editor.accent },
 }
 
 M = require("base46").override_theme(M, "material_darker")
