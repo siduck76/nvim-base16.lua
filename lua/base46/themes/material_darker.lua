@@ -59,12 +59,6 @@ colors.syntax = {
   type     = colors.main.purple,
 }
 
-colors.git = {
-  added    = "#387551",
-  removed  = "#656975",
-  modified = "#036293",
-}
-
 M.base_30 = {
   white         = colors.main.white,
   darker_black  = colors.main.black,
@@ -152,21 +146,6 @@ M.polish_hl = {
 
   ["@lsp.typemod.record"]                 = { link = "@lsp.type.class" },
   ["@lsp.typemod.class.constructor"]      = { fg = colors.main.blue },
-
-  GitSignsAddLn = {
-    bg = colors.git.added,
-    fg = "none",
-  },
-
-  GitSignsChangeLn = {
-    bg = colors.git.modified,
-    fg = "none",
-  },
-
-  GitSignsDeleteLn = {
-    bg = colors.git.removed,
-    fg = "none",
-  },
 
 }
 
