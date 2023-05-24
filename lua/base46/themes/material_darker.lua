@@ -1,98 +1,175 @@
 local M = {}
 
+local colors = {}
+
+colors.main = {
+  white      = "#eeffff",
+  gray       = "#656565",
+  black      = "#1a1a1a",
+  red        = "#f07178",
+  green      = "#c3e88d",
+  yellow     = "#ffcb6b",
+  blue       = "#82aaff",
+  paleblue   = "#b0c9ff",
+  cyan       = "#89ddff",
+  purple     = "#c792ea",
+  orange     = "#f78c6c",
+  pink       = "#ff9cac",
+
+  dark_red    = "#dc6068",
+  dark_green  = "#abcf76",
+  dark_yellow = "#e6b455",
+  dark_blue   = "#6e98eb",
+  dark_cyan   = "#71c6e7",
+  dark_purple = "#b480d6",
+  dark_orange = "#e2795b",
+}
+
+colors.editor = {
+  link         = "#80cbc4",
+  cursor       = "#ffcc00",
+  title        = "#eefffF",
+  line_numbers = "#424242",
+  bg           = "#212121",
+  bg_alt       = "#1a1a1a",
+  fg           = "#b0bec5",
+  fg_dark      = "#8c8b8b",
+  selection    = "#404040",
+  contrast     = "#1a1a1a",
+  active       = "#323232",
+  border       = "#343434",
+  highlight    = "#3f3f3f",
+  disabled     = "#474747",
+  accent       = "#ff9800",
+}
+
+colors.lsp = {
+  error = "#ff5370",
+}
+
+colors.syntax = {
+  comments = "#515151",
+  variable = colors.editor.fg,
+  field    = colors.editor.fg,
+  keyword  = colors.main.purple,
+  value    = colors.main.orange,
+  operator = colors.main.cyan,
+  fn       = colors.main.blue,
+  string   = colors.main.green,
+  type     = colors.main.purple,
+}
+
+colors.git = {
+  added    = "#387551",
+  removed  = "#656975",
+  modified = "#036293",
+}
+
 M.base_30 = {
-  white = "#e8e8d3",
-  darker_black = "#212121",
-  black = "#212121", --  nvim bg
-  black2 = "#1A1A1A",
-  one_bg = "#1a1a1a",
-  one_bg2 = "#212121",
-  one_bg3 = "#8c8b8b",
-  grey = "#323232",
-  grey_fg = "#343434",
-  grey_fg2 = "#8c8b8b",
-  light_grey = "#b0bec5",
-  red = "#F07178",
-  baby_pink = "#ff9cac",
-  pink = "#ff9cac",
-  line = "#343434", -- for lines like vertsplit
-  green = "#c3e88d",
-  vibrant_green = "#c3e88d",
-  nord_blue = "#6E98EB",
-  blue = "#82AAFF",
-  yellow = "#FFCB6B",
-  sun = "#E6B455",
-  purple = "#C792EA",
-  dark_purple = "#B480D6",
-  teal = "#71C6E7",
-  orange = "#F78C6C",
-  cyan = "#89DDFF",
-  statusline_bg = "#212121",
-  lightbg = "#212121",
-  pmenu_bg = "#6e98eb",
-  folder_bg = "#6e98eb",
+  white         = colors.main.white,
+  darker_black  = colors.main.black,
+  black         = colors.editor.bg, --  nvim bg
+  black2        = colors.editor.bg_alt,
+  one_bg        = colors.main.bg,
+  one_bg2       = colors.editor.bg,
+  one_bg3       = colors.editor.bg_alt,
+  grey          = colors.main.gray,
+  grey_fg       = colors.editor.border,
+  grey_fg2      = colors.editor.fg,
+  light_grey    = colors.editor.highlight,
+  red           = colors.main.red,
+  baby_pink     = colors.main.pink,
+  pink          = colors.main.pink,
+  line          = colors.editor.line_numbers, -- for lines like vertsplit
+  green         = colors.main.green,
+  vibrant_green = colors.main.green,
+  nord_blue     = colors.main.dark_blue,
+  blue          = colors.main.blue,
+  yellow        = colors.main.yellow,
+  sun           = colors.main.dark_yellow,
+  purple        = colors.main.purple,
+  dark_purple   = colors.main.dark_purple,
+  teal          = colors.main.dark_green,
+  orange        = colors.main.orange,
+  cyan          = colors.main.cyan,
+  statusline_bg = colors.editor.bg,
+  lightbg       = colors.editor.active,
+  pmenu_bg      = colors.main.dark_blue,
+  folder_bg     = colors.main.dark_blue,
 }
 
 M.base_16 = {
-  base00 = "#212121",
-  base01 = "#323232",
-  base02 = "#404040",
-  base03 = "#515151",
-  base04 = "#8c8b8b",
-  base05 = "#B0BEC5",
-  base06 = "#B8c6Cf",
-  base07 = "#f1f1e5",
-  base08 = "#B0BEC5",
-  base09 = "#F78c6C",
-  base0A = "#FFCB6B",
-  base0B = "#c3e88d",
-  base0C = "#c3e88d",
-  base0D = "#82aaff",
-  base0E = "#c792ea",
-  base0F = "#f07178",
+  base00 = colors.editor.bg,
+  base01 = colors.editor.line_numbers,
+  base02 = colors.editor.selection,
+  base03 = colors.main.gray,
+  base04 = colors.editor.fg_dark,
+  base05 = colors.editor.fg,
+  base06 = colors.main.gray,
+  base07 = colors.main.white,
+  base08 = colors.editor.fg,
+  base09 = colors.main.orange,
+  base0A = colors.main.yellow,
+  base0B = colors.main.green,
+  base0C = colors.main.green,
+  base0D = colors.main.blue,
+  base0E = colors.main.purple,
+  base0F = colors.main.red,
 }
 
 M.type = "dark"
 
-M = require("base46").override_theme(M, "material_darker")
-
 M.polish_hl = {
-  ["@operator"] = { fg = M.base_30.cyan },
-  ["@delimiter"] = { fg = M.base_30.cyan },
-  ["@punctuation.bracket"] = { fg = M.base_30.cyan },
-  ["@punctuation.delimiter"] = { fg = M.base_30.cyan },
-  ["@parenthesis"] = { link = "@punctuation.bracket" },
-  ["@constructor"] = { fg = M.base_30.cyan },
+  ["@operator"]              = { fg = colors.main.cyan },
+  ["@delimiter"]             = { fg = colors.main.cyan },
+  ["@punctuation.bracket"]   = { fg = colors.main.cyan },
+  ["@punctuation.delimiter"] = { fg = colors.main.cyan },
+  ["@constructor"]           = { fg = colors.main.cyan },
+  ["@parenthesis"]           = { link = "@punctuation.bracket" },
+  ["@attribute"]             = { fg = colors.main.purple },
+  ["@constant"]              = { fg = colors.main.yellow },
+  ["@variable"]              = { fg = colors.main.white },
+  ["@variable.builtin"]      = { fg = colors.main.purple },
+  ["@variable.type"]         = { fg = colors.main.yellow },
+  ["@repeat"]                = { fg = colors.main.purple },
+  ["@exception"]             = { fg = colors.main.purple },
+  ["@comment"]               = { fg = colors.syntax.comments },
 
-  ["@constant"] = { fg = M.base_30.yellow },
+  Identifier  = { fg = colors.main.white},
+  Structure   = { fg = colors.main.green },
+  Include     = { fg = colors.main.purple },
+  Type        = { fg = colors.main.purple },
 
-  ["@attribute"] = { fg = M.base_30.purple },
+  ["@lsp.type.class"]       = { fg = colors.main.yellow },
+  ["@lsp.type.interface"]   = { fg = colors.main.green, italic = true },
+  ["@lsp.type.annotation"]  = { fg = colors.main.purple },
+  ["@lsp.type.namespace"]   = { link = "@lsp.type.class" },
+  ["@lsp.type.enum"]        = { link = "@lsp.type.class" },
+  ["@lsp.type.enumMember"]  = { link = "@lsp.type.property" },
+  ["@lsp.type.property"]    = { fg = colors.main.white },
+  ["@lsp.type.parameter"]   = { fg = colors.main.orange },
+  ["@lsp.type.variable"]    = { fg = colors.main.white },
 
+  ["@lsp.typemod.record"]                 = { link = "@lsp.type.class" },
+  ["@lsp.typemod.class.constructor"]      = { fg = colors.main.blue },
 
-  Identifier = { fg = M.base_30.white},
-  Structure = { fg = M.base_30.green },
-  Include = { fg = M.base_30.purple },
-  Type = { fg = M.base_30.purple },
+  GitSignsAddLn = {
+    bg = colors.git.added,
+    fg = "none",
+  },
 
-  ["@lsp.type.class"] = { link = "Identifier" },
-  ["@lsp.type.interface"] = { link = "Structure" },
-  ["@lsp.type.annotation"] = { fg = M.base_30.purple },
-  ["@lsp.type.namespace"] = { link = "@lsp.type.class" },
-  ["@lsp.type.enum"] = { link = "@lsp.type.class" },
-  ["@lsp.type.enumMember"] = { link = "@lsp.type.property" },
-  ["@lsp.type.property"] = { fg = M.base_30.white },
-  ["@lsp.type.parameter"] = { fg = M.base_30.orange },
-  ["@lsp.type.variable"] = { fg = M.base_30.orange },
-  -- ["@lsp.type.parameter.java"] = { fg = M.base_30.orange },
-  ["@lsp.typemod.record"] = { link = "@lsp.type.class" },
-  ["@lsp.typemod.class.constructor"] = { fg = M.base_30.blue },
-  -- ["@lsp.typemod.class.constructor.java"] = { fg = M.base_30.blue },
+  GitSignsChangeLn = {
+    bg = colors.git.modified,
+    fg = "none",
+  },
 
-  ["@variable"] = { fg = M.base_30.white },
-  ["@variable.builtin"] = { fg = M.base_30.purple },
-  ["@variable.type"] = { fg = M.base_30.yellow },
-  ["@repeat"] = { fg = M.base_30.purple },
-  ["@exception"] = { fg = M.base_30.purple },
+  GitSignsDeleteLn = {
+    bg = colors.git.removed,
+    fg = "none",
+  },
+
 }
+
+M = require("base46").override_theme(M, "material_darker")
 
 return M
