@@ -211,7 +211,7 @@ Comment = { bg = "yellow },
 
 ## Contribute and test your theme
 
-see how themes were created [here](#examples)
+see how themes being created [here](#examples)
 
 ### testing
 
@@ -241,5 +241,7 @@ M.ui = {
 
 ## Examples
 
-you can see the Nvchad ready themes here:
-https://github.com/NvChad/base46/tree/v2.0/lua/base46/themes
+- you can see the Nvchad ready themes here:
+  https://github.com/NvChad/base46/tree/v2.0/lua/base46/themes
+- you can also check users making their own themes and contributing to add new
+  aesthetics here: https://github.com/NvChad/base46/pull/
