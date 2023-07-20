@@ -20,7 +20,7 @@
 | `gui`    | text style (bold/italic)  |
 
 - when a highlight links to another, will then use their options
-- e.g if `Keyword` options is `guifg=red, guibg=green` then `@keyword` will use
+- e.g if `Keyword` options is `guifg=red guibg=green` then `@keyword` will use
   the same options of `Keyword` by linking to it
 
 ```vim
@@ -41,8 +41,8 @@ to understanding the highlights and how they works here's some examples:
 | ------------------- | --------------------------------------- | ----------------------- |
 | `@keyword.function` | function keyword `function`             | `:hi @keyword.function` |
 | `String`            | String (Include quotations) `String`    | `:hi String`            |
-| `St_cwd`            | the current folder module in StatusLine | `:hi St_swd`            |
-| `CmpDoc`            | the doc completion menu                 | `:hi St_swd`            |
+| `St_cwd`            | the current folder module in StatusLine | `:hi St_cwd`            |
+| `CmpDoc`            | the doc completion menu                 | `:hi CmpDoc`            |
 
 - you can also specify the highlighings of each language, e.g:
 
@@ -193,8 +193,6 @@ M.polish_hl = {
 
 in `base46` you can set the highlighting in diffrent way
 
-- see [Tips](#tips) that will help you
-
 ```lua
 -- ...
 M.base_30 = {
@@ -227,14 +225,14 @@ M.base_16 = {
 | `blend`         | combining colors to create a new color(not often used in nvchad)   | `number`  | integer between 0 and 100, level of opacity |
 | `standout`      | decorations                                                        | `boolean` | boolean value                               |
 | `underline`     | decorations                                                        | `boolean` | boolean value                               |
-| `undercurl`     | decorations                                                        | `boolean` | boolean values                              |
-| `funderdouble`  | decorations                                                        | `boolean` | boolean values                              |
-| `underdotted`   | decorations                                                        | `boolean` | boolean values                              |
-| `underdashed`   | decorations                                                        | `boolean` | boolean values                              |
-| `strikethrough` | decorations                                                        | `boolean` | boolean values                              |
-| `reverse`       | decorations                                                        | `boolean` | boolean values                              |
-| `nocombine`     | decorations                                                        | `boolean` | boolean values                              |
-| `default`       | Don't override existing definition if true                         | `boolean` | boolean values                              |
+| `undercurl`     | decorations                                                        | `boolean` | boolean value                               |
+| `funderdouble`  | decorations                                                        | `boolean` | boolean value                               |
+| `underdotted`   | decorations                                                        | `boolean` | boolean value                               |
+| `underdashed`   | decorations                                                        | `boolean` | boolean value                               |
+| `strikethrough` | decorations                                                        | `boolean` | boolean value                               |
+| `reverse`       | decorations                                                        | `boolean` | boolean value                               |
+| `nocombine`     | decorations                                                        | `boolean` | boolean value                               |
+| `default`       | Don't override existing definition if true                         | `boolean` | boolean value                               |
 | `ctermfg`       | number Sets foreground of cterm color                              | `number`  | number value                                |
 | `ctermbg`       | number Sets background of cterm color                              | `number`  | number value                                |
 | `cterm`         | comma-separated list of cterm opts. (more info `:h highlightings`) | `string`  | string value                                |
@@ -246,6 +244,8 @@ M.base_16 = {
 Comment = { bg = "yellow", italic = true },
 ["@string"] = { link = "String" }
 ```
+
+- see [Tips](#tips) that will help you
 
 ## Contribute and test your theme
 
@@ -274,7 +274,7 @@ M.ui = {
 - when you finish testing you're theme, you can contribute by puting your file
   in `base46/themes/<YOUR FILE NAME>.lua`
 
-### tips
+## tips
 
 - use a highcontrastcolor e.g: yellow or red and run neovim command `:hi` to
   figure out what highlightings uses this color
