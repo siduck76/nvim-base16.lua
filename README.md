@@ -210,19 +210,21 @@ M.base_16 = {
 -- ...
 ```
 
-### base46 table options
+### Base46 table options
 
 - specify the the highlightigs options for each highilght
+- you can set these options to override highlightings only in `M.polish_hl`
+  property
 
-| highlighting    | Role                                                               | type      | values                                      |
+| highlighting    | Role                                                               | Type      | Value                                       |
 | --------------- | ------------------------------------------------------------------ | --------- | ------------------------------------------- |
 | `fg`            | foreground                                                         | `string`  | color name or hex code or "none"            |
 | `bg`            | background                                                         | `string`  | color name or hex code or "none"            |
-| `sp`            | color of underlines. (more info `: guisp`)                         | `string`  | color name or hex code or "none"            |
+| `sp`            | color of underlines. (more info `:h guisp`)                        | `string`  | color name or hex code or "none"            |
 | `link`          | link a highlight to another highlight options                      | `string`  | highlight name or "none"                    |
 | `italic`        | text style                                                         | `boolean` | boolean value                               |
 | `bold`          | text style                                                         | `boolean` | boolean value                               |
-| `blend`         | combining colors to create a new color(not often used in nvchad)   | `number`  | integer between 0 and 100, level of opacity |
+| `blend`         | combining colors to create a new color (not often used in nvchad)  | `number`  | integer between 0 and 100, level of opacity |
 | `standout`      | decorations                                                        | `boolean` | boolean value                               |
 | `underline`     | decorations                                                        | `boolean` | boolean value                               |
 | `undercurl`     | decorations                                                        | `boolean` | boolean value                               |
@@ -269,20 +271,21 @@ M.ui = {
 }
 ```
 
-### contributing
-
-- when you finish testing you're theme, you can contribute by puting your file
-  in `base46/themes/<YOUR FILE NAME>.lua`
-
 ## tips
 
 - use a highcontrastcolor e.g: yellow or red and run neovim command `:hi` to
   figure out what highlightings uses this color
 - install the `nvim-treesitter/playground` plugin to help you inspect
   highlightings are used
-- use the `:Inspect` command (required treesitter playground)
-- use `:TSCaptureUnderCursor` will open a buffer of queries that define the
+- use the `:Inspect` or use `:TSCaptureUnderCursor` commands (required
+  treesitter playground)
+- use `:TSPlaygroundToggle` will open a buffer contains queries that define the
   highlightings
+
+### contributing
+
+- when you finish testing you're theme, you can contribute by puting your file
+  in `base46/themes/<YOUR FILE NAME>.lua`
 
 ## Examples
 
