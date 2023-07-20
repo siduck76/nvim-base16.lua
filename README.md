@@ -99,6 +99,9 @@ folder_bg = blue color
   [#settings-highlightings](#setting-highlightings))
 
 ```lua
+-- this line for types, by hovering and autocompletion (lsp required)
+-- will help you understanding properties, fields, and what highlightings the color used for
+---@type Base46Table
 local M = {}
 -- UI
 M.base_30 = {
