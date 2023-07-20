@@ -12,11 +12,12 @@
 - the return values is the options of that highlight (those are just common
   options):
 
-```
-`guifg` Argument for foreground
-`guibg` Argument for background
-`link` Argument for link to another highlight
-```
+| Argument | Role                      |
+| -------- | ------------------------- |
+| `guifg`  | foreground                |
+| `guibg`  | background                |
+| `link`   | lint to another highlight |
+| `gui`    | text style (bold/italic)  |
 
 - when a highlight links to another, will then use their options
 - e.g if `Keyword` options is `guifg=red, guibg=green` then `@keyword` will use
@@ -36,18 +37,23 @@ syntax:
 
 to understanding the highlights and how they works here's some examples:
 
-- `@keyword.function` used for the function keyword `function`, use
-  `:hi @keyword.function` to show this highlight options
-- `String` used for strings (Include quotations), use`:hi String` to show this
-  highlight options
-- `St_cwd` used for the current folder in StatusLine, use `":hi St_cwd` to show
-  this highlight options
-- `CmpDoc` used for the the doc completion of `nvim-cmp` plugis, use
-  `:hi CmpDoc` to show this highlight options
+| Highlight           | Highlight Role                          | Vim Command             |
+| ------------------- | --------------------------------------- | ----------------------- |
+| `@keyword.function` | function keyword `function`             | `:hi @keyword.function` |
+| `String`            | String (Include quotations) `String`    | `:hi String`            |
+| `St_cwd`            | the current folder module in StatusLine | `:hi St_swd`            |
+| `CmpDoc`            | the doc completion menu                 | `:hi St_swd`            |
+
 - you can also specify the highlighings of each language, e.g:
 
 ```vim
 :hi @keyword.function.tsx guifg=white guibg=orange
+```
+
+syntax:
+
+```vim
+:hi <HIGHLIGHT NAME>.<LANGUAGE EXTENSION> guifg=<COLOR> guibg=<COLOR>
 ```
 
 **Note: this feature is not yet support by `base64`**
@@ -89,9 +95,11 @@ lightbg = 13% lighter than statusline_bg
 lightbg2 = 7% lighter than statusline_bg
 
 folder_bg = blue color
-
-(note : the above values are mostly approx values so its not compulsory that you have to use those exact numbers , test your theme i.e show it in the PR to get feedback from @siduck)
 ```
+
+**Note: the above values are mostly approx values so its not compulsory that you
+have to use those exact numbers, test your theme i.e show it in the PR to get
+feedback from @siduck**
 
 ## Default Options
 
@@ -158,11 +166,14 @@ M.base_16 = {
 }
 -- overriding highlights (see #overriding-a-highlight)
 M.polish_hl = {}
+
 -- set the theme type whether is dark or light
 M.type = "<DARK/LIGHT>"
+
 -- assinging the theme
-M.require("base46").override_theme(M, "<YOUR THEME NAME>") -- name of your theme
--- don't return the empty highlighting this will cause an error since those will used to generate highlightings
+M.require("base46").override_theme(M, "<YOUR THEME NAME>")
+
+-- don't return the empty highlighting this will cause an error since those will used to generate the highlightings
 return M
 ```
 
@@ -173,8 +184,8 @@ return M
 
 ```lua
 M.polish_hl = {
- ["@keyword"] = {}
- String = {}
+ ["@keyword"] = { bold = true}
+ String = { italic = false }
 }
 ```
 
@@ -182,7 +193,7 @@ M.polish_hl = {
 
 in `base46` you can set the highlighting in diffrent way
 
-- bases values must be a color name or hexcode, e.g
+- see [Tips](#tips) that will help you
 
 ```lua
 -- ...
@@ -201,14 +212,38 @@ M.base_16 = {
 -- ...
 ```
 
-- specify the `fg` and `bg` and `link` fields for each highilght
-- the options is not required you can set one color or both or link it to
-  another highlight
-- `fg`, `bg` should be color name or hex codes , e.g
+### base46 table options
+
+- specify the the highlightigs options for each highilght
+
+| highlighting    | Role                                                               | type      | values                                      |
+| --------------- | ------------------------------------------------------------------ | --------- | ------------------------------------------- |
+| `fg`            | foreground                                                         | `string`  | color name or hex code or "none"            |
+| `bg`            | background                                                         | `string`  | color name or hex code or "none"            |
+| `sp`            | color of underlines. (more info `: guisp`)                         | `string`  | color name or hex code or "none"            |
+| `link`          | link a highlight to another highlight options                      | `string`  | highlight name or "none"                    |
+| `italic`        | text style                                                         | `boolean` | boolean value                               |
+| `bold`          | text style                                                         | `boolean` | boolean value                               |
+| `blend`         | combining colors to create a new color(not often used in nvchad)   | `number`  | integer between 0 and 100, level of opacity |
+| `standout`      | decorations                                                        | `boolean` | boolean value                               |
+| `underline`     | decorations                                                        | `boolean` | boolean value                               |
+| `undercurl`     | decorations                                                        | `boolean` | boolean values                              |
+| `funderdouble`  | decorations                                                        | `boolean` | boolean values                              |
+| `underdotted`   | decorations                                                        | `boolean` | boolean values                              |
+| `underdashed`   | decorations                                                        | `boolean` | boolean values                              |
+| `strikethrough` | decorations                                                        | `boolean` | boolean values                              |
+| `reverse`       | decorations                                                        | `boolean` | boolean values                              |
+| `nocombine`     | decorations                                                        | `boolean` | boolean values                              |
+| `default`       | Don't override existing definition if true                         | `boolean` | boolean values                              |
+| `ctermfg`       | number Sets foreground of cterm color                              | `number`  | number value                                |
+| `ctermbg`       | number Sets background of cterm color                              | `number`  | number value                                |
+| `cterm`         | comma-separated list of cterm opts. (more info `:h highlightings`) | `string`  | string value                                |
+
+- note that `fg`, `bg`, `link`, `italic`, `bold` are common used
 
 ```lua
 ["@variable"] = { fg = "#E4F0FB" },
-Comment = { bg = "yellow },
+Comment = { bg = "yellow", italic = true },
 ["@string"] = { link = "String" }
 ```
 
@@ -217,9 +252,6 @@ Comment = { bg = "yellow },
 see how themes being created [here](#examples)
 
 ### testing
-
-**TIP: use a highcontrast color and run neovim command `:hi` to figure out what
-highlightings uses this color**
 
 - you can test your plugin by adding your file in
   `custom/themes/<YOUR FILE NAME>.lua`
@@ -241,6 +273,16 @@ M.ui = {
 
 - when you finish testing you're theme, you can contribute by puting your file
   in `base46/themes/<YOUR FILE NAME>.lua`
+
+### tips
+
+- use a highcontrastcolor e.g: yellow or red and run neovim command `:hi` to
+  figure out what highlightings uses this color
+- install the `nvim-treesitter/playground` plugin to help you inspect
+  highlightings are used
+- use the `:Inspect` command (required treesitter playground)
+- use `:TSCaptureUnderCursor` will open a buffer of queries that define the
+  highlightings
 
 ## Examples
 
