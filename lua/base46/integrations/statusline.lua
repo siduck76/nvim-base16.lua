@@ -6,33 +6,37 @@ local merge_tb = vim.tbl_deep_extend
 local config = require("core.utils").load_config().ui
 local statusline_theme = config.statusline.theme
 
+-- default values from the colors palette
+local statusline_bg = colors.statusline_bg
+local light_grey = colors.light_grey
+
 if statusline_theme == "vscode" then
-  colors.statusline_bg = generate_color(colors.statusline_bg, 1)
-  colors.light_grey = generate_color(colors.light_grey, 20)
+  statusline_bg = generate_color(colors.statusline_bg, 1)
+  light_grey = generate_color(colors.light_grey, 20)
 elseif statusline_theme == "vscode_colored" then
-  colors.statusline_bg = generate_color(colors.statusline_bg, 1)
-  colors.light_grey = generate_color(colors.light_grey, 25)
+  statusline_bg = generate_color(colors.statusline_bg, 1)
+  light_grey = generate_color(colors.light_grey, 25)
 end
 
 local Lsp_highlights = {
   St_lspError = {
     fg = colors.red,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_lspWarning = {
     fg = colors.yellow,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_LspHints = {
     fg = colors.purple,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_LspInfo = {
     fg = colors.green,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 }
 
@@ -40,23 +44,23 @@ local M = {}
 
 M.default = {
   StatusLine = {
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_gitIcons = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = light_grey,
+    bg = statusline_bg,
     bold = true,
   },
 
   St_LspStatus = {
     fg = colors.nord_blue,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_LspProgress = {
     fg = colors.green,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_LspStatus_Icon = {
@@ -71,7 +75,7 @@ M.default = {
 
   St_EmptySpace2 = {
     fg = colors.grey,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_file_info = {
@@ -80,7 +84,7 @@ M.default = {
   },
 
   St_file_sep = {
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
     fg = colors.lightbg,
   },
 
@@ -96,7 +100,7 @@ M.default = {
 
   St_cwd_sep = {
     fg = colors.red,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_pos_sep = {
@@ -117,65 +121,65 @@ M.default = {
 
 M.vscode = {
   StatusLine = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = light_grey,
+    bg = statusline_bg,
   },
 
   St_Mode = {
-    fg = colors.light_grey,
+    fg = light_grey,
     bg = colors.one_bg3,
   },
 
   StText = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = light_grey,
+    bg = statusline_bg,
   },
 }
 
 M.vscode_colored = {
   StatusLine = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = light_grey,
+    bg = statusline_bg,
   },
 
   StText = {
-    fg = colors.light_grey,
-    bg = colors.statusline_bg,
+    fg = light_grey,
+    bg = statusline_bg,
   },
 
   -- LSP
   St_lspError = {
     fg = colors.red,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
     bold = true,
   },
 
   St_lspWarning = {
     fg = colors.yellow,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
     bold = true,
   },
 
   St_LspHints = {
     fg = colors.purple,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
     bold = true,
   },
 
   St_LspInfo = {
     fg = colors.green,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
     bold = true,
   },
 
   St_LspStatus = {
     fg = colors.green,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_LspProgress = {
     fg = colors.red,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_cwd = {
@@ -185,12 +189,12 @@ M.vscode_colored = {
 
   St_encode = {
     fg = colors.orange,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 
   St_ft = {
     fg = colors.blue,
-    bg = colors.statusline_bg,
+    bg = statusline_bg,
   },
 }
 
@@ -200,7 +204,7 @@ M.minimal = {
   },
 
   St_gitIcons = {
-    fg = generate_color(colors.light_grey, 8),
+    fg = generate_color(light_grey, 8),
     bg = colors.black,
     bold = true,
   },
