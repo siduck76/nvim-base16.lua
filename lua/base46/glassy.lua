@@ -28,6 +28,7 @@ local hl_groups = {
   "CursorLine",
   "Pmenu",
   "CmpPmenu",
+  "StatusLine", -- Added the status line hl group here
 }
 
 for _, groups in ipairs(hl_groups) do
