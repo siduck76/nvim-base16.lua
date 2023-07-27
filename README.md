@@ -216,28 +216,28 @@ M.base_16 = {
 - you can set these options to override highlightings only in `M.polish_hl`
   property
 
-| highlighting    | Role                                                               | Type      | Value                                       |
-| --------------- | ------------------------------------------------------------------ | --------- | ------------------------------------------- |
-| `fg`            | foreground                                                         | `string`  | color name or hex code or "none"            |
-| `bg`            | background                                                         | `string`  | color name or hex code or "none"            |
-| `sp`            | color of underlines. (more info `:h guisp`)                        | `string`  | color name or hex code or "none"            |
-| `link`          | link a highlight to another highlight options                      | `string`  | highlight name or "none"                    |
-| `italic`        | text style                                                         | `boolean` | boolean value                               |
-| `bold`          | text style                                                         | `boolean` | boolean value                               |
-| `blend`         | combining colors to create a new color (not often used in nvchad)  | `number`  | integer between 0 and 100, level of opacity |
-| `standout`      | decorations                                                        | `boolean` | boolean value                               |
-| `underline`     | decorations                                                        | `boolean` | boolean value                               |
-| `undercurl`     | decorations                                                        | `boolean` | boolean value                               |
-| `funderdouble`  | decorations                                                        | `boolean` | boolean value                               |
-| `underdotted`   | decorations                                                        | `boolean` | boolean value                               |
-| `underdashed`   | decorations                                                        | `boolean` | boolean value                               |
-| `strikethrough` | decorations                                                        | `boolean` | boolean value                               |
-| `reverse`       | decorations                                                        | `boolean` | boolean value                               |
-| `nocombine`     | decorations                                                        | `boolean` | boolean value                               |
-| `default`       | Don't override existing definition if true                         | `boolean` | boolean value                               |
-| `ctermfg`       | number Sets foreground of cterm color                              | `number`  | number value                                |
-| `ctermbg`       | number Sets background of cterm color                              | `number`  | number value                                |
-| `cterm`         | comma-separated list of cterm opts. (more info `:h highlightings`) | `string`  | string value                                |
+| highlighting    | Role                                                                                                  | Type      | Value                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------- |
+| `fg`            | foreground                                                                                            | `string`  | color name or hex code or "none"            |
+| `bg`            | background                                                                                            | `string`  | color name or hex code or "none"            |
+| `sp`            | color of underlines, note that all decorations bellow is required `sp` to work (more info `:h guisp`) | `string`  | color name or hex code or "none"            |
+| `standout`      | decorations                                                                                           | `boolean` | boolean value                               |
+| `underline`     | decorations                                                                                           | `boolean` | boolean value                               |
+| `undercurl`     | decorations                                                                                           | `boolean` | boolean value                               |
+| `funderdouble`  | decorations                                                                                           | `boolean` | boolean value                               |
+| `underdotted`   | decorations                                                                                           | `boolean` | boolean value                               |
+| `underdashed`   | decorations                                                                                           | `boolean` | boolean value                               |
+| `strikethrough` | decorations                                                                                           | `boolean` | boolean value                               |
+| `reverse`       | decorations                                                                                           | `boolean` | boolean value                               |
+| `nocombine`     | decorations                                                                                           | `boolean` | boolean value                               |
+| `link`          | link a highlight to another highlight options                                                         | `string`  | highlight name or "none"                    |
+| `italic`        | text style                                                                                            | `boolean` | boolean value                               |
+| `bold`          | text style                                                                                            | `boolean` | boolean value                               |
+| `blend`         | combining colors to create a new color (not often used in nvchad)                                     | `integer` | integer between 0 and 100, level of opacity |
+| `default`       | Don't override existing definition if true                                                            | `boolean` | boolean value                               |
+| `ctermfg`       | integer sets foreground of cterm color                                                                | `integer` | integer value between 0-255                 |
+| `ctermbg`       | integer sets background of cterm color                                                                | `integer` | integer value between 0-255                 |
+| `cterm`         | comma-separated list of cterm opts. (more info `:h highlightings`)                                    | `string`  | string value                                |
 
 - note that `fg`, `bg`, `link`, `italic`, `bold` are common used
 
@@ -271,21 +271,17 @@ M.ui = {
 }
 ```
 
-## tips
-
-- use a highcontrastcolor e.g: yellow or red and run neovim command `:hi` to
-  figure out what highlightings uses this color
-- install the `nvim-treesitter/playground` plugin to help you inspect
-  highlightings are used
-- use the `:Inspect` or use `:TSCaptureUnderCursor` commands (required
-  treesitter playground)
-- use `:TSPlaygroundToggle` will open a buffer contains queries that define the
-  highlightings
-
 ### contributing
 
 - when you finish testing you're theme, you can contribute by puting your file
   in `base46/themes/<YOUR FILE NAME>.lua`
+
+## tips
+
+- use a highcontrast color e.g: yellow or red and run neovim command `:hi` to
+  figure out what highlightings uses this color
+- capture what highlight are used under the cursor by running the `:Inspect` or
+  `:InspectTree` commands
 
 ## Examples
 
