@@ -64,7 +64,7 @@ M.polish_hl = {
   ["@tag.attribute"] = { fg = M.base_30.base0F },
 }
 
-M = require("base46").override_theme(M, "ayu-light")
+M = require("base46").override_theme(M, "ayu_light")
 
 M.type = "light"
 
