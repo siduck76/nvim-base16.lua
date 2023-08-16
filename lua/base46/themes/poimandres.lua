@@ -1,5 +1,5 @@
 -- Credits to original theme https://github.com/olivercederborg/poimandres.nvim
--- This is a modified version by @kayuxcodes
+-- This is a modified version by @kayuxx
 ---@type Base46Table
 local M = {}
 
