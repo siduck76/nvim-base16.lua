@@ -28,7 +28,7 @@ local change_hex_lightness = require("base46.colors").change_hex_lightness
 -- turns color var names in hl_override/hl_add to actual colors
 -- hl_add = { abc = { bg = "one_bg" }} -> bg = colors.one_bg
 M.turn_str_to_color = function(tb)
-  local colors = M.get_theme_tb "base_30"
+  local colors = M.merge_tb(M.get_theme_tb "base_16", M.get_theme_tb "base_30")
   local copy = vim.deepcopy(tb)
 
   for _, hlgroups in pairs(copy) do
