@@ -78,8 +78,9 @@ M.extend_default_hl = function(highlights)
   end
 end
 
-M.load_highlight = function(group)
-  group = require("base46.integrations." .. group)
+M.load_highlight = function(group, is_extended)
+  local str = is_extended and "extended_" or ""
+  group = require("base46." .. str .. "integrations." .. group)
   M.extend_default_hl(group)
   return group
 end
@@ -140,8 +141,8 @@ M.compile = function()
   local extended_integrations = config.ui.extended_integrations
 
   if extended_integrations then
-    for _, integration in ipairs(extended_integrations) do
-      M.saveStr_to_cache(integration, require("base46.extended_integrations." .. integration))
+    for _, filename in ipairs(extended_integrations) do
+      M.saveStr_to_cache(filename, M.load_highlight(filename, true))
     end
   end
 end
