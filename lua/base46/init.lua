@@ -44,12 +44,22 @@ end
 
 M.extend_default_hl = function(highlights)
   local polish_hl = M.get_theme_tb "polish_hl"
+  local add_hl = M.get_theme_tb "add_hl"
 
   -- polish themes
   if polish_hl then
     for key, value in pairs(polish_hl) do
       if highlights[key] then
         highlights[key] = M.merge_tb(highlights[key], value)
+      end
+    end
+  end
+
+  -- add new hl
+  if add_hl then
+    for key, value in pairs(add_hl) do
+      if not highlights[key] and type(value) == "table" then
+        highlights[key] = value
       end
     end
   end
