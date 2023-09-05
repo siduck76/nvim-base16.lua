@@ -55,9 +55,9 @@ M.base_16 = {
   base0E = "#a6accd",
   base0F = "#FFFFFF",
 }
+
 M.polish_hl = {
   ["@variable"] = { fg = "#E4F0FB" },
-  Comment = { fg = "#767C9D" },
   ["@variable.builtin"] = { fg = "#E4F0FB" },
   ["@constant.builtin"] = { fg = "#ADD7FF" },
   ["@constant.falsy"] = { fg = "#D0679D" },
@@ -72,22 +72,23 @@ M.polish_hl = {
   ["@keyword.operator"] = { fg = "#ADD7FF" },
   ["@field"] = { fg = "#E4F0FB" },
   ["@label"] = { fg = "#91B4D5" },
-  Include = { fg = "#89DDFF" },
   ["@method"] = { fg = "#5DE4C7" },
-  ["@operator"] = { link = "Operator" },
   ["@parameter"] = { fg = "#E4F0FB" },
   ["@property"] = { fg = "#ADD7FF" },
   ["@punctuation.delimiter"] = { fg = "#ADD7FF" },
   ["@punctuation.special"] = { fg = "#91B4D5" },
   ["@punctuation.bracket"] = { fg = "#767C9D" },
+  ["@type.builtin"] = { link = "Boolean" },
   ["@string.escape"] = { fg = "#D0679D" },
-  Tag = { fg = "#5DE4C7" },
-  ["@tag.attribute"] = { fg = "#A6ACCD", italic = true, link = "" },
+  ["@tag.attribute"] = { fg = "#A6ACCD", italic = true },
   ["@tag.delimiter"] = { fg = "#E4F0FB" },
   ["@text"] = { fg = "#E4F0FB" },
   ["@title"] = { fg = "#5DE4C7", bold = true },
-  Type = { fg = "#767C9D" },
   ["@none"] = { fg = "#E4F0FB" },
+  Comment = { fg = "#767C9D" },
+  Include = { fg = "#89DDFF" },
+  Tag = { fg = "#5DE4C7" },
+  Type = { fg = "#767C9D" },
   CmpItemAbbr = { fg = "#767C9D" },
   CmpItemAbbrDeprecated = { fg = "#D0679D" },
   CmpItemAbbrMatch = { fg = "#E4F0FB" },
@@ -99,7 +100,7 @@ M.polish_hl = {
   CmpItemKindMethod = { fg = "#D0679D" },
   CmpItemKindSnippet = { fg = "#A6ACCD" },
   CmpItemKindVariable = { fg = "#5DE4C7" },
-  ["CmpSel"] = { fg = "#E4F0FB", bg = "#303340", link = "" },
+  CmpSel = { fg = "#E4F0FB", bg = "#303340", link = "" },
   St_CommandmodeText = { fg = "#5DE4C7" },
   St_CommandModeSep = { fg = "#5DE4C7" },
   St_CommandMode = { bg = "#5DE4C7" },
@@ -108,7 +109,12 @@ M.polish_hl = {
   St_TerminalMode = { bg = "#FFFAC2" },
   NvimTreeNormalNC = { bg = "#171922" },
   NvimTreeNormal = { bg = "#171922" },
+  NvimTreeWinSeparator = { bg = "#171922", fg = "#171922" },
+  NvDashButtons = { bg = "#171922" },
+  TelescopeBorder = { fg = "#506477" },
+  TelescopePromptBorder = { fg = "#506477" },
 }
+
 M.type = "dark"
 
 M = require("base46").override_theme(M, "poimandres")
