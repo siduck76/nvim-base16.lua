@@ -2,6 +2,14 @@
 -- This is a modified version by @kayuxx
 ---@type Base46Table
 local M = {}
+local config = require("core.utils").load_config()
+local transparency = config.ui.transparency
+local StTheme = function(name)
+  return config.ui.statusline.theme == name
+end
+local checkPlug = function(cmd)
+  return vim.fn.exists(cmd) > 0
+end
 
 M.base_30 = {
   white = "#FFFFFF",
@@ -30,8 +38,8 @@ M.base_30 = {
   dark_purple = "#E4F0FB",
   teal = "#5DE4C7",
   orange = "#91B4D5",
-  cyan = "#89DDFF",
-  statusline_bg = "#1b1e28",
+  cyan = "#FFFAC2",
+  statusline_bg = "#232633",
   lightbg = "#a6accd",
   pmenu_bg = "#303340",
   folder_bg = "#91B4D5",
@@ -57,66 +65,81 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  ["@variable"] = { fg = "#E4F0FB" },
-  ["@variable.builtin"] = { fg = "#E4F0FB" },
-  ["@constant.builtin"] = { fg = "#ADD7FF" },
-  ["@constant.falsy"] = { fg = "#D0679D" },
-  ["@constructor"] = { fg = "#767C9D" },
+  ["@variable"] = { fg = M.base_16.base08 },
+  ["@variable.builtin"] = { fg = M.base_16.base08 },
+  ["@constant.builtin"] = { fg = M.base_16.base0A },
+  ["@constant.falsy"] = { fg = M.base_30.red },
+  ["@constructor"] = { fg = M.base_30.grey_fg },
   ["@constructor.tsx"] = { link = "Tag" },
-  ["@function.builtin"] = { fg = "#ADD7FF" },
-  ["@function"] = { fg = "#ADD7FF" },
-  ["@function.call"] = { fg = "#A6ACCD" },
-  ["@keyword"] = { fg = "#91B4D5" },
-  ["@keyword.return"] = { fg = "#5FB3A1" },
-  ["@keyword.function"] = { fg = "#91B4D5" },
-  ["@keyword.operator"] = { fg = "#ADD7FF" },
-  ["@field"] = { fg = "#E4F0FB" },
-  ["@label"] = { fg = "#91B4D5" },
-  ["@method"] = { fg = "#5DE4C7" },
-  ["@parameter"] = { fg = "#E4F0FB" },
-  ["@property"] = { fg = "#ADD7FF" },
-  ["@punctuation.delimiter"] = { fg = "#ADD7FF" },
-  ["@punctuation.special"] = { fg = "#91B4D5" },
-  ["@punctuation.bracket"] = { fg = "#767C9D" },
+  ["@function.builtin"] = { fg = M.base_16.base0A },
+  ["@function"] = { fg = M.base_16.base0A },
+  ["@function.call"] = { fg = M.base_30.purple },
+  ["@keyword"] = { fg = M.base_30.light_grey },
+  ["@keyword.return"] = { fg = M.base_30.green },
+  ["@keyword.function"] = { fg = M.base_30.light_grey },
+  ["@keyword.operator"] = { fg = M.base_16.base0A },
+  ["@field"] = { fg = M.base_30.dark_purple },
+  ["@label"] = { fg = M.base_30.light_grey },
+  ["@method"] = { fg = M.base_30.teal },
+  ["@parameter"] = { fg = M.base_30.dark_purple },
+  ["@property"] = { fg = M.base_16.base0A },
+  ["@punctuation.delimiter"] = { fg = M.base_16.base0A },
+  ["@punctuation.special"] = { fg = M.base_30.light_grey },
+  ["@punctuation.bracket"] = { fg = M.base_30.grey_fg },
   ["@type.builtin"] = { link = "Boolean" },
-  ["@string.escape"] = { fg = "#D0679D" },
-  ["@tag.attribute"] = { fg = "#A6ACCD", italic = true },
-  ["@tag.delimiter"] = { fg = "#E4F0FB" },
-  ["@text"] = { fg = "#E4F0FB" },
-  ["@title"] = { fg = "#5DE4C7", bold = true },
-  ["@none"] = { fg = "#E4F0FB" },
-  Comment = { fg = "#767C9D" },
-  Include = { fg = "#89DDFF" },
-  Tag = { fg = "#5DE4C7" },
-  Type = { fg = "#767C9D" },
-  CmpItemAbbr = { fg = "#767C9D" },
-  CmpItemAbbrDeprecated = { fg = "#D0679D" },
-  CmpItemAbbrMatch = { fg = "#E4F0FB" },
-  CmpItemAbbrMatchFuzzy = { fg = "#5DE4C7" },
-  CmpItemKind = { fg = "#91B4D5" },
-  CmpItemKindClass = { fg = "#FFFAC2" },
-  CmpItemKindFunction = { fg = "#89DDFF" },
-  CmpItemKindInterface = { fg = "#ADD7FF" },
-  CmpItemKindMethod = { fg = "#D0679D" },
-  CmpItemKindSnippet = { fg = "#A6ACCD" },
-  CmpItemKindVariable = { fg = "#5DE4C7" },
-  CmpSel = { fg = "#E4F0FB", bg = "#303340", link = "" },
-  CmpPmenu = { bg = "#232633" },
-  CmpDoc = { bg = "#171922" },
-  CmpDocBorder = { fg = "#171922", bg = "#171922" },
-  St_CommandmodeText = { fg = "#5DE4C7" },
-  St_CommandModeSep = { fg = "#5DE4C7" },
-  St_CommandMode = { bg = "#5DE4C7" },
-  St_VisualmodeText = { fg = "#FFFAC2" },
-  St_VisualModeSep = { fg = "#FFFAC2" },
-  St_VisualMode = { bg = "#FFFAC2" },
-  NvimTreeNormalNC = { bg = "#171922" },
-  NvimTreeNormal = { bg = "#171922" },
-  NvimTreeWinSeparator = { bg = "#171922", fg = "#171922" },
-  NvDashButtons = { bg = "#171922" },
-  TelescopeBorder = { fg = "#506477" },
-  TelescopePromptBorder = { fg = "#506477" },
+  ["@string.escape"] = { fg = M.base_30.red },
+  ["@tag.attribute"] = { fg = M.base_30.purple, italic = true },
+  ["@tag.delimiter"] = { fg = M.base_30.dark_purple },
+  ["@text"] = { fg = M.base_30.dark_purple },
+  ["@title"] = { fg = M.base_30.teal, bold = true },
+  ["@none"] = { fg = M.base_30.dark_purple },
+  Comment = { fg = M.base_30.grey_fg },
+  Include = { fg = M.base_30.blue },
+  Tag = { fg = M.base_30.teal },
+  Type = { fg = M.base_30.grey_fg },
+  CmpItemAbbr = { fg = M.base_30.grey_fg },
+  CmpItemAbbrDeprecated = { fg = M.base_30.red },
+  CmpItemAbbrMatch = { fg = M.base_30.dark_purple },
+  CmpItemAbbrMatchFuzzy = { fg = M.base_30.teal },
+  CmpItemKind = { fg = M.base_30.light_grey },
+  CmpItemKindClass = { fg = M.base_30.yellow },
+  CmpItemKindFunction = { fg = M.base_30.blue },
+  CmpItemKindInterface = { fg = M.base_16.base0A },
+  CmpItemKindMethod = { fg = M.base_30.red },
+  CmpItemKindSnippet = { fg = M.base_30.purple },
+  CmpItemKindVariable = { fg = M.base_30.teal },
+  CmpSel = { fg = M.base_30.dark_purple, bg = M.base_30.one_bg, link = "" },
+  CmpPmenu = { bg = M.base_30.darker_black },
+  CmpDoc = { bg = M.base_16.base04 },
+  CmpDocBorder = { fg = M.base_16.base04, bg = M.base_16.base04 },
+  NvimTreeNormalNC = { bg = M.base_16.base04 },
+  NvimTreeNormal = { bg = M.base_16.base04 },
+  NvimTreeWinSeparator = { bg = M.base_16.base04, fg = M.base_16.base04 },
+  NvDashButtons = { bg = M.base_16.base04 },
+  TelescopeBorder = { fg = M.base_30.grey },
+  TelescopePromptBorder = { fg = M.base_30.grey },
 }
+
+if not StTheme "vscode_colored" then
+  M.polish_hl.St_CommandmodeText = { fg = M.base_30.teal }
+  M.polish_hl.St_CommandModeSep = { fg = M.base_30.teal }
+  M.polish_hl.St_CommandMode = { bg = M.base_30.teal }
+end
+
+if StTheme "default" then
+  M.base_30.lightbg = M.base_30.one_bg
+end
+
+if StTheme "vscode_colored" then
+  M.base_30.one_bg3 = M.base_30.line
+  M.polish_hl.St_CommandMode = { fg = M.base_30.teal }
+end
+
+-- This feature is not yet available in NvChad. currently waiting for the acceptance of #237.
+-- here's just to check if the plugin is exists first and then polish add hl
+-- if checkPlug ":Lspsaga" then
+--   M.add_hl.SagaBorder = { bg = (transparency and "" or M.base_16.base04) }
+-- end
 
 M.type = "dark"
 
