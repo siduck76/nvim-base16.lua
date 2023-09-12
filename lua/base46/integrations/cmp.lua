@@ -41,6 +41,8 @@ local item_kinds = {
   CmpItemKindOperator = { fg = base16.base05 },
   CmpItemKindTypeParameter = { fg = base16.base08 },
   CmpItemKindCopilot = { fg = colors.green },
+  CmpItemKindCodeium = { fg = colors.vibrant_green },
+  CmpItemKindTabNine = {fg = colors.baby_pink },
 }
 
 local cmp_ui = require("core.utils").load_config().ui.cmp
