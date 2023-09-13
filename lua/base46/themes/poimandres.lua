@@ -81,7 +81,7 @@ M.polish_hl = {
   CmpSel = { bg = M.base_30.one_bg, link = "" },
   CmpPmenu = { bg = M.base_30.statusline_bg },
   Include = { fg = M.base_30.blue },
-  NvDashButtons = { bg = M.base_16.base04 },
+  NvDashButtons = { bg = M.base_30.darker_black },
   TelescopeBorder = { fg = M.base_30.grey },
   TelescopePromptBorder = { fg = M.base_30.grey },
   Type = { fg = M.base_30.purple },
