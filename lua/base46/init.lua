@@ -1,7 +1,11 @@
 local M = {}
 local g = vim.g
-local config = require("core.utils").load_config()
+local config = require "nvconfig"
 local base46_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h")
+
+if not vim.g.nvchad_theme then
+  vim.g.nvchad_theme = config.ui.theme
+end
 
 M.get_theme_tb = function(type)
   local default_path = "base46.themes." .. g.nvchad_theme

@@ -45,7 +45,7 @@ local item_kinds = {
   CmpItemKindTabNine = {fg = colors.baby_pink },
 }
 
-local cmp_ui = require("core.utils").load_config().ui.cmp
+local cmp_ui = require("nvconfig").ui.cmp
 
 -- custom highlights per style!
 local styles = {

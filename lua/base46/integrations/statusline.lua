@@ -5,7 +5,7 @@ local generate_color = require("base46.colors").change_hex_lightness
 local merge_tb = vim.tbl_deep_extend
 
 -- change color values according to statusilne themes
-local config = require("core.utils").load_config().ui
+local config = require("nvconfig").ui
 local statusline_theme = config.statusline.theme
 
 -- default values from the colors palette
