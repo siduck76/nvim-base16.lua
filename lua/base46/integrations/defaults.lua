@@ -245,9 +245,13 @@ local defaults = {
 
 -- merge statusilne & hl_add tables!
 local merge_tb = require("base46").merge_tb
-defaults = merge_tb(defaults, require("base46").load_highlight "statusline")
+defaults = merge_tb(defaults, require("base46").load_integrationTB "statusline")
 
-local hexify_ColorStrs = require("base46").turn_str_to_color
 local user_new_highlights = require("nvconfig").ui.hl_add
 
-return merge_tb(defaults, hexify_ColorStrs(user_new_highlights))
+if user_new_highlights then
+  local hexify_ColorStrs = require("base46").turn_str_to_color
+  defaults = merge_tb(defaults, hexify_ColorStrs(user_new_highlights))
+end
+
+return defaults

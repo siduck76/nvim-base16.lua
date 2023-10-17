@@ -1,7 +1,6 @@
 local M = {}
 local g = vim.g
 local config = require "nvconfig"
-local base46_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h")
 
 if not vim.g.nvchad_theme then
   vim.g.nvchad_theme = config.ui.theme
@@ -71,7 +70,7 @@ M.extend_default_hl = function(highlights)
   end
 
   -- transparency
-  if vim.g.transparency then
+  if config.ui.transparency then
     local glassy = require "base46.glassy"
 
     for key, value in pairs(glassy) do
@@ -92,9 +91,8 @@ M.extend_default_hl = function(highlights)
   end
 end
 
-M.load_highlight = function(group, is_extended)
-  local str = is_extended and "extended_" or ""
-  group = require("base46." .. str .. "integrations." .. group)
+M.load_integrationTB = function(group)
+  group = require("base46.integrations." .. group)
   M.extend_default_hl(group)
   return group
 end
@@ -140,24 +138,8 @@ M.compile = function()
     vim.fn.mkdir(vim.g.base46_cache, "p")
   end
 
-  -- All integration modules, each file returns a table
-  local hl_files = base46_path .. "/integrations"
-
-  for _, file in ipairs(vim.fn.readdir(hl_files)) do
-    -- skip caching some files
-    if file ~= "statusline" or file ~= "treesitter" then
-      local filename = vim.fn.fnamemodify(file, ":r")
-      M.saveStr_to_cache(filename, M.load_highlight(filename))
-    end
-  end
-
-  -- look for custom cached highlight files
-  local extended_integrations = config.ui.extended_integrations
-
-  if extended_integrations then
-    for _, filename in ipairs(extended_integrations) do
-      M.saveStr_to_cache(filename, M.load_highlight(filename, true))
-    end
+  for _, filename in ipairs(config.base46.integrations) do
+    M.saveStr_to_cache(filename, M.load_integrationTB(filename))
   end
 end
 
@@ -165,8 +147,8 @@ M.load_all_highlights = function()
   require("plenary.reload").reload_module "base46"
   M.compile()
 
-  for _, file in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
-    dofile(vim.g.base46_cache .. file)
+  for _, filename in ipairs(config.base46.integrations) do
+    dofile(vim.g.base46_cache .. filename)
   end
 
   -- update blankline
@@ -182,36 +164,28 @@ end
 
 M.toggle_theme = function()
   local themes = config.ui.theme_toggle
-  local theme1 = themes[1]
-  local theme2 = themes[2]
 
-  if g.nvchad_theme ~= theme1 and g.nvchad_theme ~= theme2 then
+  if g.nvchad_theme ~= themes[1] and g.nvchad_theme ~= themes[2] then
     vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (chadrc)"
     return
   end
 
-  if g.nvchad_theme == theme1 then
+  if g.nvchad_theme == themes[1] then
     g.toggle_theme_icon = "   "
-    vim.g.nvchad_theme = theme2
-    require("nvchad.utils").replace_word('theme = "' .. theme1, 'theme = "' .. theme2)
+    g.nvchad_theme = themes[2]
   else
-    vim.g.nvchad_theme = theme1
     g.toggle_theme_icon = "   "
-    require("nvchad.utils").replace_word('theme = "' .. theme2, 'theme = "' .. theme1)
+    g.nvchad_theme = themes[1]
   end
 
+  require("nvchad.utils").change_key_val("theme", g.nvchad_theme)
   M.load_all_highlights()
 end
 
 M.toggle_transparency = function()
-  g.transparency = not g.transparency
+  config.ui.transparency = not config.ui.transparency
   M.load_all_highlights()
-
-  -- write transparency value to chadrc
-  local old_data = "transparency = " .. tostring(config.ui.transparency)
-  local new_data = "transparency = " .. tostring(g.transparency)
-
-  require("nvchad.utils").replace_word(old_data, new_data)
+  require("nvchad.utils").change_key_val("transparency", config.ui.transparency)
 end
 
 return M
