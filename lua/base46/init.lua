@@ -2,13 +2,9 @@ local M = {}
 local g = vim.g
 local config = require "nvconfig"
 
-if not vim.g.nvchad_theme then
-  vim.g.nvchad_theme = config.ui.theme
-end
-
 M.get_theme_tb = function(type)
-  local default_path = "base46.themes." .. g.nvchad_theme
-  local user_path = "custom.themes." .. g.nvchad_theme
+  local default_path = "base46.themes." .. config.ui.theme
+  local user_path = "custom.themes." .. config.ui.theme
 
   local present1, default_theme = pcall(require, default_path)
   local present2, user_theme = pcall(require, user_path)
@@ -165,20 +161,17 @@ end
 M.toggle_theme = function()
   local themes = config.ui.theme_toggle
 
-  if g.nvchad_theme ~= themes[1] and g.nvchad_theme ~= themes[2] then
+  if config.ui.theme ~= themes[1] and config.ui.theme ~= themes[2] then
     vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (chadrc)"
     return
   end
 
-  if g.nvchad_theme == themes[1] then
-    g.toggle_theme_icon = "   "
-    g.nvchad_theme = themes[2]
-  else
-    g.toggle_theme_icon = "   "
-    g.nvchad_theme = themes[1]
-  end
+  g.icon_toggled = not g.icon_toggled
+  g.toggle_theme_icon = g.icon_toggled and "   " or "   "
 
-  require("nvchad.utils").change_key_val("theme", g.nvchad_theme)
+  config.ui.theme = (themes[1] == config.ui.theme and themes[2]) or themes[1]
+
+  require("nvchad.utils").change_key_val("theme", config.ui.theme)
   M.load_all_highlights()
 end
 
