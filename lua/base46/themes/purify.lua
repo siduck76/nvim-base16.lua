@@ -5,16 +5,16 @@ local M = {}
 
 M.base_30 = {
   white = "#FAFAFA",
-  darker_black = "#121C29",
+  darker_black = '#121b24',
   black = "#151F29", -- nvim bg
-  black2 = "#202A37",
-  one_bg = "#24283B",
-  one_bg2 = "#252F3C",
-  one_bg3 = "#353B45",
-  grey = "#40486A",
-  grey_fg = "#565F89",
-  grey_fg2 = "#4F5779",
-  light_grey = "#565F89",
+  black2 = "#1b2835",
+  one_bg = "#213141",
+  one_bg2 = "#293c4f",
+  one_bg3 = "#334c64",
+  grey = "#36506a",
+  grey_fg = "#3e5b79",
+  grey_fg2 = "#47698b",
+  light_grey = "#4c7094",
   red = "#FF6059",
   baby_pink = "#FF88D5",
   pink = "#FF79C6",
@@ -56,6 +56,7 @@ M.base_16 = {
 }
 
 M.type = "dark"
+
 M = require("base46").override_theme(M, "purify")
 
 return M
