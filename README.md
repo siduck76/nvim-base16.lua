@@ -113,6 +113,23 @@ M = require("base46").override_theme(M, "abc")
 return M
 ```
 
+### Color mixing
+
+It is possible to override or add highlight groups that mix two theme colors.
+When using the following "mix" style for setting highlight colors, using color
+names will result in the highlights adapting to match the current theme
+(even when switching themes).
+
+```lua
+hl_override = {
+  DiffAdd = {
+    -- Set the DiffAdd guibg color to a color 50% between
+    -- the "green" and "black" colors defined in the current theme
+    bg = {"green", "black", 50}
+  }
+}
+```
+
 ## Contribute
 
 - Send PR in the https://github.com/NvChad/base46/tree/v2.0/lua/base46/themes

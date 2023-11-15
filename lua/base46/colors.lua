@@ -214,4 +214,44 @@ M.compute_gradient = function(hex1, hex2, steps)
   return gradient
 end
 
+-- Clamp a number between min and max.
+-- @param val The number to clamp.
+-- @param min The minimum (0 if not passed).
+-- @param max The maximum (1 if not passed).
+-- @return The clamped value between min and max.
+M.clamp = function(val, min, max)
+  if min == nil then min = 0 end
+  if max == nil then max = 1 end
+  return math.max(math.min(val, max), min)
+end
+
+-- Mix two colors with a given percentage.
+-- @param first The primary hex color.
+-- @param second The hex color you want to mix into the first color.
+-- @param strength The percentage of second color in the output.
+--                 This needs to be a number between 0 - 100.
+--                 Negative numbers will be clampled to 0.
+-- @return The mixed color as a hex value
+M.mix = function(first, second, strength)
+  if strength == nil then strength = 0.5 end
+
+  local s = M.clamp(strength/100)
+  local r1, g1, b1 = M.hex2rgb(first)
+  local r2, g2, b2 = M.hex2rgb(second)
+
+  if (r1 == nil or r2 == nil) then return first end
+
+  if (s == 0) then
+    return first
+  elseif (s == 1) then
+    return second
+  end
+
+  local r3 = r1 * (1 - s) + r2 * s
+  local g3 = g1 * (1 - s) + g2 * s
+  local b3 = b1 * (1 - s) + b2 * s
+
+  return M.rgb2hex(r3, g3, b3)
+end
+
 return M

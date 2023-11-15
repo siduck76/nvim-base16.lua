@@ -24,6 +24,7 @@ M.merge_tb = function(...)
 end
 
 local change_hex_lightness = require("base46.colors").change_hex_lightness
+local mix = require("base46.colors").mix
 
 -- turns color var names in hl_override/hl_add to actual colors
 -- hl_add = { abc = { bg = "one_bg" }} -> bg = colors.one_bg
@@ -35,13 +36,21 @@ M.turn_str_to_color = function(tb)
     for opt, val in pairs(hlgroups) do
       if opt == "fg" or opt == "bg" or opt == "sp" then
         if not (type(val) == "string" and val:sub(1, 1) == "#" or val == "none" or val == "NONE") then
-          hlgroups[opt] = type(val) == "table" and change_hex_lightness(colors[val[1]], val[2]) or colors[val]
+          if (type(val) == "table") then
+            if (#val == 2) then
+              hlgroups[opt] = change_hex_lightness(colors[val[1]], val[2])
+            else
+              hlgroups[opt] = mix(colors[val[1]], colors[val[2]], val[3])
+            end
+          else
+            hlgroups[opt] = colors[val]
+          end
         end
       end
     end
   end
 
-  return copy
+ return copy
 end
 
 M.extend_default_hl = function(highlights)
