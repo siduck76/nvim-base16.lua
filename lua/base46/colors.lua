@@ -270,4 +270,36 @@ M.hex2complementary = function(hex, count)
   return complementary_colors
 end
 
+-- Mix two colors with a given percentage.
+-- @param first The primary hex color.
+-- @param second The hex color you want to mix into the first color.
+-- @param strength The percentage of second color in the output.
+--                 This needs to be a number between 0 - 100.
+-- @return The mixed color as a hex value
+M.mix = function(first, second, strength)
+  if strength == nil then
+    strength = 0.5
+  end
+
+  local s = strength / 100
+  local r1, g1, b1 = M.hex2rgb(first)
+  local r2, g2, b2 = M.hex2rgb(second)
+
+  if r1 == nil or r2 == nil then
+    return first
+  end
+
+  if s == 0 then
+    return first
+  elseif s == 1 then
+    return second
+  end
+
+  local r3 = r1 * (1 - s) + r2 * s
+  local g3 = g1 * (1 - s) + g2 * s
+  local b3 = b1 * (1 - s) + b2 * s
+
+  return M.rgb2hex(r3, g3, b3)
+end
+
 return M
