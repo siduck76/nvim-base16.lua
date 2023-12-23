@@ -58,7 +58,9 @@ M.polish_hl = {
 	["@parameter"] = {fg = "#f78c6c"},
 	["@operator"] = {fg = "#84ffff"},
 	["@punctuation.delimiter"] = {fg = "#84ffff"},
-	["@function.macro"] = {fg = "#f6aaae"}
+	["@function.macro"] = {fg = "#f6aaae"},
+	["StorageClass"] = {fg = "#c792ea"},
+	["Repeat"] = {fg = "#c792ea"}
 }
 
 M.type = "dark"
