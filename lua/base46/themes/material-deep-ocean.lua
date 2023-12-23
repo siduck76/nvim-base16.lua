@@ -43,7 +43,7 @@ M.base_16 = {
   base05 = "#eeffff",
   base06 = "#a5a9b5",
   base07 = "#313855",
-  base08 = "#f6aaae",
+  base08 = "#eeffff",
   base09 = "#f78c6c",
   base0A = "#ffcb6b",
   base0B = "#c3e88d",
@@ -57,7 +57,8 @@ M.polish_hl = {
 	["@type.builtin"] = {fg = "#c792ea"},
 	["@parameter"] = {fg = "#f78c6c"},
 	["@operator"] = {fg = "#84ffff"},
-	["@punctuation.delimiter"] = {fg = "#84ffff"}
+	["@punctuation.delimiter"] = {fg = "#84ffff"},
+	["@function.macro"] = {fg = "#f6aaae"}
 }
 
 M.type = "dark"
