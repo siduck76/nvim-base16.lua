@@ -58,10 +58,10 @@ M.polish_hl = {
 	["@parameter"] = {fg = M.base_30.orange},
 	["@operator"] = {fg = M.base_30.cyan},
 	["@punctuation.delimiter"] = {fg = M.base_30.cyan},
+	["@punctuation.bracket"] = {fg = M.base_30.cyan},
 	["@function.macro"] = {fg = M.base_30.pink},
 	["StorageClass"] = {fg = M.base_30.purple},
 	["Repeat"] = {fg = M.base_30.purple},
-	["Include"] = {fg = M.base_30.purple}
 }
 
 M.type = "light"
