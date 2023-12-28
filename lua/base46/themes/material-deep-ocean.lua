@@ -43,7 +43,7 @@ M.base_16 = {
   base05 = "#eeffff",
   base06 = "#a5a9b5",
   base07 = "#313855",
-  base08 = "#eeffff",
+  base08 = "#f07178",
   base09 = "#f78c6c",
   base0A = "#ffcb6b",
   base0B = "#c3e88d",
@@ -54,14 +54,22 @@ M.base_16 = {
 }
 
 M.polish_hl = {
+	-- Section to have correct red in neovim terminal
+	["@variable"] = { fg = M.base_30.white},
+	["@namespace"] = { fg = M.base_30.white},
+	["@field"] = { fg = M.base_30.white},
+	["@constant"] = { fg = M.base_30.white},
+
 	["@type.builtin"] = {fg = M.base_30.purple},
 	["@parameter"] = {fg = M.base_30.orange},
 	["@operator"] = {fg = M.base_30.cyan},
 	["@punctuation.delimiter"] = {fg = M.base_30.cyan},
 	["@punctuation.bracket"] = {fg = M.base_30.cyan},
+	["@punctuation.special"] = {fg = M.base_30.teal},
 	["@function.macro"] = {fg = M.base_30.pink},
 	["StorageClass"] = {fg = M.base_30.purple},
-	["Repeat"] = {fg = M.base_30.purple}
+	["Repeat"] = {fg = M.base_30.purple},
+	["Define"] = {fg = M.base_30.blue}
 }
 
 M.type = "dark"
