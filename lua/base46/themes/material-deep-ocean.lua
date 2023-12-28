@@ -54,13 +54,13 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-	["@type.builtin"] = {fg = "#c792ea"},
-	["@parameter"] = {fg = "#f78c6c"},
-	["@operator"] = {fg = "#84ffff"},
-	["@punctuation.delimiter"] = {fg = "#84ffff"},
-	["@function.macro"] = {fg = "#f6aaae"},
-	["StorageClass"] = {fg = "#c792ea"},
-	["Repeat"] = {fg = "#c792ea"}
+	["@type.builtin"] = {fg = M.base_30.purple},
+	["@parameter"] = {fg = M.base_30.orange},
+	["@operator"] = {fg = M.base_30.cyan},
+	["@punctuation.delimiter"] = {fg = M.base_30.cyan},
+	["@function.macro"] = {fg = M.base_30.pink},
+	["StorageClass"] = {fg = M.base_30.purple},
+	["Repeat"] = {fg = M.base_30.purple}
 }
 
 M.type = "dark"
