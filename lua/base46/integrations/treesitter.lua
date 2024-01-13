@@ -11,7 +11,7 @@ return {
   ["@constant.macro"] = { fg = theme.base08 },
   ["@error"] = { fg = theme.base08 },
   ["@exception"] = { fg = theme.base08 },
-  ["@float"] = { fg = theme.base09 },
+  ["@number.float"] = { fg = theme.base09 },
   ["@keyword"] = { fg = theme.base0E },
   ["@keyword.function"] = { fg = theme.base0E },
   ["@keyword.return"] = { fg = theme.base0E },
