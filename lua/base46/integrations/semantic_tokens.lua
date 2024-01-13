@@ -9,7 +9,7 @@ return {
   ["@lsp.type.interface"] = { link = "Structure" },
   ["@lsp.type.macro"] = { link = "@macro" },
   ["@lsp.type.method"] = { link = "@method" },
-  ["@lsp.type.namespace"] = { link = "@namespace" },
+  ["@lsp.type.namespace"] = { link = "@module" },
   ["@lsp.type.parameter"] = { link = "@variable.parameter" },
   ["@lsp.type.property"] = { link = "@property" },
   ["@lsp.type.struct"] = { link = "Structure" },

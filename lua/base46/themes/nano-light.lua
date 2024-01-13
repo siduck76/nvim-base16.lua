@@ -68,7 +68,7 @@ M.polish_hl = {
     ["@function.call"] = { bold = true },
     ["@constructor"] = { fg = M.base_30.purple },
     ["@variable.parameter"] = { fg = M.base_30.white },
-    ["@namespace"] = { fg = M.base_30.deep_black },
+    ["@module"] = { fg = M.base_30.deep_black },
     ["@symbol"] = { fg = M.base_30.purple },
     ["@keyword"] = { fg = M.base_30.purple },
     ["@method.call"] = { bold = true },

@@ -62,7 +62,7 @@ M.polish_hl = {
   treesitter = {
     ["@function.builtin"] = { fg = M.base_30.cyan },
     ["@number"] = { fg = M.base_30.purple },
-    ["@namespace"] = { fg = M.base_30.white },
+    ["@module"] = { fg = M.base_30.white },
     ["@function.call"] = { fg = M.base_30.vibrant_green },
     ["@function"] = { fg = M.base_30.green },
     ["@repeat"] = { fg = M.base_30.green },

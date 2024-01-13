@@ -23,7 +23,7 @@ return {
   ["@keyword.operator"] = { fg = theme.base0E },
   ["@method"] = { fg = theme.base0D },
   ["@method.call"] = { fg = theme.base0D },
-  ["@namespace"] = { fg = theme.base08 },
+  ["@module"] = { fg = theme.base08 },
   ["@none"] = { fg = theme.base05 },
   ["@variable.parameter"] = { fg = theme.base08 },
   ["@reference"] = { fg = theme.base05 },
