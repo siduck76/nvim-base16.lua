@@ -29,11 +29,9 @@ return {
   ["@reference"] = { fg = theme.base05 },
   ["@punctuation.bracket"] = { fg = theme.base0F },
   ["@punctuation.delimiter"] = { fg = theme.base0F },
-  ["@punctuation.special"] = { fg = theme.base08 },
   ["@string"] = { fg = theme.base0B },
   ["@string.regex"] = { fg = theme.base0C },
   ["@string.escape"] = { fg = theme.base0C },
-  ["@string.special"] = { fg = theme.base0C },
   ["@symbol"] = { fg = theme.base0B },
   ["@tag"] = { fg = theme.base0A },
   ["@tag.attribute"] = { fg = theme.base08 },
@@ -42,7 +40,6 @@ return {
   ["@text.strong"] = { bold = true },
   ["@text.emphasis"] = { fg = theme.base09 },
   ["@text.strike"] = { fg = theme.base0F, strikethrough = true },
-  ["@text.literal"] = { fg = theme.base09 },
   ["@string.special.url"] = { fg = theme.base09, underline = true },
   ["@type.builtin"] = { fg = theme.base0A },
   ["@variable"] = { fg = theme.base05 },
@@ -60,4 +57,12 @@ return {
   ["@keyword.storage"] = { fg = theme.base0A },
   ["@keyword.directive.define"] = { fg = theme.base0E },
   ["@keyword.directive"] = { fg = theme.base0A },
+
+  -- markup
+  ["@markup.heading"] = { fg = theme.base0D },
+  ["@markup.raw"] = { fg = theme.base09 },
+  ["@markup.link"] = { fg = theme.base08 },
+  ["@markup.link.url"] = { fg = theme.base09, underline = true },
+  ["@markup.link.label"] = { fg = theme.base0C },
+  ["@markup.list"] = { fg = theme.base08 },
 }

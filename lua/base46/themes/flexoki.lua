@@ -69,6 +69,7 @@ M.polish_hl = {
     ["@tag"] = { fg = M.base_30.blue },
     ["@string"] = { fg = M.base_30.green },
     ["@string.special.url"] = { fg = M.base_30.green },
+    ["@markup.link.url"] = { fg = M.base_30.green },
     ["@punctuation.bracket"] = { fg = M.base_30.yellow },
   },
 }
