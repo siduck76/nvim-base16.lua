@@ -60,7 +60,7 @@ M.polish_hl = {
     ["@include"] = { fg = M.base_30.purple },
     ["@uri"] = { fg = M.base_30.blue },
     ["@tag.delimiter"] = { fg = M.base_30.red },
-    ["@field.key"] = { fg = M.base_30.white },
+    ["@variable.member.key"] = { fg = M.base_30.white },
     ["@punctuation.bracket"] = { fg = M.base_30.pmenu_bg },
     ["@punctuation.delimiter"] = { fg = M.base_30.white },
   },

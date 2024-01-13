@@ -60,7 +60,7 @@ M.type = "light"
 M.polish_hl = {
   treesitter = {
     ["@punctuation.bracket"] = { fg = M.base_30.blue },
-    ["@field.key"] = { fg = M.base_30.white },
+    ["@variable.member.key"] = { fg = M.base_30.white },
     ["@constructor"] = { fg = M.base_30.vibrant_green },
     ["@operator"] = { fg = M.base_30.orange },
   },

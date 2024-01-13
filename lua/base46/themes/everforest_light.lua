@@ -84,7 +84,7 @@ M.polish_hl = {
 
   treesitter = {
     ["@tag"] = { fg = M.base_30.orange },
-    ["@field"] = { fg = M.base_16.base05 },
+    ["@variable.member"] = { fg = M.base_16.base05 },
     ["@include"] = { fg = M.base_16.base08 },
     ["@constructor"] = { fg = M.base_30.blue },
   },

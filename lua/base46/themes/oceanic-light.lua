@@ -67,7 +67,7 @@ M.polish_hl = {
   },
 
   treesitter = {
-    ["@field"] = { fg = M.base_16.base0C },
+    ["@variable.member"] = { fg = M.base_16.base0C },
   },
 
   syntax = {
