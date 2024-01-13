@@ -52,8 +52,9 @@ return {
   ["@variable.member"] = { fg = theme.base08 },
   ["@variable.member.key"] = { fg = theme.base08 },
   ["@property"] = { fg = theme.base08 },
-  ["@include"] = { link = "Include" },
+  ["@keyword.import"] = { link = "Include" },
   ["@conditional"] = { fg = theme.base0E },
   ["@conditional.ternary"] = { fg = theme.base0E },
   ["@comment"] = { fg = base30.grey_fg },
+  ["@repeat"] = { fg = theme.base0A },
 }

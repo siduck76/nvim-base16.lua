@@ -65,7 +65,7 @@ M.polish_hl = {
     ["@module"] = { fg = M.base_30.white },
     ["@function.call"] = { fg = M.base_30.vibrant_green },
     ["@function"] = { fg = M.base_30.green },
-    ["@repeat"] = { fg = M.base_30.green },
+    ["@keyword.repeat"] = { fg = M.base_30.green },
   },
 
   syntax = {
