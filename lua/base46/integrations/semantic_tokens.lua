@@ -10,7 +10,7 @@ return {
   ["@lsp.type.macro"] = { link = "@macro" },
   ["@lsp.type.method"] = { link = "@method" },
   ["@lsp.type.namespace"] = { link = "@namespace" },
-  ["@lsp.type.parameter"] = { link = "@parameter" },
+  ["@lsp.type.parameter"] = { link = "@variable.parameter" },
   ["@lsp.type.property"] = { link = "@property" },
   ["@lsp.type.struct"] = { link = "Structure" },
   ["@lsp.type.type"] = { link = "@type" },

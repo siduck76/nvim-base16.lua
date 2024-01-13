@@ -62,7 +62,7 @@ M.polish_hl = {
     ["@method.call"] = { fg = M.base_30.red },
     ["@function.call"] = { fg = M.base_30.blue },
     ["@constant"] = { fg = M.base_30.orange },
-    ["@parameter"] = { fg = M.base_30.orange },
+    ["@variable.parameter"] = { fg = M.base_30.orange },
   },
 }
 

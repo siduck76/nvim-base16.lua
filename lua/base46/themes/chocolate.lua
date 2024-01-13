@@ -68,7 +68,7 @@ M.polish_hl = {
     ["@attribute"] = { fg = M.base_30.cyan },
     ["@punctuation.bracket"] = { fg = M.base_16.base06 },
     ["@parenthesis"] = { link = "@punctuation.bracket" },
-    ["@parameter"] = { fg = M.base_30.green },
+    ["@variable.parameter"] = { fg = M.base_30.green },
     ["@function.builtin"] = { fg = M.base_30.yellow },
   },
 }

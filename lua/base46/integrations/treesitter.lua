@@ -25,7 +25,7 @@ return {
   ["@method.call"] = { fg = theme.base0D },
   ["@namespace"] = { fg = theme.base08 },
   ["@none"] = { fg = theme.base05 },
-  ["@parameter"] = { fg = theme.base08 },
+  ["@variable.parameter"] = { fg = theme.base08 },
   ["@reference"] = { fg = theme.base05 },
   ["@punctuation.bracket"] = { fg = theme.base0F },
   ["@punctuation.delimiter"] = { fg = theme.base0F },

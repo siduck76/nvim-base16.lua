@@ -64,7 +64,7 @@ M.polish_hl = {
   },
   treesitter = {
     ["@keyword"] = { fg = M.base_30.cyan },
-    ["@parameter"] = { fg = M.base_30.baby_pink },
+    ["@variable.parameter"] = { fg = M.base_30.baby_pink },
     ["@tag.attribute"] = { fg = M.base_30.orange },
     ["@tag"] = { fg = M.base_30.blue },
     ["@string"] = { fg = M.base_30.green },
