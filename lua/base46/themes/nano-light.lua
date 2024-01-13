@@ -71,7 +71,7 @@ M.polish_hl = {
     ["@module"] = { fg = M.base_30.deep_black },
     ["@symbol"] = { fg = M.base_30.purple },
     ["@keyword"] = { fg = M.base_30.purple },
-    ["@method.call"] = { bold = true },
+    ["@function.method.call"] = { bold = true },
   },
 
   telescope = {

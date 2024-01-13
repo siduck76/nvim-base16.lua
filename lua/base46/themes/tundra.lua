@@ -62,7 +62,7 @@ M.polish_hl = {
   treesitter = {
     ["@constructor"] = { fg = M.base_30.cyan },
     ["@keyword"] = { fg = M.base_30.red },
-    ["@method.call"] = { fg = M.base_30.cyan },
+    ["@function.method.call"] = { fg = M.base_30.cyan },
     ["@function.call"] = { fg = M.base_30.cyan },
     ["@function.builtin"] = { fg = M.base_30.orange },
   },
