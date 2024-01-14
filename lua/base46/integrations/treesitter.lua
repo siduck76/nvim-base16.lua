@@ -1,5 +1,6 @@
 local theme = require("base46").get_theme_tb "base_16"
 local base30 = require("base46").get_theme_tb "base_30"
+local colors = require("base46").get_theme_tb "base_30"
 
 return {
   ["@annotation"] = { fg = theme.base0F },
@@ -68,5 +69,8 @@ return {
   ["@markup.italic"] = { italic = true },
   ["@markup.strikethrough"] = { strikethrough = true },
 
-
+  ["@comment.todo"] = { fg = colors.grey, bg = colors.white },
+  ["@comment.warning"] = { fg = colors.black2, bg = theme.base09 },
+  ["@comment.note"] = { fg = colors.black2, bg = colors.white },
+  ["@comment.danger"] = { fg = colors.black2, bg = colors.red },
 }
