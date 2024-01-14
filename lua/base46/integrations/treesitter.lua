@@ -73,4 +73,8 @@ return {
   ["@comment.warning"] = { fg = colors.black2, bg = theme.base09 },
   ["@comment.note"] = { fg = colors.black2, bg = colors.white },
   ["@comment.danger"] = { fg = colors.black2, bg = colors.red },
+
+  ["@diff.plus"] = { fg = colors.green },
+  ["@diff.minus"] = { fg = colors.red },
+  ["@diff.delta"] = { fg = colors.light_grey },
 }
