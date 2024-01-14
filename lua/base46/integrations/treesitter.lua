@@ -37,7 +37,6 @@ return {
   ["@tag.attribute"] = { fg = theme.base08 },
   ["@tag.delimiter"] = { fg = theme.base0F },
   ["@text"] = { fg = theme.base05 },
-  ["@text.strong"] = { bold = true },
   ["@text.emphasis"] = { fg = theme.base09 },
   ["@text.strike"] = { fg = theme.base0F, strikethrough = true },
   ["@string.special.url"] = { fg = theme.base09, underline = true },
@@ -65,4 +64,9 @@ return {
   ["@markup.link.url"] = { fg = theme.base09, underline = true },
   ["@markup.link.label"] = { fg = theme.base0C },
   ["@markup.list"] = { fg = theme.base08 },
+  ["@markup.strong"] = { bold = true },
+  ["@markup.italic"] = { italic = true },
+  ["@markup.strikethrough"] = { strikethrough = true },
+
+
 }
