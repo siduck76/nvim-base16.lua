@@ -75,7 +75,6 @@ M.polish_hl = {
     ["@type.builtin"] = { link = "Boolean" },
     ["@tag.attribute"] = { fg = M.base_30.purple, italic = true, link = "" },
     ["Label"] = { fg = M.base_30.seablue },
-    ["@none"] = { fg = M.base_30.dark_purple },
     ["@constructor.tsx"] = { link = "Tag" },
   },
 
