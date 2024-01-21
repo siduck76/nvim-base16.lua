@@ -62,7 +62,7 @@ M.polish_hl = {
     fg = M.base_30.yellow,
   },
 
-  ["@parameter"] = {
+  ["@variable.parameter"] = {
     fg = M.base_30.pink,
   },
 

@@ -62,7 +62,7 @@ M.polish_hl = {
     fg = M.base_30.blue,
   },
 
-  ["@field.key"] = {
+  ["@variable.member.key"] = {
     fg = M.base_30.white,
   },
 

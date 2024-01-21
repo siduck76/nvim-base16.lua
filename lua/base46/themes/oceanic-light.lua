@@ -64,7 +64,7 @@ M.polish_hl = {
   St_VisualMode = { bg = M.base_30.teal },
   St_VisualModeSep = { fg = M.base_30.teal },
 
-  ["@field"] = { fg = M.base_16.base0C },
+  ["@variable.member"] = { fg = M.base_16.base0C },
   Constant = { fg = M.base_16.base09 },
 }
 

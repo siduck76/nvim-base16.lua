@@ -59,7 +59,7 @@ M.polish_hl = {
   luaTSField = { fg = M.base_16.base0D },
   ["@tag.delimiter"] = { fg = M.base_30.cyan },
   ["@function"] = { fg = M.base_30.orange },
-  ["@parameter"] = { fg = M.base_16.base0F },
+  ["@variable.parameter"] = { fg = M.base_16.base0F },
   ["@constructor"] = { fg = M.base_16.base0A },
   ["@tag.attribute"] = { fg = M.base_30.orange },
 }

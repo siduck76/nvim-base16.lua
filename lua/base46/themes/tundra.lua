@@ -70,7 +70,7 @@ M.polish_hl = {
     fg = M.base_30.red,
   },
 
-  ["@method.call"] = {
+  ["@function.method.call"] = {
     fg = M.base_30.cyan,
   },
 

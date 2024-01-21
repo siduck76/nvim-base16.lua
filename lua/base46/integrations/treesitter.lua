@@ -1,4 +1,5 @@
 local theme = require("base46").get_theme_tb "base_16"
+local base30 = require("base46").get_theme_tb "base_30"
 
 return {
   -- `@annotation` is not one of the default capture group, should we keep it
@@ -34,11 +35,11 @@ return {
     fg = theme.base08,
   },
 
-  ["@exception"] = {
+  ["@keyword.exception"] = {
     fg = theme.base08,
   },
 
-  ["@float"] = {
+  ["@number.float"] = {
     fg = theme.base09,
   },
 
@@ -82,11 +83,11 @@ return {
     fg = theme.base0D,
   },
 
-  ["@method.call"] = {
+  ["@function.method.call"] = {
     fg = theme.base0D,
   },
 
-  ["@namespace"] = {
+  ["@module"] = {
     fg = theme.base08,
   },
 
@@ -94,7 +95,7 @@ return {
     fg = theme.base05,
   },
 
-  ["@parameter"] = {
+  ["@variable.parameter"] = {
     fg = theme.base08,
   },
 
@@ -110,9 +111,6 @@ return {
     fg = theme.base0F,
   },
 
-  ["@punctuation.special"] = {
-    fg = theme.base08,
-  },
 
   ["@string"] = {
     fg = theme.base0B,
@@ -126,11 +124,11 @@ return {
     fg = theme.base0C,
   },
 
-  ["@string.special"] = {
+  ["@string.special.url"] = {
     fg = theme.base0C,
   },
 
-  ["@symbol"] = {
+  ["@string.special.symbol"] = {
     fg = theme.base0B,
   },
 
@@ -200,11 +198,11 @@ return {
     bold = true,
   },
 
-  ["@field"] = {
+  ["@variable.member"] = {
     fg = theme.base08,
   },
 
-  ["@field.key"] = {
+  ["@variable.member.key"] = {
     fg = theme.base08,
   },
 
@@ -212,11 +210,33 @@ return {
     fg = theme.base08,
   },
 
-  ["@include"] = {
+  ["@keyword.import"] = {
     link = "Include",
   },
 
-  ["@conditional"] = {
+  ["@keyword.conditional"] = {
     link = "Conditional",
   },
+
+  -- markup
+  ["@markup.heading"] = { fg = theme.base0D },
+  ["@markup.raw"] = { fg = theme.base09 },
+  ["@markup.link"] = { fg = theme.base08 },
+  ["@markup.link.url"] = { fg = theme.base09, underline = true },
+  ["@markup.link.label"] = { fg = theme.base0C },
+  ["@markup.list"] = { fg = theme.base08 },
+  ["@markup.strong"] = { bold = true },
+  ["@markup.italic"] = { italic = true },
+  ["@markup.strikethrough"] = { strikethrough = true },
+  ["@markup.quote"] = { bg = base30.black2 },
+
+  ["@comment"] = { fg = base30.grey_fg },
+  ["@comment.todo"] = { fg = base30.grey, bg = base30.white },
+  ["@comment.warning"] = { fg = base30.black2, bg = theme.base09 },
+  ["@comment.note"] = { fg = base30.black2, bg = base30.white },
+  ["@comment.danger"] = { fg = base30.black2, bg = base30.red },
+
+  ["@diff.plus"] = { fg = base30.green },
+  ["@diff.minus"] = { fg = base30.red },
+  ["@diff.delta"] = { fg = base30.light_grey },
 }
