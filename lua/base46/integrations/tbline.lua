@@ -11,6 +11,8 @@ local highlights = {
   TbLineBufOn = {
     fg = colors.white,
     bg = colors.black,
+    italic = true,
+    bold = true,
   },
 
   TbLineBufOff = {
@@ -76,6 +78,10 @@ local highlights = {
     bg = colors.red,
     fg = colors.black,
   },
+  TblineError = { fg = colors.red, italic = true, bold = true },
+  TblineWarning = { fg = colors.yellow, italic = true, bold = true },
+  TblineHint = { fg = colors.purple, italic = true, bold = true },
+  TblineInfo = { fg = colors.green, italic = true, bold = true },
 }
 
 local hlgroups_glassy = {
@@ -85,7 +91,7 @@ local hlgroups_glassy = {
   "TbLineBufOnClose",
   "TbLineBufOffClose",
   "TbLineBufOnModified",
-  "TbLineBufOffModified"
+  "TbLineBufOffModified",
 }
 
 if config.transparency then
