@@ -59,7 +59,7 @@ M.polish_hl = {
   luaTSField = { fg = M.base_16.base0E },
   PmenuSel = { fg = M.base_30.white, bg = M.base_30.pmenu_bg },
   ["@tag.delimiter"] = { fg = M.base_30.base0D },
-  ["@parameter"] = { fg = M.base_16.base09 },
+  ["@variable.parameter"] = { fg = M.base_16.base09 },
   ["@constructor"] = { fg = M.base_16.base0C },
   ["@tag.attribute"] = { fg = M.base_30.base0F },
 }

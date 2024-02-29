@@ -56,11 +56,11 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  ["@include"] = { fg = M.base_30.purple },
+  ["@keyword.import"] = { fg = M.base_30.purple },
   ["@uri"] = { fg = M.base_30.blue },
   ["@tag.delimiter"] = { fg = M.base_30.red },
 
-  ["@field.key"] = {
+  ["@variable.member.key"] = {
     fg = M.base_30.white,
   },
 

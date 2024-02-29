@@ -56,7 +56,7 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  ["@field.key"] = {
+  ["@variable.member.key"] = {
     fg = M.base_30.red,
   },
 
@@ -72,7 +72,7 @@ M.polish_hl = {
     fg = M.base_30.orange,
   },
 
-  ["@parameter"] = {
+  ["@variable.parameter"] = {
     fg = M.base_30.orange,
   },
 

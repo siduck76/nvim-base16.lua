@@ -65,8 +65,8 @@ M.polish_hl = {
   IndentBlanklineContextStart = { bg = M.base_30.black2 },
   St_pos_text = { fg = M.base_30.white },
   ["@tag"] = { fg = M.base_30.orange },
-  ["@field"] = { fg = M.base_16.base05 },
-  ["@include"] = { fg = M.base_16.base08 },
+  ["@variable.member"] = { fg = M.base_16.base05 },
+  ["@keyword.import"] = { fg = M.base_16.base08 },
   ["@constructor"] = { fg = M.base_30.blue },
 }
 

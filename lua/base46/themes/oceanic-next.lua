@@ -57,7 +57,7 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-  ["@parameter"] = {
+  ["@variable.parameter"] = {
     fg = M.base_16.base0A,
   },
   Constant = {
