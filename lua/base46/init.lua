@@ -158,7 +158,7 @@ M.toggle_theme = function()
 
   config.ui.theme = (themes[1] == config.ui.theme and themes[2]) or themes[1]
 
-  local old_theme = dofile(vim.fn.stdpath "config" .. "/lua/custom/chadrc.lua").ui.theme
+  local old_theme = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua").ui.theme
   require("nvchad.utils").replace_word(old_theme, config.ui.theme)
   M.load_all_highlights()
 end
@@ -167,7 +167,7 @@ M.toggle_transparency = function()
   config.ui.transparency = not config.ui.transparency
   M.load_all_highlights()
 
-  local old_transparency_val = dofile(vim.fn.stdpath "config" .. "/lua/custom/chadrc.lua").ui.transparency
+  local old_transparency_val = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua").ui.transparency
   local new_transparency_val = "transparency = " .. tostring(config.ui.transparency)
   require("nvchad.utils").replace_word("transparency = " .. tostring(old_transparency_val),new_transparency_val)
 end
