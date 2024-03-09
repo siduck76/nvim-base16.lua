@@ -4,7 +4,7 @@ local config = require "nvconfig"
 
 M.get_theme_tb = function(type)
   local default_path = "base46.themes." .. config.ui.theme
-  local user_path = "custom.themes." .. config.ui.theme
+  local user_path = "themes." .. config.ui.theme
 
   local present1, default_theme = pcall(require, default_path)
   local present2, user_theme = pcall(require, user_path)
@@ -169,7 +169,7 @@ M.toggle_transparency = function()
 
   local old_transparency_val = dofile(vim.fn.stdpath "config" .. "/lua/custom/chadrc.lua").ui.transparency
   local new_transparency_val = "transparency = " .. tostring(config.ui.transparency)
-  require("nvchad.utils").replace_word("transparency = " .. tostring(old_transparency_val),new_transparency_val)
+  require("nvchad.utils").replace_word("transparency = " .. tostring(old_transparency_val), new_transparency_val)
 end
 
 return M
