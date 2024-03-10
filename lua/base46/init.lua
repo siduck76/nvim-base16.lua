@@ -50,9 +50,6 @@ M.extend_default_hl = function(highlights)
     for key, value in pairs(polish_hl) do
       if highlights[key] then
         highlights[key] = M.merge_tb(highlights[key], value)
-      else
-        -- add any other highlights from polish_hl
-        highlights[key] = value
       end
     end
   end
