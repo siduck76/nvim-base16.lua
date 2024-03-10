@@ -16,5 +16,4 @@ return {
   NotifyTRACEBorder = { fg = colors.purple },
   NotifyTRACEIcon = { fg = colors.purple },
   NotifyTRACETitle = { fg = colors.purple },
-  NotifyBackground = { bg = colors.black },
 }
