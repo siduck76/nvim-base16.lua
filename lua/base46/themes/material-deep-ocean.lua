@@ -55,21 +55,23 @@ M.base_16 = {
 
 M.polish_hl = {
 	-- Section to have correct red in neovim terminal
-	["@variable"] = { fg = M.base_30.white},
-	["@namespace"] = { fg = M.base_30.white},
-	["@field"] = { fg = M.base_30.white},
-	["@constant"] = { fg = M.base_30.white},
+	treesitter = {
+		["@variable"] = { fg = M.base_30.white},
+		["@namespace"] = { fg = M.base_30.white},
+		["@field"] = { fg = M.base_30.white},
+		["@constant"] = { fg = M.base_30.white},
 
-	["@type.builtin"] = {fg = M.base_30.purple},
-	["@parameter"] = {fg = M.base_30.orange},
-	["@operator"] = {fg = M.base_30.cyan},
-	["@punctuation.delimiter"] = {fg = M.base_30.cyan},
-	["@punctuation.bracket"] = {fg = M.base_30.cyan},
-	["@punctuation.special"] = {fg = M.base_30.teal},
-	["@function.macro"] = {fg = M.base_30.pink},
-	["StorageClass"] = {fg = M.base_30.purple},
-	["Repeat"] = {fg = M.base_30.purple},
-	["Define"] = {fg = M.base_30.blue}
+		["@type.builtin"] = {fg = M.base_30.purple},
+		["@parameter"] = {fg = M.base_30.orange},
+		["@operator"] = {fg = M.base_30.cyan},
+		["@punctuation.delimiter"] = {fg = M.base_30.cyan},
+		["@punctuation.bracket"] = {fg = M.base_30.cyan},
+		["@punctuation.special"] = {fg = M.base_30.teal},
+		["@function.macro"] = {fg = M.base_30.pink},
+		["StorageClass"] = {fg = M.base_30.purple},
+		["Repeat"] = {fg = M.base_30.purple},
+		["Define"] = {fg = M.base_30.blue}
+	}
 }
 
 M.type = "dark"
