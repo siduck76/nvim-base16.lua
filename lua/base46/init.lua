@@ -2,6 +2,29 @@ local M = {}
 local g = vim.g
 local config = require "nvconfig"
 
+local integrations = {
+  "blankline",
+  "cmp",
+  "defaults",
+  "devicons",
+  "git",
+  "lsp",
+  "mason",
+  "nvcheatsheet",
+  "nvdash",
+  "nvimtree",
+  "statusline",
+  "syntax",
+  "treesitter",
+  "tbline",
+  "telescope",
+  "whichkey",
+}
+
+for _, value in ipairs(config.base46.integrations) do
+  table.insert(integrations, value)
+end
+
 M.get_theme_tb = function(type)
   local default_path = "base46.themes." .. config.ui.theme
   local user_path = "themes." .. config.ui.theme
@@ -121,7 +144,7 @@ M.compile = function()
     vim.fn.mkdir(vim.g.base46_cache, "p")
   end
 
-  for _, filename in ipairs(config.base46.integrations) do
+  for _, filename in ipairs(integrations) do
     M.saveStr_to_cache(filename, M.load_integrationTB(filename))
   end
 end
@@ -130,7 +153,7 @@ M.load_all_highlights = function()
   require("plenary.reload").reload_module "base46"
   M.compile()
 
-  for _, filename in ipairs(config.base46.integrations) do
+  for _, filename in ipairs(integrations) do
     dofile(vim.g.base46_cache .. filename)
   end
 
