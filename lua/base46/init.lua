@@ -98,13 +98,13 @@ M.extend_default_hl = function(highlights, integration_name)
   return highlights
 end
 
-M.load_integrationTB = function(name)
+M.get_integration = function(name)
   local highlights = require("base46.integrations." .. name)
   return M.extend_default_hl(highlights, name)
 end
 
 -- convert table into string
-M.table_to_str = function(tb)
+M.tb_2str = function(tb)
   local result = ""
 
   for hlgroupName, hlgroup_vals in pairs(tb) do
@@ -123,14 +123,13 @@ M.table_to_str = function(tb)
   return result
 end
 
-M.saveStr_to_cache = function(filename, tb)
+M.saveStr_to_cache = function(filename, str)
   -- Thanks to https://github.com/nullchilly and https://github.com/EdenEast/nightfox.nvim
   -- It helped me understand string.dump stuff
 
-  local bg_opt = "vim.o.termguicolors=true vim.o.bg='" .. M.get_theme_tb "type" .. "'"
-  local defaults_cond = filename == "defaults" and bg_opt or ""
+  local defaults_cond = (filename == "defaults" and "vim.o.tgc=true vim.o.bg='" .. M.get_theme_tb "type" .. "'") or ""
 
-  local lines = "return string.dump(function()" .. defaults_cond .. M.table_to_str(tb) .. "end, true)"
+  local lines = "return string.dump(function()" .. defaults_cond .. str .. "end, true)"
   local file = io.open(vim.g.base46_cache .. filename, "wb")
 
   if file then
@@ -144,9 +143,11 @@ M.compile = function()
     vim.fn.mkdir(vim.g.base46_cache, "p")
   end
 
-  for _, filename in ipairs(integrations) do
-    M.saveStr_to_cache(filename, M.load_integrationTB(filename))
+  for _, name in ipairs(integrations) do
+    M.saveStr_to_cache(name, M.tb_2str(M.get_integration(name)))
   end
+
+  M.saveStr_to_cache("term", require "base46.term")
 end
 
 M.load_all_highlights = function()
