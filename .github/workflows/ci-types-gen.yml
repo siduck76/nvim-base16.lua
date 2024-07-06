@@ -31,7 +31,7 @@ jobs:
     - name: Update types
       run: |
         cd ~/.local/share/nvim/site/pack/ui/start/ui
-        nvim --headless "+lua package.loaded.chadrc = {}" "+luafile scripts/update-nvchad-types.lua" +qa
+        nvim --headless "+luafile scripts/update-nvchad-types.lua" +qa
 
     - name: Setup git credentials
       run: |
