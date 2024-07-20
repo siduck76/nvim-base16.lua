@@ -4,6 +4,7 @@ return {
   -- Dap
   DapBreakpoint = { fg = colors.red },
   DapBreakpointCondition = { fg = colors.yellow },
+  DapBreakPointRejected = { fg = colors.orange },
   DapLogPoint = { fg = colors.cyan },
   DapStopped = { fg = colors.baby_pink },
 
@@ -45,4 +46,7 @@ return {
   DapUIRestartNC = { fg = colors.green },
   DapUIUnavailable = { fg = colors.grey_fg },
   DapUIUnavailableNC = { fg = colors.grey_fg },
+  
+  WinBar = { bg = colors.black1 },
+  WinBarNC = { bg = colors.black1 },
 }
