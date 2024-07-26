@@ -1,8 +1,6 @@
 ## NvChad theme plugin
 
-- This plugin's a whole re-write of Norcalli's plugin.
-- It should be used along with [NvChad](https://github.com/NvChad/NvChad) for best experience.
-- Non NvChad users can have the nvconfig module on the path
+- NvChad theme plugin for non-NvChad users
 
 ## Supported Integrations
 
@@ -29,7 +27,7 @@
 
 ## Configuration
 
-- Base46 is configured by [nvconfig](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path. 
+- Base46 is configured by [theme-config.lua](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path. 
 - Read the [themeing docs](https://nvchad.com/docs/config/theming)
 
 ## Highlight command
