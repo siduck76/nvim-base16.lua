@@ -28,6 +28,7 @@ local hl_groups = {
   "CursorLine",
   "Pmenu",
   "CmpPmenu",
+  "CmpDoc",
 }
 
 for _, groups in ipairs(hl_groups) do

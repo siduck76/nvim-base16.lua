@@ -4,6 +4,10 @@ local theme = require("base46").get_theme_tb "base_16"
 local generate_color = require("base46.colors").change_hex_lightness
 
 local defaults = {
+  Added = { fg = colors.green },
+  Removed = { fg = colors.red },
+  Changed = { fg = colors.yellow },
+
   MatchWord = {
     bg = colors.grey,
     fg = colors.white,

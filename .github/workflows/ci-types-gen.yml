@@ -1,0 +1,53 @@
+name: CI update NvChad types
+
+on:
+  push:
+    branches:
+      - v2.5
+
+jobs:
+  update-nvchad-types:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout base46/v2.5
+      uses: actions/checkout@v4
+      with:
+        ref: v2.5
+
+    - name: Prepare
+      env:
+        NVIM_TAG: stable
+      run: |
+        wget https://github.com/neovim/neovim/releases/download/${NVIM_TAG}/nvim-linux64.tar.gz
+        tar -zxf nvim-linux64.tar.gz
+        sudo ln -s "$PWD"/nvim-linux64/bin/nvim /usr/local/bin
+        mkdir -p ~/.local/share/nvim/site/pack/base46/start
+        ln -s "$PWD" ~/.local/share/nvim/site/pack/base46/start
+        mkdir -p ~/.local/share/nvim/site/pack/ui/start
+        cd ~/.local/share/nvim/site/pack/ui/start
+        git clone https://github.com/NvChad/ui
+
+    - name: Update types
+      run: |
+        cd ~/.local/share/nvim/site/pack/ui/start/ui
+        nvim --headless "+luafile scripts/update-nvchad-types.lua" +qa
+
+    - name: Setup git credentials
+      run: |
+        cd ~/.local/share/nvim/site/pack/ui/start/ui
+        git config user.name github-actions[bot]
+        git config user.email github-actions[bot]@users.noreply.github.com
+        git config --global credential.helper 'store --file=/tmp/git-credentials'
+        echo "https://${{ secrets.UI_PAT }}:@github.com/NvChad/ui.git" > /tmp/git-credentials
+
+    - name: Commit and push changes
+      run: |
+        cd ~/.local/share/nvim/site/pack/ui/start/ui
+        git add -A
+        if [[ -n "$(git status --porcelain)" ]]; then
+          git commit -m "chore(types): update NvChad types"
+          git push origin v2.5
+        else
+          echo "No changes to commit"
+        fi
