@@ -3,6 +3,7 @@
 - NvChad theme plugin for non-NvChad users
 
 ## Supported Integrations
+For integrations, you need to set the appropriate highlight groups defined in the files in lua/base46/integrations in your plugin config.
 
 - Bufferline.nvim
 - Cmp.nvim
