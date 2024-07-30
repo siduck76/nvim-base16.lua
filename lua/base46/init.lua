@@ -172,7 +172,7 @@ M.toggle_theme = function()
     local themes = config.ui.theme_toggle
 
     if config.ui.theme ~= themes[1] and config.ui.theme ~= themes[2] then
-        vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (theme-config.lua)"
+        vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (base46-config.lua)"
         return
     end
 
@@ -181,7 +181,7 @@ M.toggle_theme = function()
 
     config.ui.theme = (themes[1] == config.ui.theme and themes[2]) or themes[1]
 
-    local old_theme = dofile(vim.fn.stdpath "config" .. "/lua/theme-config.lua").ui.theme
+    local old_theme = dofile(vim.fn.stdpath "config" .. "/lua/base46-config.lua").ui.theme
     require("base46.utils").replace_word('theme = "' .. old_theme, 'theme = "' .. config.ui.theme)
     M.load_all_highlights()
 end
@@ -190,7 +190,7 @@ M.toggle_transparency = function()
     config.ui.transparency = not config.ui.transparency
     M.load_all_highlights()
 
-    local old_transparency_val = dofile(vim.fn.stdpath "config" .. "/lua/theme-config.lua").ui.transparency
+    local old_transparency_val = dofile(vim.fn.stdpath "config" .. "/lua/base46-config.lua").ui.transparency
     local new_transparency_val = "transparency = " .. tostring(config.ui.transparency)
     require("base46.utils").replace_word("transparency = " .. tostring(old_transparency_val), new_transparency_val)
 end

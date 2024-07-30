@@ -28,7 +28,7 @@ For integrations, you need to set the appropriate highlight groups defined in th
 
 ## Configuration
 
-- Base46 is configured by [theme-config.lua](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path. 
+- Base46 is configured by [base46-config.lua](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path. 
 - Read the [themeing docs](https://nvchad.com/docs/config/theming)
 
 ## Highlight command

@@ -2,7 +2,7 @@ local M = {}
 local fn = vim.fn
 
 M.load_config = function()
-    local config_path = vim.fn.stdpath("config") .. "/lua/theme-config.lua"
+    local config_path = vim.fn.stdpath("config") .. "/lua/base46-config.lua"
     if vim.fn.filereadable(config_path) == 0 then
         -- define default config
         local default_config = [[
@@ -26,15 +26,15 @@ return M
         if file then
             file:write(default_config)
             file:close()
-            print("Created default theme-config.lua")
+            print("Created default base46-config.lua")
         else
-            error("Failed to create theme-config.lua")
+            error("Failed to create base46-config.lua")
         end
     end
 
-    local ok, config = pcall(require, "theme-config")
+    local ok, config = pcall(require, "base46-config")
     if not ok then
-        error("Failed to load theme-config: " .. config)
+        error("Failed to load base46-config: " .. config)
     end
 
     return config
@@ -59,7 +59,7 @@ M.list_themes = function()
 end
 
 M.replace_word = function(old, new)
-  local config_file = vim.fn.stdpath "config" .. "/lua/" .. "theme-config.lua"
+  local config_file = vim.fn.stdpath "config" .. "/lua/" .. "base46-config.lua"
   local file = io.open(config_file, "r")
   local added_pattern = string.gsub(old, "-", "%%-") -- add % before - if exists
   local new_content = file:read("*all"):gsub(added_pattern, new)
