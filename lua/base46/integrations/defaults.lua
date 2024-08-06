@@ -27,6 +27,7 @@ local defaults = {
 
   -- floating windows
   FloatBorder = { fg = colors.blue },
+  FloatTitle = { fg = colors.white, bg = colors.grey },
   NormalFloat = { bg = colors.darker_black },
 
   NvimInternalError = { fg = colors.red },
