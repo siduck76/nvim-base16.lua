@@ -170,12 +170,11 @@ end
 -- @return The hex color value
 M.change_hex_hue = function(hex, percent)
   local h, s, l = M.hex2hsl(hex)
-  h = h + (percent / 100)
-  if h > 360 then
-    h = 360
-  end
+  -- Convert percentage to a degree shift
+  local shift = (percent / 100) * 360
+  h = (h + shift) % 360
   if h < 0 then
-    h = 0
+    h = h + 360
   end
   return M.hsl2hex(h, s, l)
 end
