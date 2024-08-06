@@ -39,7 +39,15 @@ jobs:
     - name: Update types
       run: |
         cd ~/.local/share/nvim/site/pack/ui/start/ui
-        nvim --headless "+luafile scripts/update-nvchad-types.lua" +qa
+        output=$(nvim --headless -c '+luafile scripts/update-nvchad-types.lua' +qa 2>&1)
+        status=$?
+        if [ $status -ne 0 ] || echo "$output" | grep -q "Error"; then
+          echo "Neovim failed with status $status"
+          echo "Error output:"
+          echo "$output"
+          exit 1
+        fi
+
 
     - name: Setup git credentials
       run: |
