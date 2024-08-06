@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - v2.5
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
 jobs:
   update-nvchad-types:
