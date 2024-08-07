@@ -1,9 +1,9 @@
-local config = require("nvconfig").ui
+local config = require "nvconfig"
 local get_theme_tb = require("base46").get_theme_tb
 local colors = get_theme_tb "base_30"
 local generate_color = require("base46.colors").change_hex_lightness
 
-local statusline_bg = config.transparency and "NONE" or colors.statusline_bg
+local statusline_bg = (config.ui.transparency or config.base46.transparency) and "NONE" or colors.statusline_bg
 local light_grey = generate_color(colors.light_grey, 8)
 
 local M = {
