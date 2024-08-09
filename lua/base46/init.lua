@@ -204,7 +204,7 @@ M.toggle_theme = function()
   end
 
   local chadrc = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua")
-  local old_theme = chadrc.ui.theme or chadrc.base46.theme
+  local old_theme = (chadrc.ui and chadrc.ui.theme) or chadrc.base46.theme
 
   require("nvchad.utils").replace_word('theme = "' .. old_theme, 'theme = "' .. opts.theme)
   M.load_all_highlights()
