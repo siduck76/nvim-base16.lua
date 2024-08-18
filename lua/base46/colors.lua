@@ -21,6 +21,7 @@
 -- SOFTWARE.
 
 -- All credits to https://github.com/LeonHeidelbach for making this!
+-- 90% of functions are written by him
 
 local M = {}
 
@@ -39,6 +40,16 @@ M.hex2rgb = function(hex)
   local g = tonumber(hex:sub(4 - (hash and 0 or 1), 5 - (hash and 0 or 1)), 16)
   local b = tonumber(hex:sub(6 - (hash and 0 or 1), 7 - (hash and 0 or 1)), 16)
   return r, g, b
+end
+
+-- Convert a hex color value to RGB ratio
+-- @param hex: The hex color value
+-- @return r: Red (0-100)
+-- @return g: Green (0-100)
+-- @return b: Blue (0-100)
+M.hex2rgb_ratio = function(hex)
+  local r, g, b = M.hex2rgb(hex)
+  return math.floor(r / 255 * 100), math.floor(g / 255 * 100), math.floor(b / 255 * 100)
 end
 
 -- Convert an RGB color value to hex
@@ -235,6 +246,28 @@ M.compute_gradient = function(hex1, hex2, steps)
   end
 
   return gradient
+end
+
+-- Generate complementary colors
+-- @param hex The hex color value (string)
+-- @param count The number of complementary colors to generate
+-- @return A table containing the complementary colors in hex format
+M.hex2complementary = function(hex, count)
+  local h, s, l = M.hex2hsl(hex)
+  local complementary_colors = {}
+
+  -- Calculate the hue for the complementary color (180 degrees shift)
+  local complementary_hue = (h + 180) % 360
+
+  -- Create a gradient of colors by slightly varying the complementary hue
+  local hue_step = 360 / count
+  for i = 0, count - 1 do
+    local new_hue = (complementary_hue + (hue_step * i)) % 360
+    local complementary_hex = M.hsl2hex(new_hue, s, l)
+    table.insert(complementary_colors, complementary_hex)
+  end
+
+  return complementary_colors
 end
 
 return M
