@@ -28,7 +28,7 @@ return {
   },
 
   NvimTreeCursorLine = {
-    bg = colors.black2,
+    bg = colors.black,
   },
 
   NvimTreeGitNew = {
