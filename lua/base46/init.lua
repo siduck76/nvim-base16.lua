@@ -63,7 +63,6 @@ M.turn_str_to_color = function(tb)
         if valtype == "string" and val:sub(1, 1) ~= "#" and val ~= "none" and val ~= "NONE" then
           hlgroups[opt] = colors[val]
         elseif valtype == "table" then
-
           -- transform table to color
           hlgroups[opt] = #val == 2 and lighten(colors[val[1]], val[2])
             or mixcolors(colors[val[1]], colors[val[2]], val[3])
@@ -149,6 +148,7 @@ M.compile = function()
   end
 
   M.str_to_cache("term", require "base46.term")
+  M.str_to_cache("colors", require "base46.color_vars")
 
   local all_str = ""
 
