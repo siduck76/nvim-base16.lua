@@ -9,4 +9,5 @@ return {
   ["@ibl.scope.underline.4"] = { bg = colors.black2 },
   ["@ibl.scope.underline.5"] = { bg = colors.black2 },
   ["@ibl.scope.underline.6"] = { bg = colors.black2 },
+  ["@ibl.scope.underline.7"] = { bg = colors.black2 },
 }
