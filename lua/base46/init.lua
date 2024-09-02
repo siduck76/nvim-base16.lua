@@ -150,8 +150,6 @@ M.compile = function()
   M.str_to_cache("term", require "base46.term")
   M.str_to_cache("colors", require "base46.color_vars")
 
-  local all_str = ""
-
   for _, name in ipairs(integrations) do
     local hl_str = M.tb_2str(M.get_integration(name))
 
@@ -159,15 +157,7 @@ M.compile = function()
       hl_str = "vim.o.tgc=true vim.o.bg='" .. M.get_theme_tb "type" .. "' " .. hl_str
     end
 
-    if opts.compile_onefile then
-      all_str = all_str .. hl_str
-    else
-      M.str_to_cache(name, hl_str)
-    end
-  end
-
-  if opts.compile_onefile then
-    M.str_to_cache("all", all_str)
+    M.str_to_cache(name, hl_str)
   end
 end
 
