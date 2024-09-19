@@ -1,3 +1,28 @@
+-- The MIT License (MIT)
+--
+-- Copyright (c) 2022 Leon Heidelbach
+--
+-- Permission is hereby granted, free of charge, to any person obtaining a copy
+-- of this software and associated documentation files (the "Software"), to deal
+-- in the Software without restriction, including without limitation the rights
+-- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-- copies of the Software, and to permit persons to whom the Software is
+-- furnished to do so, subject to the following conditions:
+--
+-- The above copyright notice and this permission notice shall be included in all
+-- copies or substantial portions of the Software.
+--
+-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-- SOFTWARE.
+
+-- All credits to https://github.com/LeonHeidelbach for making this!
+-- 90% of functions are written by him
+
 local M = {}
 
 -- Convert a hex color value to RGB
@@ -15,6 +40,16 @@ M.hex2rgb = function(hex)
   local g = tonumber(hex:sub(4 - (hash and 0 or 1), 5 - (hash and 0 or 1)), 16)
   local b = tonumber(hex:sub(6 - (hash and 0 or 1), 7 - (hash and 0 or 1)), 16)
   return r, g, b
+end
+
+-- Convert a hex color value to RGB ratio
+-- @param hex: The hex color value
+-- @return r: Red (0-100)
+-- @return g: Green (0-100)
+-- @return b: Blue (0-100)
+M.hex2rgb_ratio = function(hex)
+  local r, g, b = M.hex2rgb(hex)
+  return math.floor(r / 255 * 100), math.floor(g / 255 * 100), math.floor(b / 255 * 100)
 end
 
 -- Convert an RGB color value to hex
@@ -146,12 +181,11 @@ end
 -- @return The hex color value
 M.change_hex_hue = function(hex, percent)
   local h, s, l = M.hex2hsl(hex)
-  h = h + (percent / 100)
-  if h > 360 then
-    h = 360
-  end
+  -- Convert percentage to a degree shift
+  local shift = (percent / 100) * 360
+  h = (h + shift) % 360
   if h < 0 then
-    h = 0
+    h = h + 360
   end
   return M.hsl2hex(h, s, l)
 end
@@ -212,6 +246,60 @@ M.compute_gradient = function(hex1, hex2, steps)
   end
 
   return gradient
+end
+
+-- Generate complementary colors
+-- @param hex The hex color value (string)
+-- @param count The number of complementary colors to generate
+-- @return A table containing the complementary colors in hex format
+M.hex2complementary = function(hex, count)
+  local h, s, l = M.hex2hsl(hex)
+  local complementary_colors = {}
+
+  -- Calculate the hue for the complementary color (180 degrees shift)
+  local complementary_hue = (h + 180) % 360
+
+  -- Create a gradient of colors by slightly varying the complementary hue
+  local hue_step = 360 / count
+  for i = 0, count - 1 do
+    local new_hue = (complementary_hue + (hue_step * i)) % 360
+    local complementary_hex = M.hsl2hex(new_hue, s, l)
+    table.insert(complementary_colors, complementary_hex)
+  end
+
+  return complementary_colors
+end
+
+-- Mix two colors with a given percentage.
+-- @param first The primary hex color.
+-- @param second The hex color you want to mix into the first color.
+-- @param strength The percentage of second color in the output.
+--                 This needs to be a number between 0 - 100.
+-- @return The mixed color as a hex value
+M.mix = function(first, second, strength)
+  if strength == nil then
+    strength = 0.5
+  end
+
+  local s = strength / 100
+  local r1, g1, b1 = M.hex2rgb(first)
+  local r2, g2, b2 = M.hex2rgb(second)
+
+  if r1 == nil or r2 == nil then
+    return first
+  end
+
+  if s == 0 then
+    return first
+  elseif s == 1 then
+    return second
+  end
+
+  local r3 = r1 * (1 - s) + r2 * s
+  local g3 = g1 * (1 - s) + g2 * s
+  local b3 = b1 * (1 - s) + b2 * s
+
+  return M.rgb2hex(r3, g3, b3)
 end
 
 return M

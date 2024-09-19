@@ -27,6 +27,7 @@ local defaults = {
 
   -- floating windows
   FloatBorder = { fg = colors.blue },
+  FloatTitle = { fg = colors.white, bg = colors.grey },
   NormalFloat = { bg = colors.darker_black },
 
   NvimInternalError = { fg = colors.red },
@@ -245,10 +246,10 @@ local defaults = {
   LazyProgressDone = { fg = colors.green },
 }
 
--- merge statusilne & hl_add tables!
+-- merge statusline & hl_add tables!
 local merge_tb = require("base46").merge_tb
-
-local user_new_highlights = require("nvconfig").ui.hl_add
+local nvconfig = require "nvconfig"
+local user_new_highlights = nvconfig.ui.hl_add or nvconfig.base46.hl_add
 
 if user_new_highlights then
   local hexify_ColorStrs = require("base46").turn_str_to_color

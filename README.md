@@ -150,6 +150,10 @@ M = require("base46").override_theme(M, "abc")
 return M
 ```
 
+## Credits
+
+- [@LeonHeidelbach](https://github.com/LeonHeidelbach) for making [color functions!](https://github.com/LeonHeidelbach/lua_color_tools) which we use in base46.
+
 ## Contribute
 
 - Send PR in the https://github.com/NvChad/base46/tree/v2.5/lua/base46/themes
