@@ -244,6 +244,9 @@ local defaults = {
   LazyReasonSource = { fg = colors.cyan },
   LazyReasonImport = { fg = colors.white },
   LazyProgressDone = { fg = colors.green },
+
+  WinBar = { bg = "NONE" },
+  WinBarNC = { bg = "NONE" },
 }
 
 -- merge statusline & hl_add tables!

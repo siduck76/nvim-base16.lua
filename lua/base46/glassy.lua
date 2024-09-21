@@ -29,8 +29,6 @@ local hl_groups = {
   "Pmenu",
   "CmpPmenu",
   "CmpDoc",
-  "WinBar",
-  "WinBarNC",
 }
 
 for _, groups in ipairs(hl_groups) do
