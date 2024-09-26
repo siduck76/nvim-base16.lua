@@ -27,7 +27,7 @@ There are 2 main tables used for `base46`
 - `base_30` is used for general UI 
 - `base_16` is used for syntax highlighting 
 - Use a color lightening/darkening tool, such as this
-  https://imagecolorpicker.com/color-code
+  https://imagecolorpicker.com/color-code/ffffff
 
 **Note: the below values are mostly approx values so its not compulsory that you
 have to use those exact numbers, test your theme i.e show it in the PR to get
