@@ -1,6 +1,5 @@
 local M = {}
 local g = vim.g
-local uiconfig = require("nvconfig").ui
 local opts = require("nvconfig").base46
 local cache_path = vim.g.base46_cache
 
@@ -28,7 +27,7 @@ for _, value in ipairs(opts.integrations) do
 end
 
 M.get_theme_tb = function(type)
-  local name = uiconfig.theme or opts.theme
+  local name = opts.theme
   local present1, default_theme = pcall(require, "base46.themes." .. name)
   local present2, user_theme = pcall(require, "themes." .. name)
 
@@ -83,7 +82,7 @@ M.extend_default_hl = function(highlights, integration_name)
   end
 
   -- transparency
-  if uiconfig.transparency or opts.transparency then
+  if opts.transparency then
     local glassy = require "base46.glassy"
 
     for key, value in pairs(glassy) do
@@ -93,7 +92,7 @@ M.extend_default_hl = function(highlights, integration_name)
     end
   end
 
-  local hl_override = uiconfig.hl_override or opts.hl_override
+  local hl_override = opts.hl_override
   local overriden_hl = M.turn_str_to_color(hl_override)
 
   for key, value in pairs(overriden_hl) do
@@ -180,13 +179,13 @@ M.load_all_highlights = function()
 end
 
 M.override_theme = function(default_theme, theme_name)
-  local changed_themes = uiconfig.changed_themes or opts.changed_themes
+  local changed_themes = opts.changed_themes
   return M.merge_tb(default_theme, changed_themes.all or {}, changed_themes[theme_name] or {})
 end
 
 --------------------------- user functions ----------------------------------------------------------
 M.toggle_theme = function()
-  local themes = uiconfig.theme_toggle or opts.theme_toggle
+  local themes = opts.theme_toggle
 
   if opts.theme ~= themes[1] and opts.theme ~= themes[2] then
     vim.notify "Set your current theme to one of those mentioned in the theme_toggle table (chadrc)"
@@ -196,14 +195,10 @@ M.toggle_theme = function()
   g.icon_toggled = not g.icon_toggled
   g.toggle_theme_icon = g.icon_toggled and "   " or "   "
 
-  if uiconfig.theme ~= nil then
-    uiconfig.theme = (themes[1] == uiconfig.theme and themes[2]) or themes[1]
-  else
-    opts.theme = (themes[1] == opts.theme and themes[2]) or themes[1]
-  end
+  opts.theme = (themes[1] == opts.theme and themes[2]) or themes[1]
 
   local chadrc = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua")
-  local old_theme = (chadrc.ui and chadrc.ui.theme) or chadrc.base46.theme
+  local old_theme = chadrc.base46.theme
 
   require("nvchad.utils").replace_word('theme = "' .. old_theme, 'theme = "' .. opts.theme)
   M.load_all_highlights()
