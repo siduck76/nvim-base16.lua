@@ -5,8 +5,8 @@ local mixcolors = require("base46.colors").mix
 local highlights = {
   CmpItemAbbr = { fg = colors.white },
   CmpItemAbbrMatch = { fg = colors.blue, bold = true },
-  CmpDoc = { bg = colors.darker_black },
-  CmpDocBorder = { fg = colors.darker_black, bg = colors.darker_black },
+  CmpDoc = { bg = colors.black },
+  CmpDocBorder = { fg = colors.grey_fg },
   CmpPmenu = { bg = colors.black },
   CmpSel = { link = "PmenuSel", bold = true },
 }
@@ -81,6 +81,7 @@ local styles = {
       bg = colors.black2,
     },
 
+    CmpDoc = { bg = colors.darker_black },
     CmpBorder = { fg = colors.black2, bg = colors.black2 },
     CmpDocBorder = { fg = colors.darker_black, bg = colors.darker_black },
   },
