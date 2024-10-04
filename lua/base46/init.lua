@@ -197,7 +197,8 @@ M.toggle_theme = function()
 
   opts.theme = (themes[1] == opts.theme and themes[2]) or themes[1]
 
-  local chadrc = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua")
+  package.loaded.chadrc = nil
+  local chadrc = require "chadrc"
   local old_theme = chadrc.base46.theme
 
   require("nvchad.utils").replace_word('theme = "' .. old_theme, 'theme = "' .. opts.theme)
@@ -208,7 +209,8 @@ M.toggle_transparency = function()
   opts.transparency = not opts.transparency
   M.load_all_highlights()
 
-  local old = dofile(vim.fn.stdpath "config" .. "/lua/chadrc.lua").transparency
+  package.loaded.chadrc = nil
+  local old = require("chadrc").transparency
   local new = "transparency = " .. tostring(opts.transparency)
   require("nvchad.utils").replace_word("transparency = " .. tostring(old), new)
 end
