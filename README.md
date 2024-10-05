@@ -4,6 +4,12 @@
 - It should be used along with [NvChad](https://github.com/NvChad/NvChad) for best experience.
 - Non NvChad users can have the nvconfig module on the path
 
+## Setup
+This is supposed to be use with NvChad's UI plugin.
+
+Check its [install doc](https://github.com/NvChad/ui?tab=readme-ov-file#install)
+and then read `:h nvui.base46`
+
 ## Supported Integrations
 
 - Bufferline.nvim
