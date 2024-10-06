@@ -74,6 +74,19 @@ M.polish_hl = {
     ["@markup.heading.4"] = { fg = M.base_30.orange },
     ["@markup.heading.5"] = { fg = M.base_30.cyan },
     ["@markup.heading.6"] = { fg = M.base_30.purple },
+    ["@variable"] = { link = "Variable" },
+    ["@keyword.repeat"] = { link = 'Keyword' },
+    ["@keyword.directive"] = { link = 'Keyword' },
+    ["@keyword.directive.define"] = { link = 'Keyword' },
+  },
+  syntax = {
+    Constant = { fg = M.base_30.orange },
+    Variable = { fg = M.base_30.red },
+  },
+  semantic_tokens = {
+    ["@lsp.type.variable"] = { link = "Variable" },
+    ["@lsp.mod.readonly"] = { link = "Constant" },
+    ["@lsp.typemod.variable.globalScope"] = { link = "Constant" },
   },
 }
 
