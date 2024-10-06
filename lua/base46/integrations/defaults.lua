@@ -66,10 +66,7 @@ local defaults = {
     fg = theme.base08,
   },
 
-  FoldColumn = {
-    fg = theme.base0C,
-    bg = theme.base01,
-  },
+  FoldColumn = { bg = "none" },
 
   Folded = {
     fg = colors.light_grey,
