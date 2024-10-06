@@ -86,7 +86,10 @@ M.polish_hl = {
   semantic_tokens = {
     ["@lsp.type.variable"] = { link = "Variable" },
     ["@lsp.mod.readonly"] = { link = "Constant" },
+    ["@lsp.mod.global"] = { link = "Constant" },
     ["@lsp.typemod.variable.globalScope"] = { link = "Constant" },
+    ["@lsp.typemod.variable.global"] = { link = "Constant" },
+    ["@lsp.typemod.variable.defaultLibrary"] = { link = "Constant" },
   },
 }
 
