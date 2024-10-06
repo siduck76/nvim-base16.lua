@@ -1,11 +1,26 @@
 local colors = require("base46").get_theme_tb "base_30"
 local colorize = require("base46.colors").change_hex_lightness
 
+local nvconfig = require "nvconfig"
+local subtle_hover = nvconfig.ui.subtle_hover or nvconfig.base46.subtle_hover
+
+local lspReferenceText, lspReferenceRead, lspReferenceWrite
+
+if subtle_hover then
+  lspReferenceText = { bg = colors.grey }
+  lspReferenceRead = { bg = colors.grey }
+  lspReferenceWrite = { bg = colors.grey }
+else
+  lspReferenceText = { fg = colors.darker_black, bg = colors.white }
+  lspReferenceRead = { fg = colors.darker_black, bg = colors.white }
+  lspReferenceWrite = { fg = colors.darker_black, bg = colors.white }
+end
+
 return {
   -- LSP References
-  LspReferenceText = { fg = colors.darker_black, bg = colors.white },
-  LspReferenceRead = { fg = colors.darker_black, bg = colors.white },
-  LspReferenceWrite = { fg = colors.darker_black, bg = colors.white },
+  LspReferenceText = lspReferenceText,
+  LspReferenceRead = lspReferenceRead,
+  LspReferenceWrite = lspReferenceWrite,
 
   -- Lsp Diagnostics
   DiagnosticHint = { fg = colors.purple },
