@@ -5,68 +5,19 @@ local generate_color = require("base46.colors").change_hex_lightness
 local light_grey = generate_color(colors.light_grey, 8)
 
 local M = {
-  StatusLine = {
-    bg = "none",
-  },
-
-  St_gitIcons = {
-    fg = light_grey,
-    bg = "none",
-    bold = true,
-  },
-
-  -- LSP
-  St_lspError = {
-    fg = colors.red,
-    bg = "none",
-  },
-
-  St_lspWarning = {
-    fg = colors.yellow,
-    bg = "none",
-  },
-
-  St_LspHints = {
-    fg = colors.purple,
-    bg = "none",
-  },
-
-  St_LspInfo = {
-    fg = colors.green,
-    bg = "none",
-  },
-
-  St_LspMsg = {
-    fg = colors.green,
-  },
-
-  St_Lsp = {
-    fg = colors.green,
-  },
-
-  St_EmptySpace = {
-    fg = colors.black,
-    bg = "none",
-  },
-
-  St_EmptySpace2 = {
-    fg = colors.black,
-  },
-
-  St_file = {
-    fg = colors.white,
-    bg = "none",
-  },
-
-  St_file_sep = {
-    fg = colors.black,
-    bg = "none",
-  },
-
-  St_sep_r = {
-    fg = colors.one_bg,
-    bg = "none",
-  },
+  StatusLine = { bg = "none" },
+  St_gitIcons = { fg = light_grey, bg = "none", bold = true },
+  St_lspError = { fg = colors.red, bg = "none" },
+  St_lspWarning = { fg = colors.yellow, bg = "none" },
+  St_LspHints = { fg = colors.purple, bg = "none" },
+  St_LspInfo = { fg = colors.green, bg = "none" },
+  St_LspMsg = { fg = colors.green },
+  St_Lsp = { fg = colors.green },
+  St_EmptySpace = { fg = colors.black, bg = "none" },
+  St_EmptySpace2 = { fg = colors.black },
+  St_file = { fg = colors.white, bg = "none" },
+  St_file_sep = { fg = colors.black, bg = "none" },
+  St_sep_r = { fg = colors.one_bg, bg = "none" },
 }
 
 local function genModes_hl(modename, col)
@@ -86,20 +37,9 @@ genModes_hl("Command", "green")
 genModes_hl("Select", "blue")
 
 local function gen_hl(name, col)
-  M["St_" .. name .. "_bg"] = {
-    fg = colors.black,
-    bg = colors[col],
-  }
-
-  M["St_" .. name .. "_txt"] = {
-    fg = colors[col],
-    bg = colors.one_bg,
-  }
-
-  M["St_" .. name .. "_sep"] = {
-    fg = colors[col],
-    bg = colors.black,
-  }
+  M["St_" .. name .. "_bg"] = { fg = colors.black, bg = colors[col] }
+  M["St_" .. name .. "_txt"] = { fg = colors[col], bg = colors.one_bg }
+  M["St_" .. name .. "_sep"] = { fg = colors[col], bg = colors.black }
 end
 
 gen_hl("file", "red")

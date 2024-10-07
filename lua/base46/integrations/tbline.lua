@@ -85,7 +85,7 @@ local hlgroups_glassy = {
   "TbBufOffModified",
 }
 
-if config.ui.transparency or config.base46.transparency then
+if config.base46.transparency then
   for _, val in ipairs(hlgroups_glassy) do
     highlights[val].bg = "NONE"
   end
