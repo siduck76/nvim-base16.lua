@@ -10,7 +10,6 @@ local integrations = {
   "devicons",
   "git",
   "lsp",
-  "markview",
   "mason",
   "nvcheatsheet",
   "nvdash",
