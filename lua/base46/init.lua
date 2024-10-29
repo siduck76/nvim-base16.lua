@@ -12,7 +12,6 @@ local integrations = {
   "lsp",
   "mason",
   "nvcheatsheet",
-  "nvdash",
   "nvimtree",
   "statusline",
   "syntax",

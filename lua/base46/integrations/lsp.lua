@@ -14,9 +14,6 @@ return {
   DiagnosticInfo = { fg = colors.green },
   LspSignatureActiveParameter = { fg = colors.black, bg = colors.green },
 
-  RenamerTitle = { fg = colors.black, bg = colors.red },
-  RenamerBorder = { fg = colors.red },
-
   LspInlayHint = {
     bg = colorize(colors.black2, vim.o.bg == "dark" and 0 or 3),
     fg = colors.light_grey,
