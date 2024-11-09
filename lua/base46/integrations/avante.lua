@@ -8,7 +8,7 @@ return {
   AvanteThirdTitle = {bg = colors.white, fg=colors.black2},
   AvanteReversedThirdTitle = {fg = colors.white},
 
-  -- should be set automatically by other color groups (i think)
+  -- should be set automatically by other color groups
 
   -- AvanteConflictCurrent = {fg = '', bg = ''},
   -- AvanteConflictCurrentLabel = {fg = '', bg = ''},
