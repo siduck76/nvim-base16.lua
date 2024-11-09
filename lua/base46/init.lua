@@ -163,18 +163,16 @@ M.load_all_highlights = function()
   require("plenary.reload").reload_module "base46"
   M.compile()
 
-  if not opts.compile_all then
-    for _, name in ipairs(integrations) do
-      dofile(vim.g.base46_cache .. name)
-    end
-  else
-    dofile(vim.g.base46_cache .. "all")
+  for _, name in ipairs(integrations) do
+    dofile(vim.g.base46_cache .. name)
   end
 
   -- update blankline
   pcall(function()
     require("ibl").update()
   end)
+
+  vim.api.nvim_exec_autocmds("User", { pattern = "NvThemeReload" })
 end
 
 M.override_theme = function(default_theme, theme_name)
