@@ -13,6 +13,7 @@ local integrations = {
   "mason",
   "nvcheatsheet",
   "nvimtree",
+  "orgmode",
   "statusline",
   "syntax",
   "treesitter",
