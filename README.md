@@ -32,6 +32,8 @@ and then read `:h nvui.base46`
 - Lsp Semantic tokens
 - Trouble.nvim 
 - Whichkey.nvim
+- git-conflict.nvim
+- Orgmode
 
 ## Configuration
 
