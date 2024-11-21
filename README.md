@@ -34,6 +34,7 @@ and then read `:h nvui.base46`
 - Whichkey.nvim
 - git-conflict.nvim
 - Orgmode
+- diffview.nvim
 
 ## Configuration
 
