@@ -35,6 +35,7 @@ and then read `:h nvui.base46`
 - git-conflict.nvim
 - Orgmode
 - diffview.nvim
+- leap.nvim
 
 ## Configuration
 
