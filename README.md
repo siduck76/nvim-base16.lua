@@ -37,6 +37,7 @@ and then read `:h nvui.base46`
 - diffview.nvim
 - leap.nvim
 - Edgy.nvim
+- Grug-far.nvim
 
 ## Configuration
 
