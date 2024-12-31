@@ -30,16 +30,18 @@ and then read `:h nvui.base46`
 - Todo.nvim
 - Nvim-treesitter
 - Lsp Semantic tokens
-- Trouble.nvim 
+- Trouble.nvim
 - Whichkey.nvim
 - git-conflict.nvim
 - Orgmode
 - diffview.nvim
 - leap.nvim
+- Edgy.nvim
+- Grug-far.nvim
 
 ## Configuration
 
-- Base46 is configured by [nvconfig](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path. 
+- Base46 is configured by [nvconfig](https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua) in your path.
 - Read the [themeing docs](https://nvchad.com/docs/config/theming)
 
 ## Highlight command
@@ -63,8 +65,8 @@ vim.api.nvim_set_hl(0, "Comment", {
 
 There are 2 main tables used for `base46`
 
-- `base_30` is used for general UI 
-- `base_16` is used for syntax highlighting 
+- `base_30` is used for general UI
+- `base_16` is used for syntax highlighting
 - Use a color lightening/darkening tool, such as this
   https://imagecolorpicker.com/color-code
 
@@ -135,8 +137,8 @@ M.base_16 = {
 }
 
 -- OPTIONAL
--- overriding or adding highlights for this specific theme only 
--- defaults/treesitter is the filename i.e integration there, 
+-- overriding or adding highlights for this specific theme only
+-- defaults/treesitter is the filename i.e integration there,
 
 M.polish_hl = {
   defaults = {

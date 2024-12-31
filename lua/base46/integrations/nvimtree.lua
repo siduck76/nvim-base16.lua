@@ -16,6 +16,14 @@ return {
   NvimTreeNormalNC = { bg = colors.darker_black },
   NvimTreeOpenedFolderName = { fg = colors.folder_bg },
   NvimTreeGitIgnored = { fg = colors.light_grey },
+  NvimTreeDiagnosticErrorFileHL = { link = "DiagnosticError" },
+  NvimTreeDiagnosticErrorFolderHL = { link = "DiagnosticError" },
+  NvimTreeDiagnosticInfoFileHL =  { link = "DiagnosticNormal" },
+  NvimTreeDiagnosticInfoFolderHL =  { link = "DiagnosticNormal" },
+  NvimTreeDiagnosticWarnFileHL = { link = "DiagnosticWarn" },
+  NvimTreeDiagnosticWarnFolderHL = { link = "DiagnosticWarn" },
+  NvimTreeDiagnosticHintFileHL = { link = "DiagnosticHint" },
+  NvimTreeDiagnosticHintFolderHL = { link = "DiagnosticHint" },
 
   NvimTreeWinSeparator = {
     fg = colors.darker_black,
