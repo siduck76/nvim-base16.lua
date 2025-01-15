@@ -1,17 +1,17 @@
 local M = {}
 
 M.base_30 = {
-  white = "#eeffff", -- confirmed
-  darker_black = "#0e1018",
+  white = "#eeffff",
+  darker_black = "#0a0b14",
   black = "#0F111A", --  nvim bg
   black2 = "#191d2c",
-  one_bg = "#202438",
-  one_bg2 = "#292e48",
-  one_bg3 = "#323857",
-  grey = "#717CB4",
-  grey_fg = "#7f89bb",
-  grey_fg2 = "#7883b8",
-  light_grey = "#c6cbe1",
+  one_bg = "#23293e",
+  one_bg2 = "#2d3550",
+  one_bg3 = "#374162",
+  grey = "#3c476b",
+  grey_fg = "#46537d",
+  grey_fg2 = "#505f8f",
+  light_grey = "#5a6ba1",
   red = "#f07178",
   baby_pink = "#f6aaae",
   pink = "#f6aaae",
@@ -27,22 +27,21 @@ M.base_30 = {
   teal = "#80cbc4",
   orange = "#f78c6c",
   cyan = "#89ddff",
-  statusline_bg = "#2c364e",
-  lightbg = "#1A1C25",
+  statusline_bg = "#181c2b",
+  lightbg = "#22283d",
   pmenu_bg = "#84ffff",
   folder_bg = "#6e98eb",
 }
 
--- Base16 colors taken from:
 M.base_16 = {
   base00 = "#0f111a",
-  base01 = "#313855",
-  base02 = "#717CB4",
-  base03 = "#717CB4",
-  base04 = "#616575",
+  base01 = "#23293e",
+  base02 = "#2d3550",
+  base03 = "#374162",
+  base04 = "#3c476b",
   base05 = "#eeffff",
   base06 = "#a5a9b5",
-  base07 = "#313855",
+  base07 = "#b5b8c1",
   base08 = "#f07178",
   base09 = "#f78c6c",
   base0A = "#ffcb6b",
@@ -54,31 +53,30 @@ M.base_16 = {
 }
 
 M.polish_hl = {
-	treesitter = {
-		-- Section to have correct red in neovim terminal
-		["@variable"] = { fg = M.base_30.white},
-		["@module"] = { fg = M.base_30.white},
-		["@variable.member"] = { fg = M.base_30.white},
+  treesitter = {
+    ["@variable"] = { fg = M.base_30.white },
+    ["@module"] = { fg = M.base_30.white },
+    ["@variable.member"] = { fg = M.base_30.white },
 
-    	["@type.builtin"] = { fg = M.base_30.purple },
-    	["@variable.parameter"] = { fg = M.base_30.orange },
-    	["@operator"] = { fg = M.base_30.cyan },
-    	["@punctuation.delimiter"] = { fg = M.base_30.cyan },
-    	["@punctuation.bracket"] = { fg = M.base_30.cyan },
-    	["@punctuation.special"] = { fg = M.base_30.teal },
-    	["@function.macro"] = { fg = M.base_30.pink },
-    	["@keyword.storage"] = { fg = M.base_30.purple },
-	},
+    ["@type.builtin"] = { fg = M.base_30.purple },
+    ["@variable.parameter"] = { fg = M.base_30.orange },
+    ["@operator"] = { fg = M.base_30.cyan },
+    ["@punctuation.delimiter"] = { fg = M.base_30.cyan },
+    ["@punctuation.bracket"] = { fg = M.base_30.cyan },
+    ["@punctuation.special"] = { fg = M.base_30.teal },
+    ["@function.macro"] = { fg = M.base_30.pink },
+    ["@keyword.storage"] = { fg = M.base_30.purple },
+  },
 
-  	syntax = {
-    	StorageClass = { fg = M.base_30.purple },
-    	Repeat = { fg = M.base_30.purple },
-    	Define = { fg = M.base_30.blue },
-  	},
+  syntax = {
+    StorageClass = { fg = M.base_30.purple },
+    Repeat = { fg = M.base_30.purple },
+    Define = { fg = M.base_30.blue },
+  },
 
-  	telescope = {
-    	TelescopeSelection = { bg = M.base_30.one_bg },
-  	},
+  telescope = {
+    TelescopeSelection = { bg = M.base_30.one_bg, fg = M.base_30.blue },
+  },
 }
 
 M.type = "dark"
