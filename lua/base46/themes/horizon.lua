@@ -4,19 +4,19 @@ local M = {}
 M.base_30 = {
   white = "#D5D8DA",
   black = "#1D1F27",
-  darker_black = "#1b1d24",
+  darker_black = "#16181e",
   black2 = "#282b36",
   one_bg = "#2f3340",
   one_bg2 = "#393d4d",
   one_bg3 = "#43485b",
-  grey = "#686f8c",
-  grey_fg = "#757c98",
-  grey_fg2 = "#6e7593",
-  light_grey = "#c8ccd4",
+  grey = "#4f546b",
+  grey_fg = "#5b607b",
+  grey_fg2 = "#676c8b",
+  light_grey = "#757b99",
   red = "#E95678",
   baby_pink = "#ff007c",
   pink = "#F43E5C",
-  line = "#4B4C53",
+  line = "#3b3c41",
   green = "#27D796",
   vibrant_green = "#21BFC2",
   nord_blue = "#75BEFF",
@@ -28,8 +28,8 @@ M.base_30 = {
   teal = "#21BFC2",
   orange = "#F09383",
   cyan = "#25B2BC",
-  statusline_bg = "#1D1F27",
-  lightbg = "#282b36",
+  statusline_bg = "#21242d",
+  lightbg = "#2d323d",
   pmenu_bg = "#FAB795",
   folder_bg = "#E95678",
 }
@@ -44,13 +44,14 @@ M.base_16 = {
   base06 = "#c8ccd4",
   base07 = "#6C6F93",
   base08 = "#E95678",
-  base09 = "#F09383",
-  base0A = "#FAC29A",
-  base0B = "#FAB795",
-  base0C = "#B877DB",
-  base0D = "#25B2BC",
+  base09 = "#FAB795", -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
+  base0A = "#FABD2F", -- Classes, Markup Bold, Search Text Background
+  base0B = "#21BFC2", -- Strings, Inherited Class, Markup Code, Diff Inserted
+  base0C = "#B877DB", -- Support, Regular Expressions, Escape Characters, Markup Quotes
+  base0D = "#59C2FF", -- Functions, Methods, Attribute IDs, Headings
   base0E = "#B877DB",
-  base0F = "#B877DB",
+  base0F = "#F09383",
+  -- base08 = "#8A8C8E", -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 }
 
 M.polish_hl = {
@@ -74,15 +75,14 @@ M.polish_hl = {
     ["@markup.heading.4"] = { fg = M.base_30.orange },
     ["@markup.heading.5"] = { fg = M.base_30.cyan },
     ["@markup.heading.6"] = { fg = M.base_30.purple },
-    ["@variable"] = { link = "Variable" },
-    ['@constant'] = { link = 'Constant' },
-    ["@keyword.repeat"] = { link = 'Keyword' },
-    ["@keyword.directive"] = { link = 'Keyword' },
-    ["@keyword.directive.define"] = { link = 'Keyword' },
+    ["@constant"] = { link = "Constant" },
+    ["@keyword.repeat"] = { link = "Keyword" },
+    ["@keyword.directive"] = { link = "Keyword" },
+    ["@keyword.directive.define"] = { link = "Keyword" },
+    ["@punctuation.bracket"] = { fg = M.base_30.yellow },
   },
   syntax = {
     Constant = { fg = M.base_30.orange },
-    Variable = { fg = M.base_30.red },
   },
   semantic_tokens = {
     ["@lsp.type.variable"] = { link = "Variable" },
