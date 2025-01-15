@@ -1,12 +1,11 @@
--- Solarized Light theme for base46
 local M = {}
 
 M.base_30 = {
-  white = "#fdf6e3",
-  darker_black = "#fdf6e3", -- Same as white to keep contrast minimal
+  white = "#002b36",
+  darker_black = "#ede7d3", -- Same as white to keep contrast minimal
   black = "#fdf6e3", -- base
-  black2 = "#eee8d5",
-  one_bg = "#eae3cb", -- same as Solarized light base 2
+  black2 = "#ede7d3",
+  one_bg = "#e8dfc9", -- same as Solarized light base 2
   one_bg2 = "#e4ddc4",
   one_bg3 = "#ddd6be",
   grey = "#c4b8aa",
@@ -28,8 +27,8 @@ M.base_30 = {
   teal = "#2aa198",
   orange = "#cb4b16",
   cyan = "#2aa198",
-  statusline_bg = "#fdf6e3",
-  lightbg = "#eae3cb",
+  statusline_bg = "#f1ecdd",
+  lightbg = "#e7dec7",
   pmenu_bg = "#859900",
   folder_bg = "#268bd2",
 }
@@ -51,6 +50,15 @@ M.base_16 = {
   base0D = "#268bd2", -- functions, methods, attribute IDs, headings
   base0E = "#6c71c4", -- keywords, storage, selector, markup italic, diff changed
   base0F = "#d33682", -- deprecated, opening/closing embedded language tags, e.g. <?php ?>
+}
+
+M.polish_hl = {
+  telescope = {
+    TelescopeSelection = { bg = M.base_30.one_bg2 },
+    TelescopePromptBorder = { bg = M.base_30.one_bg2, fg = M.base_30.one_bg2 },
+    TelescopePromptNormal = { bg = M.base_30.one_bg2 },
+    TelescopePromptPrefix = { bg = M.base_30.one_bg2 },
+  }
 }
 
 M.type = "light"
