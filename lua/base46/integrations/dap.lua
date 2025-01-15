@@ -4,6 +4,7 @@ return {
   -- Dap
   DapBreakpoint = { fg = colors.red },
   DapBreakpointCondition = { fg = colors.yellow },
+  DapBreakPointRejected = { fg = colors.orange },
   DapLogPoint = { fg = colors.cyan },
   DapStopped = { fg = colors.baby_pink },
 
