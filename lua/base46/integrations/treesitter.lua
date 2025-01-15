@@ -12,7 +12,7 @@ return {
   ["@module"] = { fg = theme.base08 },
   -- ["@module.builtin"] = { fg = theme.base08 },
 
-  ["@constant"] = { fg = theme.base08 },
+  ["@constant"] = { fg = theme.base09 },
   ["@constant.builtin"] = { fg = theme.base09 },
   ["@constant.macro"] = { fg = theme.base08 },
 
