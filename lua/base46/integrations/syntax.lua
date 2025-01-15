@@ -14,7 +14,7 @@ local syntax = {
   },
 
   Constant = {
-    fg = theme.base08,
+    fg = theme.base09,
   },
 
   Define = {

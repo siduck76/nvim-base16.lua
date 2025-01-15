@@ -20,7 +20,7 @@ return {
   },
 
   ["@constant"] = {
-    fg = theme.base08,
+    fg = theme.base09,
   },
 
   ["@constant.builtin"] = {
