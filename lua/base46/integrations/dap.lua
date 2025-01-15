@@ -46,7 +46,4 @@ return {
   DapUIRestartNC = { fg = colors.green },
   DapUIUnavailable = { fg = colors.grey_fg },
   DapUIUnavailableNC = { fg = colors.grey_fg },
-  
-  WinBar = { bg = colors.black1 },
-  WinBarNC = { bg = colors.black1 },
 }
