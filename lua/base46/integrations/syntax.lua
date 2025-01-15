@@ -4,7 +4,7 @@ local syntax = {
   Boolean = { fg = theme.base09 },
   Character = { fg = theme.base08 },
   Conditional = { fg = theme.base0E },
-  Constant = { fg = theme.base08 },
+  Constant = { fg = theme.base09 },
   Define = { fg = theme.base0E, sp = "none" },
   Delimiter = { fg = theme.base0F },
   Float = { fg = theme.base09 },
