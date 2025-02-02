@@ -207,7 +207,7 @@ M.toggle_transparency = function()
   M.load_all_highlights()
 
   package.loaded.chadrc = nil
-  local old = require("chadrc").transparency
+  local old = require("chadrc").base46.transparency
   local new = "transparency = " .. tostring(opts.transparency)
   require("nvchad.utils").replace_word("transparency = " .. tostring(old), new)
 end
