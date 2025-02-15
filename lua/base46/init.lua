@@ -117,9 +117,24 @@ M.tb_2str = function(tb)
     local hlopts = ""
 
     for optName, optVal in pairs(v) do
-      local valueInStr = ((type(optVal)) == "boolean" or type(optVal) == "number") and tostring(optVal)
-        or '"' .. optVal .. '"'
-      hlopts = hlopts .. optName .. "=" .. valueInStr .. ","
+      local valtype = type(optVal)
+
+      if valtype == "boolean" or valtype == "number" or valtype == "string" then
+        local valueInStr = tostring(optVal)
+        if valtype == "string" then
+          valueInStr = '"' .. valueInStr .. '"'
+        end
+        hlopts = hlopts .. optName .. "=" .. valueInStr .. ","
+      elseif valtype == "table" then
+        -- For handling table values (e.g., "link") properly
+        local valueInStr = "{"
+        for k,v in pairs(optVal) do
+          local vstr = type(v) == "string" and '"' .. v .. '"' or tostring(v)
+          valueInStr = valueInStr .. tostring(k) .. "=" .. vstr .. ","
+        end
+        valueInStr = valueInStr .. "}"
+        hlopts = hlopts .. optName .. "=" .. valueInStr .. ","
+      end
     end
 
     result = result .. "vim.api.nvim_set_hl(0," .. hlname .. "{" .. hlopts .. "})"
