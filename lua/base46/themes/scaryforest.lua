@@ -34,7 +34,6 @@ M.base_30 = {
   folder_bg = "#77beb4",
 }
 
-
 M.base_16 = {
   base00 = "#121f1d",
   base01 = "#1d2b28",
@@ -51,7 +50,7 @@ M.base_16 = {
   base0C = "#7ebdae",
   base0D = "#77beb4",
   base0E = "#8c9f87",
-  base0F = "#7a8d76", -- Deprecated
+  base0F = "#7a8d76",
 }
 
 M.type = "dark"
